@@ -18,6 +18,13 @@ Route::get('/meranie_spotreby', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return view('test');
+});
+
+
+
+
 
 Route::get('/kontakt', function () {
     return view('pages.contact');
