@@ -1,4 +1,4 @@
-<div class="mx-0 flex mb-3 relative px-12 py-3 flex justify-between items-center bg-white border-b-2">
+<div class="mx-0 flex mb-3 relative px-12 py-3 flex justify-between items-center bg-[#d60000] border-b-2">
     <a class="text-3xl font-bold leading-none" href="#">
         <img class="h-10" alt="logo" viewBox="0 0 10240 10240" src="{{ asset('storage/lacomp.png') }}">
 {{--        <svg class="h-10" alt="logo" viewBox="0 0 10240 10240">--}}
