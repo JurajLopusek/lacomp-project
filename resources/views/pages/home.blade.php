@@ -1,7 +1,7 @@
 <x-layouts.base>
     <div class="grid grid-cols-1 grid-rows-1">
         <div
-            class="flex w-1/2 m-3 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md justify-self-center">
+            class="flex w-1/2 m-3 flex-col rounded bg-white bg-clip-border text-gray-700 shadow-md justify-self-center">
             <x-card.text>
             <p class="font-bold text-5xl mb-4">FOTOVOLTIKA SO ŠTÁTNOU DOTÁCIOU</p>
             <p>Naša spoločnosť je registrovaným zhotoviteľom projektu Zelená domácnostiam:

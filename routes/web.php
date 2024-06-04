@@ -7,7 +7,7 @@ Route::get('/', function () {
 });
 
 Route::get('/alarmy', function () {
-    return view('welcome');
+    return view('pages.alarm');
 });
 
 Route::get('/kamery', function () {
