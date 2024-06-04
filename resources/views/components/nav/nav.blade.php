@@ -4,7 +4,7 @@
     </a>
 
     <div class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-        <x-nav.nav-link href="/domov" :active="request()->is('/')">Domov</x-nav.nav-link>
+        <x-nav.nav-link href="/" :active="request()->is('/domov')">Domov</x-nav.nav-link>
         <x-nav.nav-link href="/alarmy" :active="request()->is('alarmy')">Alarmy</x-nav.nav-link>
         <x-nav.nav-link href="/kamery" :active="request()->is('kamery')">Kamery</x-nav.nav-link>
         <x-nav.nav-link href="http://ienergia.sk/" :active="request()->is('meranie_spotreby')">Meranie spotreby</x-nav.nav-link>
