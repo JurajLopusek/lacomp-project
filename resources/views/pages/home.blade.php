@@ -1,8 +1,3 @@
-<script type="module">
-    import config from '../../../tailwind.config.js';
-    console.log(config);
-</script>
-
 <x-layouts.base>
     <div class="grid grid-cols-1 grid-rows-1">
         <div
@@ -16,7 +11,7 @@
     </div>
 
     <div class="grid grid-cols-2 grid-rows-2 mx-6 mt-6">
-        <x-card.card class="justify-self-end cursor-pointer bg-red-hover p-4 shadow-custom hover:bg-red-200" onclick="window.location.href='/alarmy'">
+        <x-card.card class="justify-self-end cursor-pointer p-4 shadow-custom" onclick="window.location.href='/alarmy'">
             <x-card.icon>
                 <path stroke-linecap="round" stroke-linejoin="round"
                       d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5"/>
@@ -35,9 +30,7 @@
             </x-card.text>
         </x-card.card>
 
-
-
-        <x-card.card class="cursor-pointer bg-red-hover p-4 shadow-custom hover:bg-red-200" onclick="window.location.href='/kamery'">
+        <x-card.card class="cursor-pointer p-4" onclick="window.location.href='/kamery'">
             <x-card.icon>
                 <path stroke-linecap="round" stroke-linejoin="round"
                       d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/>

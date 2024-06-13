@@ -19,7 +19,7 @@
                 <div class="font-bold text-xl mb-4">PARADOX</div>
                 <p class="text-gray-700 text-base">
                     Zabezpečovací systém Paradox Kanadského výrobcu patrí medzi najspoľahlivejšie a najoverenejšie bezpečnostné systémy.  Za 15 rokov práce s týmto systémom sme nemali prakticky žiadne komplikácie.
-                </p>
+            </p>
             </div>
             <img class="w-80 mx-auto mb-8" src="{{ asset('storage/alarm.jpg') }}">
             <div class="flex w-full items-center justify-center mt-auto">
