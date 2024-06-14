@@ -10,12 +10,6 @@
         <x-nav.nav-link href="http://ienergia.sk/" :active="request()->is('meranie_spotreby')">Meranie spotreby</x-nav.nav-link>
         <x-nav.nav-link href="/kontakt" :active="request()->is('kontakt')">Kontakt</x-nav.nav-link>
     </div>
-    <div class="hidden absolute top-1/2 right-0 transform  -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-        <x-nav.nav-link href="https://www.instagram.com/"><svg viewBox="0 0 85 35" ><i class="fa fa-instagram" style="font-size:24px"></i></svg></x-nav.nav-link>
-        <x-nav.nav-link href="https://www.facebook.com/"><svg viewBox="0 0 85 35" ><i class="fa fa-facebook" style="font-size:24px"></i></svg></x-nav.nav-link>
-        <x-nav.nav-link href="https://www.twitter.com/"><svg viewBox="0 0 85 35" ><i class="fa fa-twitter" style="font-size:24px"></i></svg></x-nav.nav-link>
 
-
-    </div>
 </div>
 

@@ -25,12 +25,9 @@
             {{ $slot }}
         </div>
 
+        @include('components.includes.footer')
 
     </body>
 
 
 </html>
-<script type="module">
-    import config from '../../../../tailwind.config.js';
-    console.log(config);
-</script>

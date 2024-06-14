@@ -17,6 +17,8 @@ export default {
             colors: {
                 'lc-red': '#f56565',
                 'midnight': '#121063',
+                'footer': '#373737',
+
             },
         },
     },
