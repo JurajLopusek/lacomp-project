@@ -29,3 +29,7 @@ Route::get('/test', function () {
 Route::get('/kontakt', function () {
     return view('pages.contact');
 });
+
+use App\Livewire\Counter;
+
+Route::get('/counter', Counter::class);

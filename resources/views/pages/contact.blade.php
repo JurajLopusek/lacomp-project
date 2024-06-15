@@ -1,12 +1,16 @@
 <x-layouts.base>
-        <div class="h-full pr-6 flex items-center justify-center mt-12">
-            <ul class="mb-6 md:mb-0">
-                <div class="mr-6">
-                    <iframe class="" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d20944.69052578541!2d20.2406752!3d48.98991480000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e31c8cad44b19%3A0x7adc7ffd6997abf8!2sLA%2C%20spol.%20s%20r.o.!5e0!3m2!1ssk!2ssk!4v1717422423835!5m2!1ssk!2ssk" width="500" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </ul>
+    <div class="">
+        <div class="h-full flex items-center justify-center mt-12 h-10 mb-8 ">
+            <div class="flex-col mr-10 text-lg font-medium leading-6 text-black p-6 bg-gray-700 border-b-2 rounded ">
+                <div class="pb-5">
 
-            <ul class="mb-6 md:mb-0">
+                </div>
+
+                <div class="mr-6 ">
+                    @livewire('contact-form')
+                </div>
+            </div>
+            <ul class="md:mb-0">
                 <li class="flex">
                     <div class="flex h-10 w-10 items-center justify-center rounded bg-blue-900 text-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -62,5 +66,20 @@
                     </div>
                 </li>
             </ul>
+
         </div>
+        <div class="w-full flex mt-12">
+            <ul class="mb-6 md:mb-0 w-full">
+                <div class="mr-6" style="width: 100%;">
+                    <iframe class=""
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d20944.69052578541!2d20.2406752!3d48.98991480000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e31c8cad44b19%3A0x7adc7ffd6997abf8!2sLA%2C%20spol.%20s%20r.o.!5e0!3m2!1ssk!2ssk!4v1717422423835!5m2!1ssk!2ssk"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </ul>
+        </div>
+
+
+
+    </div>
 </x-layouts.base>
