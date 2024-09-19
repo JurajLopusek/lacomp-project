@@ -1,6 +1,6 @@
-<div class="mx-0 flex mb-3 relative px-12 py-3 flex justify-between items-center bg-[#d60000] border-b-2">
+<div class="mx-0 flex relative px-12 py-3 flex justify-between items-center bg-[#d60000] border-b-2">
     <a class="text-3xl font-bold leading-none" href="/" :active="request()->is('/domov')">
-        <img class="h-10" alt="logo" viewBox="0 0 10240 10240" src="{{ asset('storage/lacomp.png') }}">
+        <img class="h-10" alt="logo" viewBox="0 0 10240 10240" src="{{ asset('public/lacomp.png') }}">
     </a>
 
     <div class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
