@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnergyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,7 @@ Route::get('/kamery', function () {
 });
 
 Route::get('/meranie_spotreby', function () {
-    return view('welcome');
+    return view('pages.meranie_spotreby');
 });
 
 Route::get('/test', function () {
@@ -24,6 +25,7 @@ Route::get('/test', function () {
 
 
 
+Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
 
 
 Route::get('/kontakt', function () {
