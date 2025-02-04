@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e20a3a6c837f1a99f250e7e5ea38186",
+    "content-hash": "5ed400f33c13b6929a38ba1e9d755447",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4895,6 +4895,89 @@
             "time": "2025-01-22T08:51:18+00:00"
         },
         {
+            "name": "spatie/laravel-permission",
+            "version": "6.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "420ea2a49db480302813d444834baaf7c8674782"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/420ea2a49db480302813d444834baaf7c8674782",
+                "reference": "420ea2a49db480302813d444834baaf7c8674782",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^8.12|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/container": "^8.12|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/contracts": "^8.12|^9.0|^10.0|^11.0|^12.0",
+                "illuminate/database": "^8.12|^9.0|^10.0|^11.0|^12.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/passport": "^11.0|^12.0",
+                "laravel/pint": "^1.0",
+                "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^9.4|^10.1|^11.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-main": "6.x-dev",
+                    "dev-master": "6.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 8.0 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-permission/issues",
+                "source": "https://github.com/spatie/laravel-permission/tree/6.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-31T01:07:40+00:00"
+        },
+        {
             "name": "symfony/clock",
             "version": "v7.2.0",
             "source": {
@@ -7245,6 +7328,70 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
             },
             "time": "2024-12-21T16:25:41+00:00"
+        },
+        {
+            "name": "timokoerber/laravel-one-time-operations",
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TimoKoerber/laravel-one-time-operations.git",
+                "reference": "f0b3d4a8c1df4d10739a969550f9f7d936a27670"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TimoKoerber/laravel-one-time-operations/zipball/f0b3d4a8c1df4d10739a969550f9f7d936a27670",
+                "reference": "f0b3d4a8c1df4d10739a969550f9f7d936a27670",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0|^10.0|^11.0",
+                "illuminate/support": "^9.0|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "7|^9.0",
+                "phpunit/phpunit": "^9.4|^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TimoKoerber\\LaravelOneTimeOperations\\Providers\\OneTimeOperationsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TimoKoerber\\LaravelOneTimeOperations\\": "src/",
+                    "TimoKoerber\\LaravelOneTimeOperations\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "timo.koerber",
+                    "email": "koerber.timo@gmail.com",
+                    "homepage": "https://www.timokoerber.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Run operations once after deployment - just like you do it with migrations!",
+            "homepage": "https://github.com/timokoerber/laravel-one-time-operations",
+            "keywords": [
+                "deployment",
+                "jobs",
+                "laravel",
+                "migrations",
+                "operations"
+            ],
+            "support": {
+                "issues": "https://github.com/TimoKoerber/laravel-one-time-operations/issues",
+                "source": "https://github.com/TimoKoerber/laravel-one-time-operations/tree/1.4.4"
+            },
+            "time": "2024-11-23T13:29:36+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

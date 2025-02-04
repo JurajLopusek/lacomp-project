@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Constants\RolesConst;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -12,10 +13,12 @@ class FilamentUser extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $user = User::create([
             'name' => 'Filament User',
             'email' => 'admin@filament.com',
             'password' => 'Heslo147',
         ]);
+
+        $user->assignRole(RolesConst::ADMIN);
     }
 }
