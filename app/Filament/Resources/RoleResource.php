@@ -9,16 +9,13 @@ use App\Filament\Enums\FilamentPanelNavigationGroupEnum;
 use App\Filament\Resources\RoleResource\Pages;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Spatie\Permission\Models\Role;
 
-
 class RoleResource extends ResourceEnhanced
 {
     protected static ?string $model = Role::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
     protected static ?string $label = 'Rola';
     protected static ?string $pluralLabel = 'Role';
