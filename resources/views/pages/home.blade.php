@@ -3,7 +3,7 @@
         <div
             class="flex w-1/2 m-3 flex-col rounded bg-white bg-clip-border text-gray-700 shadow-md justify-self-center">
             <x-card.text>
-                <p class="font-bold text-5xl mb-4">FOTOVOLTIKA SO ŠTÁTNOU DOTÁCIOU</p>
+                <p class="font-bold text-5xl mb-4">FOTOVOLTIKAaaaa SO ŠTÁTNOU DOTÁCIOU</p>
                 <p>Naša spoločnosť je registrovaným zhotoviteľom projektu Zelená domácnostiam:
                     - dotácia do 4 025€ z projektu Zelená domácnostiam, financovaný z EU.</p>
             </x-card.text>

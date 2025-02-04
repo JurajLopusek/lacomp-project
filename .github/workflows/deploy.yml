@@ -1,0 +1,35 @@
+name: Deploy
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+      - name: Install composer dependencies
+        run: composer install -n --prefer-dist
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOST }}
+          protocol: ftp
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.KEY_PASS }}
+          server-dir: LACOMP/
+          exclude: |
+            **/vendor/**
+            **/storage/sessions/**
+            **/node_modules/**
+            **/.git*
+            **/.git*/**
