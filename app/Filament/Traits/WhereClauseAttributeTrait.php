@@ -48,5 +48,4 @@ trait WhereClauseAttributeTrait
     {
         return $this->sortClauseAttribute ?? $this->getWhereClauseAttribute();
     }
-
 }

@@ -9,5 +9,11 @@ parameters:
 
     level: 5
 
+    scanFiles:
+        - _ide_helper_models.php
+
     parallel:
         processTimeout: 3600.0
+
+    ignoreErrors:
+        - identifier: trait.unused

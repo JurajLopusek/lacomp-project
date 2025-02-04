@@ -37,7 +37,7 @@ class RoleResource extends ResourceEnhanced
 
     public static function table(Table $table): Table
     {
-        return $table
+        $table
             ->columns([
                 IdColumnEnhanced::factory()
                     ->setWhereClauseAttribute(self::$recordRouteKeyName),
@@ -62,6 +62,8 @@ class RoleResource extends ResourceEnhanced
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+
+        return parent::table($table);
     }
 
     public static function getPages(): array

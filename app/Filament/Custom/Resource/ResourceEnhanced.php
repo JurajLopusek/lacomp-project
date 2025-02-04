@@ -2,8 +2,6 @@
 
 namespace App\Filament\Custom\Resource;
 
-
-
 use App\Filament\Custom\Columns\TextColumnEnhanced;
 use App\Filament\Traits\CommonColumnsTrait;
 use Filament\Resources\Resource;
@@ -13,8 +11,8 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
-use Str;
 
 class ResourceEnhanced extends Resource
 {

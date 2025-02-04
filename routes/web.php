@@ -23,10 +23,7 @@ Route::get('/test', function () {
     return view('test');
 });
 
-
-
 Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
-
 
 Route::get('/kontakt', function () {
     return view('pages.contact');

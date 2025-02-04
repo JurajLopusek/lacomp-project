@@ -35,5 +35,4 @@ trait FilamentNotificationTrait
             ->title($title)
             ->body($body instanceof Throwable ? $body->getMessage() : $body);
     }
-
 }

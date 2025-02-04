@@ -6,7 +6,7 @@ use Filament\Resources\Pages\ListRecords;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
-use Str;
+use Illuminate\Support\Str;
 
 class ListRecordsEnhanced extends ListRecords
 {
@@ -31,6 +31,7 @@ class ListRecordsEnhanced extends ListRecords
             $records = $query->simplePaginate($perPage);
         } else {
             $records = $query->paginate($perPage);
+            /** @phpstan-ignore-next-line undefined method */
             $records->onEachSide(1);
         }
 

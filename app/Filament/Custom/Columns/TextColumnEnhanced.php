@@ -7,13 +7,13 @@ use App\Filament\Traits\OperatorOptionTrait;
 use App\Filament\Traits\WhereClauseAttributeTrait;
 use Carbon\Carbon;
 use Closure;
-use DB;
 use Exception;
 use Filament\Support\Enums\ArgumentValue;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Str;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Throwable;
 
 class TextColumnEnhanced extends TextColumn
@@ -275,4 +275,3 @@ class TextColumnEnhanced extends TextColumn
         return $this->formatStateUsing(fn ($state) => $state->{$fn}());
     }
 }
-

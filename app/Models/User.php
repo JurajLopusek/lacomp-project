@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -25,12 +26,14 @@ class User extends Authenticatable implements FilamentUser
     use SoftDeletes;
     use CanResetPassword;
 
-    public static function boot(): void
+    protected static function boot(): void
     {
         parent::boot();
 
         self::creating(function ($model) {
-            $model->creator_id = auth()->user() ? auth()->user()->id : config('masterConfig.master_user_id');
+            /** @var null|User $user */
+            $user = Auth::user();
+            $model->creator_id = $user ? $user->id : config('masterConfig.master_user_id');
         });
 
         self::created(function ($model) {
@@ -38,7 +41,9 @@ class User extends Authenticatable implements FilamentUser
         });
 
         self::updating(function ($model) {
-            $model->updater_id = auth()->user() ? auth()->user()->id : config('masterConfig.master_user_id');
+            /** @var null|User $user */
+            $user = Auth::user();
+            $model->updater_id = $user ? $user->id : config('masterConfig.master_user_id');
         });
 
         self::updated(function ($model) {
@@ -112,11 +117,11 @@ class User extends Authenticatable implements FilamentUser
 
     public function creator(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'creator_id')->withDefault();
+        return $this->belongsTo(self::class, 'creator_id')->withDefault();
     }
 
     public function updater(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'updater_id');
+        return $this->belongsTo(self::class, 'updater_id');
     }
 }

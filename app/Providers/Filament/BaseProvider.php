@@ -4,7 +4,6 @@ namespace App\Providers\Filament;
 
 use App\Enums\DateFormatEnum;
 use App\Filament\Traits\FilamentNotificationTrait;
-use DB;
 use Exception;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
@@ -38,17 +37,17 @@ use Filament\Widgets\View\WidgetsRenderHook;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 use ReflectionClass;
-
-
 
 abstract class BaseProvider extends PanelProvider
 {
@@ -151,7 +150,7 @@ abstract class BaseProvider extends PanelProvider
                 ->color('danger')
                 ->requiresConfirmation()
                 ->tooltip('Odstrániť')
-                ->successNotification(fn() => self::getSuccessNotification())
+                ->successNotification(fn (): \Filament\Notifications\Notification => self::getSuccessNotification())
                 ->action(function ($record, DeleteAction $deleteAction): void {
                     try {
                         DB::beginTransaction();
@@ -173,7 +172,7 @@ abstract class BaseProvider extends PanelProvider
                 ->label('')
                 ->iconButton()
                 ->requiresConfirmation()
-                ->modalHeading(fn(Model $record, $livewire) => sprintf('Duplikovať: #%d', $record->getKey())) // FIXME
+                ->modalHeading(fn (Model $record, $livewire): string => sprintf('Duplikovať: #%d', $record->getKey())) // FIXME
                 ->tooltip('Duplikovať');
         }, isImportant: true);
 
@@ -232,7 +231,7 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
 
         TextInput::configureUsing(static function (TextInput $textInput): void {
-            $textInput->placeholder(fn() => 'Zadajte ' . Str::lower($textInput->getLabel()));
+            $textInput->placeholder(fn (): string => 'Zadajte ' . Str::lower($textInput->getLabel()));
         });
 
         TrashedFilter::configureUsing(static function (TrashedFilter $trashedFilter): void {
@@ -257,14 +256,14 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
 
         Table::configureUsing(static function (Table $table): void {
-            $table->emptyStateHeading(fn($livewire) => 'Nenašiel sa žiaden záznam')
+            $table->emptyStateHeading(fn ($livewire): string => 'Nenašiel sa žiaden záznam')
                 ->emptyStateDescription(null)
                 ->emptyStateIcon('heroicon-o-magnifying-glass')
                 ->striped();
         }, isImportant: true);
 
         TextColumn::configureUsing(static function (TextColumn $textColumn): void {
-            $textColumn->placeholder(fn($state) => $state ?? new HtmlString('<i>NULL</i>'));
+            $textColumn->placeholder(fn ($state) => $state ?? new HtmlString('<i>NULL</i>'));
         }, isImportant: true);
     }
 

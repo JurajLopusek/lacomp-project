@@ -6,7 +6,7 @@ use App\Filament\Custom\Columns\TextColumnEnhanced;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Schema;
+use Illuminate\Support\Facades\Schema;
 
 trait CommonColumnsTrait
 {
@@ -66,5 +66,4 @@ trait CommonColumnsTrait
 
         return $columns;
     }
-
 }

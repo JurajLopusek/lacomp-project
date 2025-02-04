@@ -40,5 +40,4 @@ trait OperatorOptionTrait
     {
         return $this->whereInOption;
     }
-
 }

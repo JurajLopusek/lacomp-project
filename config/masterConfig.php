@@ -12,4 +12,3 @@ return [
     'master_user_id' => env('MASTER_USER_ID', 1),
     'cron_user_id' => env('CRON_USER_ID', 2),
 ];
-

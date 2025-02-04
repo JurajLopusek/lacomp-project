@@ -26,9 +26,9 @@ class EnergyController extends Controller
 
         if (!$request->has('id')) {
             Log::warning("Nebolo poslane id zakaznika.");
+
             return response()->json(['message' => 'Nebolo poslane id zakaznika'], 400);
         }
-
 
         // Získanie údajov z GET a zabezpečenie proti XSS
         $vstup = [
@@ -42,17 +42,31 @@ class EnergyController extends Controller
 
         // Kontrola na regularne vyrazy
         $error = 0;
-        if (!preg_match("/^[a-zA-Z0-9]+$/", $vstup['id'])) $error = 1;
-        if (!preg_match("/^[0-9]+$/", $vstup['eled'])) $error = 1;
-        if (!preg_match("/^[0-9]+$/", $vstup['elen'])) $error = 1;
-        if (!preg_match("/^[0-9]+$/", $vstup['pln'])) $error = 1;
-        if (!preg_match("/^[0-9]+$/", $vstup['vod'])) $error = 1;
-        if (!preg_match("/^-?[0-9]+$/", $vstup['tepvn'])) $error = 1;
+        if (!preg_match("/^[a-zA-Z0-9]+$/", $vstup['id'])) {
+            $error = 1;
+        }
+        if (!preg_match("/^\\d+\$/", $vstup['eled'])) {
+            $error = 1;
+        }
+        if (!preg_match("/^\\d+\$/", $vstup['elen'])) {
+            $error = 1;
+        }
+        if (!preg_match("/^\\d+\$/", $vstup['pln'])) {
+            $error = 1;
+        }
+        if (!preg_match("/^\\d+\$/", $vstup['vod'])) {
+            $error = 1;
+        }
+        if (!preg_match("/^-?\\d+\$/", $vstup['tepvn'])) {
+            $error = 1;
+        }
 
         if ($error == 1) {
             Log::warning("Vstup nepresiel kontrolou regularnych vyrazov.");
+
             return response()->json(['message' => 'Vstup nepresiel kontrolou regularnych vyrazov'], 400);
         }
+
         return response()->json(['message' => 'OK']);
         // Zápis do databázy
         /*
@@ -73,6 +87,5 @@ class EnergyController extends Controller
             Log::error("Zápis do databázy neuspel: " . $e->getMessage());
             return response()->json(['message' => 'Zápis do databázy neuspel'], 500);
         }*/
-
     }
 }

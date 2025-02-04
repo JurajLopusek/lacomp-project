@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @mixin IdeHelperGeneralModel
@@ -21,12 +22,14 @@ class GeneralModel extends Model
         ]);
     }
 
-    public static function boot(): void
+    protected static function boot(): void
     {
         parent::boot();
 
         self::creating(function ($model) {
-            $model->creator_id = auth()->user() ? auth()->user()->id : config('masterConfig.master_user_id');
+            /** @var null|User $user */
+            $user = Auth::user();
+            $model->creator_id = $user ? $user->id : config('masterConfig.master_user_id');
         });
 
         self::created(function ($model) {
@@ -34,7 +37,9 @@ class GeneralModel extends Model
         });
 
         self::updating(function ($model) {
-            $model->updater_id = auth()->user() ? auth()->user()->id : config('masterConfig.master_user_id');
+            /** @var null|User $user */
+            $user = Auth::user();
+            $model->updater_id = $user ? $user->id : config('masterConfig.master_user_id');
         });
 
         self::updated(function ($model) {

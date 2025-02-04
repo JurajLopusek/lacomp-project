@@ -27,6 +27,6 @@ enum FilamentPanelEnum: string implements HasLabel
 
     public function getLabel(): ?string
     {
-        return $this->value;
+        return $this->value ?? null;
     }
 }

@@ -10,7 +10,6 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 use App\Filament\Traits\CommonColumnsTrait;
 use App\Models\User;
-use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables;
@@ -22,7 +21,6 @@ class UserResource extends ResourceEnhanced
     use CommonColumnsTrait;
 
     protected static ?string $model = User::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-user';
     protected static ?string $label = 'Používateľ';
     protected static ?string $pluralLabel = 'Používatelia';
@@ -48,7 +46,7 @@ class UserResource extends ResourceEnhanced
                             ->password()
                             ->required()
                             ->maxLength(255),
-                    ])
+                    ]),
             ]);
     }
 
@@ -97,7 +95,7 @@ class UserResource extends ResourceEnhanced
 
     public static function getEloquentQuery(): Builder
     {
-        $query =  parent::getEloquentQuery();
+        $query = parent::getEloquentQuery();
 
         return self::getResourceEloquentQuery($query);
     }
@@ -112,7 +110,7 @@ class UserResource extends ResourceEnhanced
 
         // with
         $query->with([
-            'roles'
+            'roles',
         ]);
 
         return $query;

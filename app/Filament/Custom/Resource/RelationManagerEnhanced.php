@@ -2,7 +2,6 @@
 
 namespace App\Filament\Custom\Resource;
 
-
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
@@ -61,5 +60,4 @@ class RelationManagerEnhanced extends RelationManager
     {
         return false;
     }
-
 }
