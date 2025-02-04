@@ -26,7 +26,7 @@ jobs:
           protocol: ftp
           username: ${{ secrets.USER }}
           password: ${{ secrets.KEY_PASS }}
-          server-dir: test.erobots.sk/web/
+          server-dir: LACOMP/
           exclude: |
             **/vendor/**
             **/storage/sessions/**
