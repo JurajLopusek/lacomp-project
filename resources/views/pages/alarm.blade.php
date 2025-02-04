@@ -7,7 +7,7 @@
                     S produktami JABLOTRON pracujeme už viac ako 15 rokov. Vykonali sme množstvo montáží domových alarmov ako aj autoalarmov. Z osobných skúseností sa nám výrobky Jablotronu javia ako najinovatívnejšie a najspoľahlivejšie
                 </p>
             </div>
-            <img class="w-80 mx-auto mb-8" src="{{ asset('public/montazny-partner.jpg') }}">
+            <img class="w-80 mx-auto mb-8" src="{{ asset('storage/montazny-partner.jpg') }}">
             <div class="flex w-full items-center justify-center mt-auto">
                 <a href="https://www.jablotron.com/en/" target="_blank">Dozvedieť sa viac...</a>
             </div>
@@ -21,7 +21,7 @@
                     Zabezpečovací systém Paradox Kanadského výrobcu patrí medzi najspoľahlivejšie a najoverenejšie bezpečnostné systémy.  Za 15 rokov práce s týmto systémom sme nemali prakticky žiadne komplikácie.
             </p>
             </div>
-            <img class="w-80 mx-auto mb-8" src="{{ asset('public/alarm.jpg') }}">
+            <img class="w-80 mx-auto mb-8" src="{{ asset('storage/alarm.jpg') }}">
             <div class="flex w-full items-center justify-center mt-auto">
                 <a href="https://www.paradox.com/" target="_blank">Dozvedieť sa viac...</a>
             </div>
