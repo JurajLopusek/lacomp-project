@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\UserResource\Pages;
 
+use App\Filament\Custom\Resource\ListRecordsEnhanced;
 use App\Filament\Resources\UserResource;
 use Filament\Actions;
-use Filament\Resources\Pages\ManageRecords;
 
-class ManageUsers extends ManageRecords
+class ManageUsers extends ListRecordsEnhanced
 {
     protected static string $resource = UserResource::class;
 
