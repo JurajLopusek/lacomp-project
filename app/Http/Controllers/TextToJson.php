@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class TextToJson extends Controller
 {
     private String $split_text_symbol = '&';
     private String $split_record_symbol = '=';
 
-    public function textToJson(String $text) : Array {
+    public function textToJson(String $text) : array
+    {
         $json = [];
         $split_text = explode($this->split_text_symbol, $text);
 
@@ -20,5 +19,4 @@ class TextToJson extends Controller
 
         return $json;
     }
-
 }

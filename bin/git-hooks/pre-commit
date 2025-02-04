@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# source: https://yaroslavgrebnov.com/blog/bash-docker-check-container-existence-and-status/
+#
+files=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
+if [ -z "$files" ]
+then
+	echo 'Empty changed files - skipping format\n'
+else
+	# echo 'Changed files:\n'
+	# echo $files
+	echo '\n\n-- Formatting --'
+
+	if [ $( docker compose ps --status=running | grep php | wc -l ) -gt 0 ]
+	then
+		docker compose exec -T php ./vendor/bin/php-cs-fixer fix --config=".php-cs-fixer.php" $files
+	else
+		echo 'PHP container not running - skipping format\n'
+	fi
+fi

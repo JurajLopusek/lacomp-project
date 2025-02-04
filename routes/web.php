@@ -22,10 +22,6 @@ Route::get('/test', function () {
     return view('test');
 });
 
-
-
-
-
 Route::get('/kontakt', function () {
     return view('pages.contact');
 });
