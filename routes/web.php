@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\EnergyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeviceController;
+
 
 Route::get('/', function () {
     return view('pages.home');
@@ -22,6 +24,7 @@ Route::get('/meranie_spotreby', function () {
 Route::get('/test', function () {
     return view('test');
 });
+Route::get('/data.php', [DeviceController::class, 'store']);
 
 Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
 
