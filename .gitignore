@@ -1,21 +1,115 @@
-/.phpunit.cache
-/node_modules
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-auth.json
+.rnd
+phpunit.xml
+
+### Laravel ###
+vendor/*
+node_modules/
 npm-debug.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
+
+# UNIT tests specific
+.phpunit.result.cache
+
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+*.iml
+modules.xml
+*.ipr
+/_windows/
+/codestyles/
+.idea/*
+.phpstorm.meta.php
+_ide_helper.php
+package.xml
+
+# Po prejdení na fingo_main je vue app mimo projekt
+public/static/*
+!storage/.gitignore
+!storage/*/.gitignore
+!storage/.gitkeep
+!storage/*/.gitkeep
+!storage/app/template_for_generate
+storage/tmp/psysh/
+
+public/index.html
+colors.scheme.xml
+vcs.xml
+php.xml
+storage/metabase_session.json
+_ide_helper_models.php
+
+worker.log
+
+etc/db_smartfinance.sql
 yarn-error.log
-/.fleet
-/.idea
-/.vscode
-/sub/energia/l0g
+public/mix-manifest.json
+app/Http/Controllers/TestController.php
+public/js/app.js
+public/css/app.css
+*.Identifier
+public/demo1/*
+public/js/lead_forms/*
+public/css/lead_forms/*
+public/js/packages/*
+public/modules/*
+public/css/*
+public/js/*
+docker-compose.override.yml
+.php-cs-fixer.cache
+public/modules/
+/tests/Coverage/
+
+code_analyse_output.txt
+code_rector_output.txt
+storage/provision_lists/
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/.env.testing
+
+.env.testing
+/storage/app/template_for_generate/
+/.phpunit.cache/*
+app/Http/TestController.php
+meili_data/
+tmp/
+data/
+/tests_output.txt
+/storage/env-editor/
+
+# macOS specific files
+**/.DS_Store
+
+/sub/energia/log

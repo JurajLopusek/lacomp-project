@@ -7,7 +7,7 @@
         <x-nav.nav-link href="/" :active="request()->is('/')">Domov</x-nav.nav-link>
         <x-nav.nav-link href="/alarmy" :active="request()->is('alarmy')">Alarmy</x-nav.nav-link>
         <x-nav.nav-link href="/kamery" :active="request()->is('kamery')">Kamery</x-nav.nav-link>
-        <x-nav.nav-link href="https://energia.lacomp.sk">Meranie spotreby</x-nav.nav-link>
+        <x-nav.nav-link href="/admin/login" :active="request()->is('admin/login')">Meranie spotreby</x-nav.nav-link>
         <x-nav.nav-link href="/kontakt" :active="request()->is('kontakt')">Kontakt</x-nav.nav-link>
     </div>
 

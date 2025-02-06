@@ -1,0 +1,37 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Device;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class DeviceFactory extends Factory
+{
+    protected $model = Device::class;
+
+    public function definition(): array
+    {
+        return [
+            'serial_number' => $this->faker->uuid,
+            'active' => 1,
+
+            'creator_id' => config('masterConfig.master_user_id'),
+        ];
+    }
+
+    public function fullData(bool $optional = false): self
+    {
+        return $this->state(function (array $attributes) use ($optional) {
+            $faker = $optional ? $this->faker->optional() : $this->faker;
+
+            return [
+                'name' => $faker->name,
+                'location' => $faker->address,
+                'active' => $this->faker->boolean,
+
+                'updater_id' => $faker->randomElement([User::inRandomOrder()->first()?->id]),
+            ];
+        });
+    }
+}

@@ -100,7 +100,7 @@ else
     include "grafy/pripojenie.php";
     if (!$db)
     {
-        $file = fopen("l0g/log.txt","a");
+        $file = fopen("log/log.txt","a");
         $riadok = ";Chyba pristupu do databazy - ".mysql_error()."\n";
         fwrite($file,$riadok);
         fclose($file);
@@ -119,7 +119,7 @@ else
     //zapis do logu
     if ($result)
     {
-        $file = fopen("l0g/log.txt","a");
+        $file = fopen("log/log.txt","a");
         $riadok = ";OK" . "\n";
         fwrite($file,$riadok);
         fclose($file);
@@ -127,7 +127,7 @@ else
     }
     else
     {
-        $file = fopen("l0g/log.txt","a");
+        $file = fopen("log/log.txt","a");
         $riadok = ";Zapis do tabulky neuspesny - ".mysql_error()."\n";
         fwrite($file,$riadok);
         fclose($file);

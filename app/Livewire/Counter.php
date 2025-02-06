@@ -6,19 +6,19 @@ use Livewire\Component;
 
 class Counter extends Component
 {
-    public $count = 1;
+    public int $count = 1;
 
-    public function increment()
+    public function increment(): void
     {
         $this->count++;
     }
 
-    public function decrement()
+    public function decrement(): void
     {
         $this->count--;
     }
 
-    public function render()
+    public function render(): \Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
     {
         return view('livewire.counter');
     }
