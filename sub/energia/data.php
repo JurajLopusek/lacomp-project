@@ -8,25 +8,25 @@ vod - voda - impulzy
 tepvn - vonkaj�ia teplota
 link: http://energia.lacomp.sk/data.php?id=AAA&eled=BBB&elen=CCC&pln=DDD&vod=EEE&tepvn=FFF
 */
-file_put_contents("l0g/debug.log", date("d.m.Y H:i:s") . " - " . print_r($_GET, true) . "\n", FILE_APPEND);
+file_put_contents("log/debug.log", date("d.m.Y H:i:s") . " - " . print_r($_GET, true) . "\n", FILE_APPEND);
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set ("Europe/Bratislava");
 //kontrola �i bolo nie�o poslan�
 if (empty($_GET)) {
-    file_put_contents("l0g/debug.log", date("d.m.Y H:i:s") . " - Nic sa neposlalo\n", FILE_APPEND);
+    file_put_contents("log/debug.log", date("d.m.Y H:i:s") . " - Nic sa neposlalo\n", FILE_APPEND);
     exit("Nic sa neposlalo");
 }//logovanie
 $log = substr($_SERVER["REQUEST_URI"],0,200);
 $cas = date("d.m.Y H:i:s");
-$file = fopen("l0g/log.txt","a");
+$file = fopen("log/log.txt","a");
 $riadok = $cas . ";" . $log . "\n";
 fwrite($file,$riadok);
 fclose($file);
 //kontrola na id zakaznika
 if (!isset($_GET['id'])) {
-    $file = fopen("l0g/log.txt", "a");
+    $file = fopen("log/log.txt", "a");
     $riadok = ";Nebolo poslane id zakaznika." . "\n";
     fwrite($file, $riadok);
     fclose($file);
@@ -78,7 +78,7 @@ if (!preg_match ("/^[0-9]+$/", $vstup["vod"])) $error=1;
 if (!preg_match ("/^-?[0-9]+$/", $vstup["tepvn"])) $error=1;
 
 if ($error == 1) {
-    $file = fopen("l0g/log.txt", "a");
+    $file = fopen("log/log.txt", "a");
     $riadok = ";Vstup nepresiel kontrolou regularnych vyrazov." . "\n";
     fwrite($file,$riadok);
     fclose($file);
@@ -91,7 +91,7 @@ if ($error == 1) {
 ////    include "grafy/pripojenie.php";
 //    if (!$db)
 //        {
-//        $file = fopen("l0g/log.txt","a");
+//        $file = fopen("log/log.txt","a");
 //        $riadok = ";Chyba pristupu do databazy - ".mysql_error()."\n";
 //        fwrite($file,$riadok);
 //        fclose($file);
@@ -110,7 +110,7 @@ if ($error == 1) {
 //        //zapis do logu
 //    if ($result)
 //        {
-//        $file = fopen("l0g/log.txt","a");
+//        $file = fopen("log/log.txt","a");
 //        $riadok = ";OK" . "\n";
 //        fwrite($file,$riadok);
 //        fclose($file);
@@ -118,7 +118,7 @@ if ($error == 1) {
 //        }
 //    else
 //        {
-//        $file = fopen("l0g/log.txt","a");
+//        $file = fopen("log/log.txt","a");
 //        $riadok = ";Zapis do tabulky neuspesny - ".mysql_error()."\n";
 //        fwrite($file,$riadok);
 //        fclose($file);
@@ -141,7 +141,7 @@ if ($error == 1) {
         //zapis do logu
     if ($result)
         {
-        $file = fopen("l0g/log.txt","a");
+        $file = fopen("log/log.txt","a");
         $riadok = ";OK" . "\n";
         fwrite($file,$riadok);
         fclose($file);
@@ -149,7 +149,7 @@ if ($error == 1) {
         }
     else
         {
-        $file = fopen("l0g/log.txt","a");
+        $file = fopen("log/log.txt","a");
         $riadok = ";Zapis do tabulky neuspesny - ".mysql_error()."\n";
         fwrite($file,$riadok);
         fclose($file);
