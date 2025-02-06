@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Filament\Enums\FilamentPanelEnum;
+use Database\Factories\UserFactory;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
@@ -20,7 +21,9 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable implements FilamentUser
 {
+    /** @use HasFactory<UserFactory> */
     use HasFactory;
+
     use HasRoles;
     use Notifiable;
     use SoftDeletes;
@@ -68,6 +71,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'email_verified_at',
 
         'updated_at',
         'created_at',

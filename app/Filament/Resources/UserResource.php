@@ -59,7 +59,8 @@ class UserResource extends ResourceEnhanced
                 TextColumnEnhanced::make('name'),
                 TextColumnEnhanced::make('email'),
                 TextColumnEnhanced::make('email_verified_at')
-                    ->dateTime(),
+                    ->date()
+                    ->copyable(),
             ])
             ->filters([
                 //

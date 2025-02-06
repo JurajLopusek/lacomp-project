@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\EnergyController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DeviceController;
-
 
 Route::get('/', function () {
     return view('pages.home');
