@@ -61,7 +61,7 @@
             "./vendor/bin/phpstan analyse --memory-limit=6G -v > code_analyse_output.txt"
         ],
         "rector": [
-            "./vendor/bin/rector process --dry-run --config rector.php > code_rector_output.txt "
+            "./vendor/bin/rector process --dry-run --config rector.php > code_rector_output.txt\n"
         ],
         "rector-write": [
             "./vendor/bin/rector process --config rector.php"
