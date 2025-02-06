@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Filament\Interfaces\FilamentLabelInterface;
 use Database\Factories\DeviceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @mixin IdeHelperDevice
  */
-class Device extends GeneralModel
+class Device extends GeneralModel implements FilamentLabelInterface
 {
     /** @use HasFactory<DeviceFactory> */
     use HasFactory;
@@ -35,4 +36,9 @@ class Device extends GeneralModel
         'creator_id' => 'integer',
         'updater_id' => 'integer',
     ];
+
+    public function getFilamentLabelAttribute(): string
+    {
+        return "#{$this->id} {$this->name} | {$this->serial_number}";
+    }
 }
