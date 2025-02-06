@@ -111,3 +111,5 @@ data/
 
 # macOS specific files
 **/.DS_Store
+
+/sub/energia/l0g

@@ -16,16 +16,12 @@ Route::get('/kamery', function () {
     return view('welcome');
 });
 
-Route::get('/meranie_spotreby', function () {
-    return view('pages.meranie_spotreby');
-});
-
 Route::get('/test', function () {
     return view('test');
 });
 Route::get('/data.php', [DeviceController::class, 'store']);
 
-Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
+//Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
 
 Route::get('/kontakt', function () {
     return view('pages.contact');

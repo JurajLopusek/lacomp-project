@@ -12,17 +12,17 @@ file_put_contents("l0g/debug.log", date("d.m.Y H:i:s") . " - " . print_r($_GET, 
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-date_default_timezone_set("Europe/Bratislava");
+date_default_timezone_set ("Europe/Bratislava");
 //kontrola �i bolo nie�o poslan�
 if (empty($_GET)) {
     file_put_contents("l0g/debug.log", date("d.m.Y H:i:s") . " - Nic sa neposlalo\n", FILE_APPEND);
     exit("Nic sa neposlalo");
 }//logovanie
-$log = substr($_SERVER["REQUEST_URI"], 0, 200);
+$log = substr($_SERVER["REQUEST_URI"],0,200);
 $cas = date("d.m.Y H:i:s");
-$file = fopen("l0g/log.txt", "a");
+$file = fopen("l0g/log.txt","a");
 $riadok = $cas . ";" . $log . "\n";
-fwrite($file, $riadok);
+fwrite($file,$riadok);
 fclose($file);
 //kontrola na id zakaznika
 if (!isset($_GET['id'])) {
@@ -33,7 +33,7 @@ if (!isset($_GET['id'])) {
     exit("Nebolo poslane id zakaznika.");
 }
 //kontrola ak nie je poslany aspon jeden parameter
-$pocitadlo = 0;
+$pocitadlo=0;
 if (isset($_GET['eled'])) $pocitadlo++;
 if (isset($_GET['elen'])) $pocitadlo++;
 if (isset($_GET['pln'])) $pocitadlo++;
@@ -70,17 +70,17 @@ if (isset($_GET['tepvn'])) {
 
 //kontrola na regularne vyrazy
 $error = 0;
-if (!preg_match("/^[a-zA-Z0-9]+$/", $vstup["id"])) $error = 1;
-if (!preg_match("/^[0-9]+$/", $vstup["eled"])) $error = 1;
-if (!preg_match("/^[0-9]+$/", $vstup["elen"])) $error = 1;
-if (!preg_match("/^[0-9]+$/", $vstup["pln"])) $error = 1;
-if (!preg_match("/^[0-9]+$/", $vstup["vod"])) $error = 1;
-if (!preg_match("/^-?[0-9]+$/", $vstup["tepvn"])) $error = 1;
+if (!preg_match("/^[a-zA-Z0-9]+$/", $vstup["id"])) $error=1;
+if (!preg_match ("/^[0-9]+$/", $vstup["eled"])) $error=1;
+if (!preg_match ("/^[0-9]+$/", $vstup["elen"])) $error=1;
+if (!preg_match ("/^[0-9]+$/", $vstup["pln"])) $error=1;
+if (!preg_match ("/^[0-9]+$/", $vstup["vod"])) $error=1;
+if (!preg_match ("/^-?[0-9]+$/", $vstup["tepvn"])) $error=1;
 
 if ($error == 1) {
     $file = fopen("l0g/log.txt", "a");
     $riadok = ";Vstup nepresiel kontrolou regularnych vyrazov." . "\n";
-    fwrite($file, $riadok);
+    fwrite($file,$riadok);
     fclose($file);
     exit("Vstup nsssepresiel kontrolou regularnych vyrazov.");
 }
@@ -129,5 +129,36 @@ if ($error == 1) {
 //    mysql_close($db);
 //    }
 
-require 'data_new.php';
+        $queryString = array();
+        foreach ($_GET as $key => $value) {
+        	$queryString[] = $key . '=' . $value;
+        }
+        $queryString = implode(', ', $queryString);
+        $queryString = htmlspecialchars($queryString);
+
+    $query = "INSERT INTO udaje (id_zakaznik, eled, elen, pln, vod, tepvn, data_all) VALUES ('".$vstup["id"]."',".$vstup["eled"].",".$vstup["elen"].",".$vstup["pln"].",".$vstup["vod"].",".$vstup["tepvn"].", '".$queryString."')";
+    $result = mysql_query($query);
+        //zapis do logu
+    if ($result)
+        {
+        $file = fopen("l0g/log.txt","a");
+        $riadok = ";OK" . "\n";
+        fwrite($file,$riadok);
+        fclose($file);
+        echo $result." - zapis do db.";
+        }
+    else
+        {
+        $file = fopen("l0g/log.txt","a");
+        $riadok = ";Zapis do tabulky neuspesny - ".mysql_error()."\n";
+        fwrite($file,$riadok);
+        fclose($file);
+        echo $riadok;
+        echo "<br>";
+        echo $query;
+        }
+    mysql_close($db);
+    }
+
+    require 'data_new.php';
 
