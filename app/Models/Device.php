@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Filament\Interfaces\FilamentLabelInterface;
 use Database\Factories\DeviceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @mixin IdeHelperDevice
@@ -40,5 +41,10 @@ class Device extends GeneralModel implements FilamentLabelInterface
     public function getFilamentLabelAttribute(): string
     {
         return "#{$this->id} {$this->name} | {$this->serial_number}";
+    }
+
+    public function measurements(): HasMany
+    {
+        return $this->hasMany(Measurement::class);
     }
 }
