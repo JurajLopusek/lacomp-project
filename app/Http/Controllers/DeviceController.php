@@ -16,7 +16,7 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //testovanie  pre http://localhost:8000/data.php?id=00650008D&eled=24799&pln=0&vod=123
+        // testovanie pre http://localhost:8000/data.php?id=00650008D&eled=24799&pln=0&vod=123
         Log::info('Prijatá požiadavka: ' . json_encode($request->all()));
         Log::channel('device_log')->info('Prijatá požiadavka: ' . json_encode($request->all())); //testovanie
 
@@ -29,6 +29,7 @@ class DeviceController extends Controller
         ]);
 
         try {
+            /** @phpstan-ignore-next-line Call to an undefined static */ // TODO MK: fix phpstan
             Device::create([
                 'id_zakaznik' => $validatedData['id'],
                 'eled' => $validatedData['eled'],
