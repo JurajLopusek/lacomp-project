@@ -65,6 +65,10 @@ class ResourceEnhanced extends Resource
         return [];
     }
 
+    /**
+     * @param Builder<Model> $query
+     * @return Builder<Model>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         return $query;

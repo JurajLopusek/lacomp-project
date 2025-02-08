@@ -268,7 +268,7 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
     }
 
-    public static function colorConfigurator(array $colors = []): void
+    public static function colorConfigurator(): void
     {
         FilamentColor::register([
             'filamentPrimary' => Color::Blue,

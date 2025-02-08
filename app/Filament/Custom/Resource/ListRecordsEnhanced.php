@@ -6,6 +6,7 @@ use Filament\Resources\Pages\ListRecords;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class ListRecordsEnhanced extends ListRecords
@@ -13,6 +14,10 @@ class ListRecordsEnhanced extends ListRecords
     public const MAX_PER_PAGE = 5000;
     public const STATS_TEXT = 'štatistika';
 
+    /**
+     * @param Builder<Model> $query
+     * @return Paginator<Model> | CursorPaginator<Model>
+     */
     protected function paginateTableQuery(Builder $query): Paginator | CursorPaginator
     {
         $perPage = $this->getTableRecordsPerPage();

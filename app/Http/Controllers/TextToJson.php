@@ -7,6 +7,10 @@ class TextToJson extends Controller
     private String $split_text_symbol = '&';
     private String $split_record_symbol = '=';
 
+    /**
+     * @param string $text
+     * @return array<string, string>
+     */
     public function textToJson(String $text) : array
     {
         $json = [];

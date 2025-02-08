@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 
 class EnergyController extends Controller
 {
-    public function storeData(Request $request)
+    public function storeData(Request $request): JsonResponse
     {
         // Kontrola či bolo niečo poslané
         if (empty($request->query())) {

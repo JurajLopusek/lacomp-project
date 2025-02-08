@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\QueryBuilders\CalculationQueryBuilder;
 use Database\Factories\CalculationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -46,11 +47,26 @@ class Calculation extends GeneralModel
         'updater_id' => 'integer',
     ];
 
+    /**
+     * @param $query
+     * @return CalculationQueryBuilder
+     */
+    public function newEloquentBuilder($query): CalculationQueryBuilder
+    {
+        return new CalculationQueryBuilder($query);
+    }
+
+    /**
+     * @return BelongsTo<Measurement, $this>
+     */
     public function calculation(): BelongsTo
     {
         return $this->belongsTo(Measurement::class);
     }
 
+    /**
+     * @return BelongsTo<Device, $this>
+     */
     public function device(): BelongsTo
     {
         return $this->belongsTo(Device::class);

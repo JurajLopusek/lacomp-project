@@ -11,7 +11,7 @@ parameters:
         - storage/
         - bootstrap/
 
-    level: 5
+    level: 6
 
     scanFiles:
         - _ide_helper_models.php

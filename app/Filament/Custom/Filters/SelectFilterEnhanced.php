@@ -4,11 +4,17 @@ namespace App\Filament\Custom\Filters;
 
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class SelectFilterEnhanced extends SelectFilter
 {
     protected bool $castToInt = false;
 
+    /**
+     * @param Builder<Model> $query
+     * @param array<string, array<string, string>> $data
+     * @return Builder<Model>
+     */
     public function apply(Builder $query, array $data = []): Builder
     {
         $isMultiple = $this->isMultiple();

@@ -69,6 +69,9 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         ];
     }
 
+    /**
+     * @return Builder<Measurement>
+     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -76,6 +79,10 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         return self::getResourceEloquentQuery($query);
     }
 
+    /**
+     * @param Builder<Measurement> $query
+     * @return Builder<Measurement>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         // scope

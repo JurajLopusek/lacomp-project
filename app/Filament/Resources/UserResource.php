@@ -94,6 +94,9 @@ class UserResource extends ResourceEnhanced
         ];
     }
 
+    /**
+     * @return Builder<User>
+     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -101,6 +104,10 @@ class UserResource extends ResourceEnhanced
         return self::getResourceEloquentQuery($query);
     }
 
+    /**
+     * @param Builder<User> $query
+     * @return Builder<User>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         // scope

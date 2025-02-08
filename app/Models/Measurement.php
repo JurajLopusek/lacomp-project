@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Observers\MeasurementObserver;
+use App\QueryBuilders\MeasurementQueryBuilder;
 use Database\Factories\MeasurementFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,6 +50,18 @@ class Measurement extends GeneralModel
         'updater_id' => 'integer',
     ];
 
+    /**
+     * @param $query
+     * @return MeasurementQueryBuilder
+     */
+    public function newEloquentBuilder($query): MeasurementQueryBuilder
+    {
+        return new MeasurementQueryBuilder($query);
+    }
+
+    /**
+     * @return BelongsTo<Device, $this>
+     */
     public function device(): BelongsTo
     {
         return $this->belongsTo(Device::class);

@@ -63,6 +63,9 @@ class CalculationResource extends ResourceEnhanced
         ];
     }
 
+    /**
+     * @return Builder<Calculation>
+     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -70,6 +73,10 @@ class CalculationResource extends ResourceEnhanced
         return self::getResourceEloquentQuery($query);
     }
 
+    /**
+     * @param Builder<Calculation> $query
+     * @return Builder<Calculation>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         // scope
