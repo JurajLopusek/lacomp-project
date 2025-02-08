@@ -50,11 +50,11 @@ class MeasurementFactory extends Factory
             $measurements = Measurement::where('device_id', $measurement->device_id)->get();
 
             return [
-                'electricity' => $measurements->max('electricity') + $this->faker->numberBetween(1, 100),
-                'electricity_panel' => $measurements->max('electricity_panel') + $this->faker->numberBetween(1, 100),
-                'gas' => $measurements->max('gas') + $this->faker->numberBetween(1, 100),
-                'water' => $measurements->max('water') + $this->faker->numberBetween(1, 100),
-                'outside_temperature' => $measurements->max('outside_temperature') + $this->faker->numberBetween(1, 100),
+                'electricity' => $measurements->max('electricity') + $this->faker->numberBetween(1, 20),
+                'electricity_panel' => $measurements->max('electricity_panel') + $this->faker->numberBetween(1, 20),
+                'gas' => $measurements->max('gas') + $this->faker->numberBetween(1, 20),
+                'water' => $measurements->max('water') + $this->faker->numberBetween(1, 20),
+                'outside_temperature' => $measurements->max('outside_temperature') + $this->faker->numberBetween(1, 20),
                 'time' => Carbon::parse($measurements->max('time'))->addMinutes(10),
 
                 'updater_id' => $this->faker->randomElement([User::inRandomOrder()->first()?->id]),
