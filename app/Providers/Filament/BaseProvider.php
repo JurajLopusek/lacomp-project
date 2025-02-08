@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Enums\DateFormatEnum;
 use App\Filament\Traits\FilamentNotificationTrait;
 use Exception;
+use Filafly\PhosphorIconReplacement;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -114,7 +115,7 @@ abstract class BaseProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->databaseTransactions()
             ->plugins([
-
+                PhosphorIconReplacement::make()->light(),
             ])
             ->maxContentWidth(MaxWidth::Full)
             ->bootUsing(function () {

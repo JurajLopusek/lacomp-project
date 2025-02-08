@@ -22,7 +22,7 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
     use CommonColumnsTrait;
 
     protected static ?string $model = Measurement::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'phosphor-gauge';
     protected static ?string $label = 'Meranie';
     protected static ?string $pluralLabel = 'Merania';
     protected static ?string $navigationGroup = FilamentPanelNavigationGroupEnum::DEVICE->value;
