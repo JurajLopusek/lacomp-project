@@ -36,12 +36,12 @@ class EnergyController extends Controller
 
         // Získanie údajov z GET a zabezpečenie proti XSS
         $vstup = [
-            'id' => htmlspecialchars($request->input('id'), ENT_QUOTES, "UTF-8"),
-            'eled' => $request->input('eled', 0),
-            'elen' => $request->input('elen', 0),
-            'pln' => $request->input('pln', 0),
-            'vod' => $request->input('vod', 0),
-            'tepvn' => $request->input('tepvn', 0),
+            'id' => htmlspecialchars($request->string('id'), ENT_QUOTES, "UTF-8"),
+            'eled' => $request->string('eled', 0),
+            'elen' => $request->string('elen', 0),
+            'pln' => $request->string('pln', 0),
+            'vod' => $request->string('vod', 0),
+            'tepvn' => $request->string('tepvn', 0),
         ];
 
         // Kontrola na regularne vyrazy

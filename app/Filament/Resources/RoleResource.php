@@ -40,7 +40,7 @@ class RoleResource extends ResourceEnhanced
         $table
             ->columns([
                 IdColumnEnhanced::factory()
-                    ->setWhereClauseAttribute(self::$recordRouteKeyName),
+                    ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
                 TextColumnEnhanced::make('name'),
                 TextColumnEnhanced::make('guard_name'),
                 TextColumnEnhanced::make('created_at')

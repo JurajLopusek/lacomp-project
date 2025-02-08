@@ -27,8 +27,8 @@ final class DeviceFilter
                 ->get()
                 ->pluck($searchLabel, $model->getKeyName())
             )
-            ->options($model::latest()->limit(25)->get()->pluck($searchLabel, $model->getKeyName())->toArray())
-            ->getOptionLabelsUsing(fn (array $values): array => $model->whereIn($model->getKeyName(), $values)->get()->pluck($searchLabel, $model->getKeyName())->toArray())
-            ->getOptionLabelUsing(fn (string $value) => $model::find($value)->$searchLabel);
+            ->options(fn (): array => $model::latest()->limit(25)->get()->pluck($searchLabel, $model->getKeyName())->toArray())
+            ->getOptionLabelsUsing(fn (array $values): array => $model::whereIn($model->getKeyName(), $values)->get()->pluck($searchLabel, $model->getKeyName())->toArray())
+            ->getOptionLabelUsing(fn (string $value) => $model::find($value)?->$searchLabel);
     }
 }

@@ -36,7 +36,7 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         $table
             ->columns([
                 IdColumnEnhanced::factory()
-                    ->setWhereClauseAttribute(self::$recordRouteKeyName),
+                    ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
                 DeviceColumnEnhanced::factory(),
                 TextColumnEnhanced::make('electricity'),
                 TextColumnEnhanced::make('electricity_panel'),

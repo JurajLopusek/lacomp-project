@@ -38,7 +38,8 @@ class ResourceEnhanced extends Resource
             return $modelLabel;
         }
 
-        $modelStr = "#{$record->getKey()}";
+        $key = $record->getKeyName();
+        $modelStr = "#{$record->$key}";
 
         if (isset($record->filament_label)) {
             /** @var string $filamentLabel */

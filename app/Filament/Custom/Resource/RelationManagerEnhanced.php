@@ -2,29 +2,35 @@
 
 namespace App\Filament\Custom\Resource;
 
+use Exception;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
+use RuntimeException;
 
 class RelationManagerEnhanced extends RelationManager
 {
     /**
-     * Get the resource class name.
-     *
-     * @return class-string|null
+     * @return ResourceEnhanced
      */
-    public static function getResource(): ?string
+    public static function getResource(): ResourceEnhanced
     {
-        // TODO MK: Access to an undefined static property static(App\Filament\Custom\Resource\RelationManagerEnhanced)::$resource.
-        /** @phpstan-ignore-next-line  */
-        return static::$resource;
+        try {
+            // TODO MK: Access to an undefined static property static(App\Filament\Custom\Resource\RelationManagerEnhanced)::$resource.
+            /** @phpstan-ignore-next-line */
+            return App::make(static::$resource);
+        } catch (Exception $e) {
+            throw new RuntimeException("Failed to resolve resource", 0, $e);
+        }
     }
 
     public function table(Table $table): Table
     {
-        $table = self::getResource()::table($table);
+        $table = static::getResource()::table($table);
         $table->paginationPageOptions(static::getPaginateOptions());
         $table->modifyQueryUsing(function (Builder $query) {
             return self::getResource()::getResourceEloquentQuery($query);
@@ -45,7 +51,9 @@ class RelationManagerEnhanced extends RelationManager
 
     public static function getIcon(Model $ownerRecord, string $pageClass): ?string
     {
-        return self::getResource()::getNavigationIcon();
+        $icon = self::getResource()::getNavigationIcon();
+
+        return $icon instanceof Htmlable ? null : $icon;
     }
 
     /**

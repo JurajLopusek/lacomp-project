@@ -64,6 +64,7 @@ abstract class BaseProvider extends PanelProvider
         $tableHooks = $tableHooks->getConstants();
         $widgetHooks = $widgetHooks->getConstants();
 
+        /** @var string $hook */
         foreach ($panelHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -71,6 +72,8 @@ abstract class BaseProvider extends PanelProvider
                 ]);
             });
         }
+
+        /** @var string $hook */
         foreach ($tableHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -78,6 +81,8 @@ abstract class BaseProvider extends PanelProvider
                 ]);
             });
         }
+
+        /** @var string $hook */
         foreach ($widgetHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -173,7 +178,7 @@ abstract class BaseProvider extends PanelProvider
                 ->label('')
                 ->iconButton()
                 ->requiresConfirmation()
-                ->modalHeading(fn (Model $record, $livewire): string => sprintf('Duplikovať: #%d', $record->getKey())) // FIXME
+                ->modalHeading(fn (Model $record, $livewire): string => 'Duplikovať')
                 ->tooltip('Duplikovať');
         }, isImportant: true);
 
