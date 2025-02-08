@@ -13,7 +13,7 @@ class DeviceFactory extends Factory
     public function definition(): array
     {
         return [
-            'serial_number' => $this->faker->uuid,
+            'serial_number' => $this->faker->unique()->regexify('[A-Z0-9]{7}'),
             'active' => 1,
 
             'creator_id' => config('masterConfig.master_user_id'),

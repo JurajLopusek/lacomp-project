@@ -16,34 +16,43 @@ class Calculation extends GeneralModel
 
     protected $table = 'calculations';
     protected $fillable = [
-        'deviceCalc_id',
-        'electricityCalc',
-        'electricity_panelCalc',
-        'gasCalc',
-        'waterCalc',
-        'outside_temperatureCalc',
+        'device_id',
+        'electricity',
+        'electricity_panel',
+        'gas',
+        'water',
+        'outside_temperature',
         'time',
 
         'created_at',
         'updated_at',
 
+        'creator_id',
+        'updater_id',
     ];
     protected $casts = [
-        'deviceCalc_id' => 'integer',
-        'electricityCalc' => 'integer',
-        'electricity_panelCalc' => 'integer',
-        'gasCalc' => 'integer',
-        'waterCalc' => 'integer',
-        'outside_temperatureCalc' => 'integer',
+        'device_id' => 'integer',
+        'electricity' => 'integer',
+        'electricity_panel' => 'integer',
+        'gas' => 'integer',
+        'water' => 'integer',
+        'outside_temperature' => 'integer',
         'time' => 'datetime',
 
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
 
+        'creator_id' => 'integer',
+        'updater_id' => 'integer',
     ];
 
     public function calculation(): BelongsTo
     {
         return $this->belongsTo(Measurement::class);
+    }
+
+    public function device(): BelongsTo
+    {
+        return $this->belongsTo(Device::class);
     }
 }
