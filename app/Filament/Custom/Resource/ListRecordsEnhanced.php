@@ -31,7 +31,6 @@ class ListRecordsEnhanced extends ListRecords
             $records = $query->simplePaginate($perPage);
         } else {
             $records = $query->paginate($perPage);
-            /** @phpstan-ignore-next-line undefined method */
             $records->onEachSide(1);
         }
 

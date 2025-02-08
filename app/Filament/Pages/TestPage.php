@@ -24,6 +24,6 @@ class TestPage extends Page
     #[NoReturn]
     public function __construct()
     {
-        die;
+        exit;
     }
 }

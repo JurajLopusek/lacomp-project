@@ -37,7 +37,7 @@ class MeasurementWaterChart extends ChartWidget
                     'data' => array_values($electricity),
                 ],
             ],
-            'labels' => array_map(static fn ($key) => Carbon::parse($key)->format(DateFormatEnum::HI->value), array_keys($water)),
+            'labels' => array_map(static fn ($key): string => Carbon::parse($key)->format(DateFormatEnum::HI->value), array_keys($water)),
         ];
     }
 
