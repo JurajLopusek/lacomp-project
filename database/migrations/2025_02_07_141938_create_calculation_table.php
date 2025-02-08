@@ -4,16 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('calculations', function (Blueprint $table) {
+        Schema::create('calculations', static function (Blueprint $table) {
             $table->id();
-            $table->string('deviceCalc_id'); // Určte dátový typ rovnaký ako v 'measurements' (napr. 'string')
             $table->integer('electricityCalc')->nullable()->default(null);
             $table->integer('electricity_panelCalc')->nullable()->default(null);
             $table->integer('gasCalc')->nullable()->default(null);
@@ -22,12 +20,10 @@ return new class extends Migration
             $table->time('time')->nullable()->default(null);
             $table->timestamps();
 
-            // Pridanie cudzieho kľúča
-            $table->foreign('deviceCalc_id')
+            $table->foreignId('deviceCalc_id')
                 ->references('device_id')
                 ->on('measurements')
                 ->onUpdate('cascade');
-
         });
     }
 

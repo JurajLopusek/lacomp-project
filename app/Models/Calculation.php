@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use App\Filament\Interfaces\FilamentLabelInterface;
-use Database\Factories\DeviceFactory;
+use Database\Factories\CalculationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Calculation extends Model
+/**
+ * @mixin IdeHelperCalculation
+ */
+class Calculation extends GeneralModel
 {
-    /** @use HasFactory<DeviceFactory> */
+    /** @use HasFactory<CalculationFactory> */
     use HasFactory;
 
     protected $table = 'calculations';
@@ -26,7 +27,6 @@ class Calculation extends Model
         'created_at',
         'updated_at',
 
-
     ];
     protected $casts = [
         'deviceCalc_id' => 'integer',
@@ -41,6 +41,7 @@ class Calculation extends Model
         'updated_at' => 'datetime',
 
     ];
+
     public function calculation(): BelongsTo
     {
         return $this->belongsTo(Measurement::class);
