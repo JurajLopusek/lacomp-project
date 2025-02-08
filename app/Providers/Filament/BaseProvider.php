@@ -232,7 +232,12 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
 
         TextInput::configureUsing(static function (TextInput $textInput): void {
-            $textInput->placeholder(fn (): string => 'Zadajte ' . Str::lower($textInput->getLabel()));
+            $textInput->placeholder(function () use ($textInput): string {
+                /** @var string $text */
+                $text = $textInput->getLabel();
+
+                return 'Zadajte ' . Str::lower($text);
+            });
         });
 
         TrashedFilter::configureUsing(static function (TrashedFilter $trashedFilter): void {

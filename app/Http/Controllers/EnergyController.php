@@ -21,8 +21,10 @@ class EnergyController extends Controller
         $cas = now()->format('d.m.Y H:i:s');
         $file = fopen(storage_path('logs/data_log.txt'), 'a'); // Logovanie do vlastného súboru
         $riadok = $cas . "; " . $log . "\n";
-        fwrite($file, $riadok);
-        fclose($file);
+        if ($file) {
+            fwrite($file, $riadok);
+            fclose($file);
+        }
 
         // Kontrola na id zakaznika
 

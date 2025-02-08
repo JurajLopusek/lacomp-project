@@ -32,10 +32,13 @@ class ListRecordsEnhanced extends ListRecords
             $perPage = self::MAX_PER_PAGE;
         }
 
+        /** @var int|null $pagination */
+        $pagination = is_null($perPage) ? null : (int)$perPage;
+
         if ($useSimple) {
-            $records = $query->simplePaginate($perPage);
+            $records = $query->simplePaginate($pagination);
         } else {
-            $records = $query->paginate($perPage);
+            $records = $query->paginate($pagination);
             $records->onEachSide(1);
         }
 
