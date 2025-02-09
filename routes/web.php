@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeviceController;
+use App\Http\Middleware\AllowHttpForSpecificRoutes;
 use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,8 @@ Route::group([], static function () {
         return view('welcome');
     });
 
-    Route::get('/data.php', [DeviceController::class, 'store']);
+    Route::middleware(AllowHttpForSpecificRoutes::class)
+        ->get('/data.php', [DeviceController::class, 'store']);
 
     Route::get('/kontakt', static function () {
         return view('pages.contact');
