@@ -12,6 +12,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "sentry/sentry-laravel": "^4.12",
         "spatie/laravel-permission": "^6.12",
         "timokoerber/laravel-one-time-operations": "^1.4"
     },
