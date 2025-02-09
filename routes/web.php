@@ -21,7 +21,7 @@ Route::group([], static function () {
         return view('welcome');
     });
 
-    Route::get('/data.php', [DeviceController::class, 'store'])->httpOnly();
+    Route::get('/data.php', [DeviceController::class, 'store']);
 
     Route::get('/kontakt', static function () {
         return view('pages.contact');
