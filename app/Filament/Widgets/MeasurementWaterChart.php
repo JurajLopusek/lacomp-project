@@ -13,7 +13,7 @@ class MeasurementWaterChart extends ChartWidget
 
     protected function getData(): array
     {
-        $device = Device::findOrFail(42);
+        $device = Device::findOrFail(21);  // TODO MK: fix
         $measurements = $device->measurements->sortBy('time')->take(-10);
 
         $water = $measurements->pluck('water', 'time')->toArray();

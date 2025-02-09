@@ -40,7 +40,7 @@ class DeviceController extends Controller
 
         try {
             Measurement::create([
-                'device_id' => Device::where('serial_number', $validatedData['id'])->firstOrFail()->id,
+                'device_id' => Device::where('serial_number', $validatedData['id'])->firstOrFail()->id,  // TODO MK: cache
                 'electricity' => $validatedData['eled'],
                 'electricity_panel' => -1,  // TODO JL: fix
                 'gas' => $validatedData['pln'],

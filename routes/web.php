@@ -22,7 +22,6 @@ Route::group([], static function () {
     });
 
     Route::get('/data.php', [DeviceController::class, 'store']);
-    // Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']); // Uncomment if needed
 
     Route::get('/kontakt', static function () {
         return view('pages.contact');

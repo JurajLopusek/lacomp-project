@@ -13,6 +13,7 @@ class MeasurementObserver
     public function created(Measurement $measurement): void
     {
         $lastMeasurement = Measurement::orderBy('time', 'desc')
+            ->where('device_id', $measurement->device_id)
             ->where('time', '<', $measurement->time)
             ->first();
 
