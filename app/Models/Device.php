@@ -43,6 +43,9 @@ class Device extends GeneralModel implements FilamentLabelInterface
         return "#{$this->id} {$this->name} | {$this->serial_number}";
     }
 
+    /**
+     * @return HasMany<Measurement, $this>
+     */
     public function measurements(): HasMany
     {
         return $this->hasMany(Measurement::class);

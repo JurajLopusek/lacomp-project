@@ -1,32 +1,38 @@
 <?php
 
 use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\EnergyController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('pages.home');
+// REDIRECTS
+Route::redirect('login', '/admin/login')->name('login');
+
+// NO AUTH GROUP
+Route::group([], static function () {
+    Route::get('/', static function () {
+        return view('pages.home');
+    });
+
+    Route::get('/alarmy', static function () {
+        return view('pages.alarm');
+    });
+
+    Route::get('/kamery', static function () {
+        return view('welcome');
+    });
+
+    Route::get('/data.php', [DeviceController::class, 'store']);
+
+    Route::get('/kontakt', static function () {
+        return view('pages.contact');
+    });
+
+    Route::get('/counter', Counter::class);
 });
 
-Route::get('/alarmy', function () {
-    return view('pages.alarm');
-});
-
-Route::get('/kamery', function () {
-    return view('welcome');
-});
-
-Route::get('/test', function () {
-    return view('test');
-});
-Route::get('/data.php', [DeviceController::class, 'store']);
-
-//Route::get('/meranie_spotreby', [EnergyController::class, 'storeData']);
-
-Route::get('/kontakt', function () {
-    return view('pages.contact');
-});
-
-use App\Livewire\Counter;
-
-Route::get('/counter', Counter::class);
+// LOCAL DEV
+if (App::environment('local')) {
+    Route::get('/test', static function () {
+        return view('test');
+    });
+}

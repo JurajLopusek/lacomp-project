@@ -24,7 +24,7 @@ trait OperatorOptionTrait
         return $this;
     }
 
-    public function getOperator(): string
+    public function getOperator(): ?string
     {
         return $this->operator;
     }

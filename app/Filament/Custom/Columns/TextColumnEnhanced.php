@@ -53,7 +53,7 @@ class TextColumnEnhanced extends TextColumn
                 if ($isDate) {
                     $search = preg_replace('/\s+/', '', $search);
                     $dateToSearch = $search;
-                    if (strlen($search) >= 8) {
+                    if (strlen((string)$search) >= 8) {
                         try {
                             $carbonValue = Carbon::parse($search);
                             if ($carbonValue->isValid()) {

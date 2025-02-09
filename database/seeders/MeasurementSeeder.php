@@ -4,18 +4,20 @@ namespace Database\Seeders;
 
 use App\Models\Measurement;
 use Illuminate\Database\Seeder;
+use Throwable;
 
 class MeasurementSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * @throws Throwable
      */
     public function run(): void
     {
-        $measurement = Measurement::factory()->create();
+        $measurement = Measurement::factory()->createQuietly();
 
         for ($i = 1; $i <= 20; $i++) {
-            Measurement::factory()->setDevice($measurement->device)->setMeasurements($measurement)->create();
+            Measurement::factory()->setDevice($measurement->device)->setMeasurements($measurement)->createQuietly();
         }
     }
 }

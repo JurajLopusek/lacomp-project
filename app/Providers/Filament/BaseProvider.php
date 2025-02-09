@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Enums\DateFormatEnum;
 use App\Filament\Traits\FilamentNotificationTrait;
 use Exception;
+use Filafly\PhosphorIconReplacement;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
@@ -63,6 +64,7 @@ abstract class BaseProvider extends PanelProvider
         $tableHooks = $tableHooks->getConstants();
         $widgetHooks = $widgetHooks->getConstants();
 
+        /** @var string $hook */
         foreach ($panelHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -70,6 +72,8 @@ abstract class BaseProvider extends PanelProvider
                 ]);
             });
         }
+
+        /** @var string $hook */
         foreach ($tableHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -77,6 +81,8 @@ abstract class BaseProvider extends PanelProvider
                 ]);
             });
         }
+
+        /** @var string $hook */
         foreach ($widgetHooks as $hook) {
             $panel->renderHook($hook, function () use ($hook) {
                 return Blade::render('<div style="border: solid red 1px; padding: 2px;">{{ $name }}</div>', [
@@ -114,7 +120,7 @@ abstract class BaseProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->databaseTransactions()
             ->plugins([
-
+                PhosphorIconReplacement::make()->light(),
             ])
             ->maxContentWidth(MaxWidth::Full)
             ->bootUsing(function () {
@@ -172,7 +178,7 @@ abstract class BaseProvider extends PanelProvider
                 ->label('')
                 ->iconButton()
                 ->requiresConfirmation()
-                ->modalHeading(fn (Model $record, $livewire): string => sprintf('Duplikovať: #%d', $record->getKey())) // FIXME
+                ->modalHeading(fn (Model $record, $livewire): string => 'Duplikovať')
                 ->tooltip('Duplikovať');
         }, isImportant: true);
 
@@ -231,7 +237,12 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
 
         TextInput::configureUsing(static function (TextInput $textInput): void {
-            $textInput->placeholder(fn (): string => 'Zadajte ' . Str::lower($textInput->getLabel()));
+            $textInput->placeholder(function () use ($textInput): string {
+                /** @var string $text */
+                $text = $textInput->getLabel();
+
+                return 'Zadajte ' . Str::lower($text);
+            });
         });
 
         TrashedFilter::configureUsing(static function (TrashedFilter $trashedFilter): void {
@@ -267,7 +278,7 @@ abstract class BaseProvider extends PanelProvider
         }, isImportant: true);
     }
 
-    public static function colorConfigurator(array $colors = []): void
+    public static function colorConfigurator(): void
     {
         FilamentColor::register([
             'filamentPrimary' => Color::Blue,

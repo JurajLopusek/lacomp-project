@@ -2,23 +2,20 @@
 
 namespace App\Models;
 
-use App\Observers\MeasurementObserver;
-use App\QueryBuilders\MeasurementQueryBuilder;
-use Database\Factories\MeasurementFactory;
-use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use App\QueryBuilders\CalculationQueryBuilder;
+use Database\Factories\CalculationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * @mixin IdeHelperMeasurement
+ * @mixin IdeHelperCalculation
  */
-#[ObservedBy([MeasurementObserver::class])]
-class Measurement extends GeneralModel
+class Calculation extends GeneralModel
 {
-    /** @use HasFactory<MeasurementFactory> */
+    /** @use HasFactory<CalculationFactory> */
     use HasFactory;
 
-    protected $table = 'measurements';
+    protected $table = 'calculations';
     protected $fillable = [
         'device_id',
         'electricity',
@@ -52,11 +49,19 @@ class Measurement extends GeneralModel
 
     /**
      * @param $query
-     * @return MeasurementQueryBuilder
+     * @return CalculationQueryBuilder
      */
-    public function newEloquentBuilder($query): MeasurementQueryBuilder
+    public function newEloquentBuilder($query): CalculationQueryBuilder
     {
-        return new MeasurementQueryBuilder($query);
+        return new CalculationQueryBuilder($query);
+    }
+
+    /**
+     * @return BelongsTo<Measurement, $this>
+     */
+    public function calculation(): BelongsTo
+    {
+        return $this->belongsTo(Measurement::class);
     }
 
     /**

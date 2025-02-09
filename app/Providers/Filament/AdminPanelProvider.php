@@ -17,15 +17,14 @@ class AdminPanelProvider extends BaseProvider
     public function panel(Panel $panel): Panel
     {
         $panel
-            ->default()
             ->login()
+            ->default()
             ->passwordReset()
             ->bootUsing(function () {
                 parent::bootCommon();
             })
             ->id(FilamentPanelEnum::ADMIN->value)
             ->path(FilamentPanelEnum::ADMIN->value)
-            ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])

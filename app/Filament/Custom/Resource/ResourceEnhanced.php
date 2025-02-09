@@ -38,7 +38,8 @@ class ResourceEnhanced extends Resource
             return $modelLabel;
         }
 
-        $modelStr = "#{$record->getKey()}";
+        $key = $record->getKeyName();
+        $modelStr = "#{$record->$key}";
 
         if (isset($record->filament_label)) {
             /** @var string $filamentLabel */
@@ -65,6 +66,10 @@ class ResourceEnhanced extends Resource
         return [];
     }
 
+    /**
+     * @param Builder<Model> $query
+     * @return Builder<Model>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         return $query;

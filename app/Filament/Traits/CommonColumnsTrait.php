@@ -6,6 +6,7 @@ use App\Filament\Custom\Columns\TextColumnEnhanced;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
 trait CommonColumnsTrait
@@ -17,7 +18,9 @@ trait CommonColumnsTrait
      */
     protected static function getCommonColumns(Table $table, bool $hideCommonColumns = true): array
     {
-        $modelTable = (new ($table->getModel()))->getTable();
+        /** @var Model $model */
+        $model = new ($table->getModel());
+        $modelTable = $model->getTable();
 
         $columns = [
             TextColumn::make('creator.name')

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             FilamentUser::class,
             DeviceSeeder::class,
             MeasurementSeeder::class,
+            CalculationSeeder::class,
         ]);
     }
 }

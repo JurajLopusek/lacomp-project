@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
  */
 class GeneralModel extends Model
 {
-    public function __construct(array $attributes = [])
+    public function __construct()
     {
-        parent::__construct($attributes);
+        parent::__construct();
 
         $this->mergeCasts([
             // DATES
@@ -55,11 +55,17 @@ class GeneralModel extends Model
         });
     }
 
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class, 'creator_id')->withDefault();
     }
 
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function updater(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updater_id')->withDefault();

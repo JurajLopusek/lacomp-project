@@ -55,7 +55,7 @@ class UserResource extends ResourceEnhanced
         $table
             ->columns([
                 IdColumnEnhanced::factory()
-                    ->setWhereClauseAttribute(self::$recordRouteKeyName),
+                    ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
                 TextColumnEnhanced::make('name'),
                 TextColumnEnhanced::make('email'),
                 TextColumnEnhanced::make('email_verified_at')
@@ -94,6 +94,9 @@ class UserResource extends ResourceEnhanced
         ];
     }
 
+    /**
+     * @return Builder<User>
+     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -101,6 +104,10 @@ class UserResource extends ResourceEnhanced
         return self::getResourceEloquentQuery($query);
     }
 
+    /**
+     * @param Builder<User> $query
+     * @return Builder<User>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         // scope

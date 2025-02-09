@@ -22,7 +22,7 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
     use CommonColumnsTrait;
 
     protected static ?string $model = Measurement::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'phosphor-gauge';
     protected static ?string $label = 'Meranie';
     protected static ?string $pluralLabel = 'Merania';
     protected static ?string $navigationGroup = FilamentPanelNavigationGroupEnum::DEVICE->value;
@@ -36,7 +36,7 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         $table
             ->columns([
                 IdColumnEnhanced::factory()
-                    ->setWhereClauseAttribute(self::$recordRouteKeyName),
+                    ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
                 DeviceColumnEnhanced::factory(),
                 TextColumnEnhanced::make('electricity'),
                 TextColumnEnhanced::make('electricity_panel'),
@@ -69,6 +69,9 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         ];
     }
 
+    /**
+     * @return Builder<Measurement>
+     */
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
@@ -76,6 +79,10 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
         return self::getResourceEloquentQuery($query);
     }
 
+    /**
+     * @param Builder<Measurement> $query
+     * @return Builder<Measurement>
+     */
     public static function getResourceEloquentQuery(Builder $query): Builder
     {
         // scope

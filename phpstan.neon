@@ -1,5 +1,5 @@
 includes:
-    - ./vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
 
 parameters:
     treatPhpDocTypesAsCertain: false
@@ -7,7 +7,11 @@ parameters:
     paths:
         - app/
 
-    level: 5
+    excludePaths:
+        - storage/
+        - bootstrap/
+
+    level: 10
 
     scanFiles:
         - _ide_helper_models.php

@@ -17,7 +17,7 @@ class DeviceResource extends ResourceEnhanced
     use CommonColumnsTrait;
 
     protected static ?string $model = Device::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'phosphor-usb';
     protected static ?string $label = 'Zariadenie';
     protected static ?string $pluralLabel = 'Zariadenia';
     protected static ?string $navigationGroup = FilamentPanelNavigationGroupEnum::DEVICE->value;

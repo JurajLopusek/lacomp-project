@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Filament\Enums\FilamentPanelEnum;
+use App\QueryBuilders\UserQueryBuilder;
 use Database\Factories\UserFactory;
 use Exception;
 use Filament\Models\Contracts\FilamentUser;
@@ -62,11 +63,11 @@ class User extends Authenticatable implements FilamentUser
         });
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function newEloquentBuilder($query): UserQueryBuilder
+    {
+        return new UserQueryBuilder($query);
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -80,12 +81,6 @@ class User extends Authenticatable implements FilamentUser
         'creator_id',
         'updater_id',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -119,11 +114,17 @@ class User extends Authenticatable implements FilamentUser
         return FilamentPanelEnum::from($panel->getId())->hasRights($this);
     }
 
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function creator(): BelongsTo
     {
         return $this->belongsTo(self::class, 'creator_id')->withDefault();
     }
 
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function updater(): BelongsTo
     {
         return $this->belongsTo(self::class, 'updater_id');

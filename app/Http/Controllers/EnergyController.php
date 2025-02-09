@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 
 class EnergyController extends Controller
 {
-    public function storeData(Request $request)
+    public function storeData(Request $request): JsonResponse
     {
         // Kontrola či bolo niečo poslané
         if (empty($request->query())) {
@@ -19,8 +21,10 @@ class EnergyController extends Controller
         $cas = now()->format('d.m.Y H:i:s');
         $file = fopen(storage_path('logs/data_log.txt'), 'a'); // Logovanie do vlastného súboru
         $riadok = $cas . "; " . $log . "\n";
-        fwrite($file, $riadok);
-        fclose($file);
+        if ($file) {
+            fwrite($file, $riadok);
+            fclose($file);
+        }
 
         // Kontrola na id zakaznika
 
@@ -32,12 +36,12 @@ class EnergyController extends Controller
 
         // Získanie údajov z GET a zabezpečenie proti XSS
         $vstup = [
-            'id' => htmlspecialchars($request->input('id'), ENT_QUOTES, "UTF-8"),
-            'eled' => $request->input('eled', 0),
-            'elen' => $request->input('elen', 0),
-            'pln' => $request->input('pln', 0),
-            'vod' => $request->input('vod', 0),
-            'tepvn' => $request->input('tepvn', 0),
+            'id' => htmlspecialchars($request->string('id'), ENT_QUOTES, "UTF-8"),
+            'eled' => $request->string('eled', 0),
+            'elen' => $request->string('elen', 0),
+            'pln' => $request->string('pln', 0),
+            'vod' => $request->string('vod', 0),
+            'tepvn' => $request->string('tepvn', 0),
         ];
 
         // Kontrola na regularne vyrazy
