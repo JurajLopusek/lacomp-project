@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpFoundation\Response;
 
 class AllowHttpForSpecificRoutes
@@ -15,12 +16,8 @@ class AllowHttpForSpecificRoutes
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $allowedRoutes = [
-            'data.php',
-        ];
-
-        if (!$request->secure() && !in_array($request->path(), $allowedRoutes)) {
-            return redirect()->secure($request->getRequestUri());
+        if ($request->is('data.php')) {
+            URL::forceScheme('http');
         }
 
         return $next($request);
