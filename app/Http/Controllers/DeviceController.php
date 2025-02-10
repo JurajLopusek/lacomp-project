@@ -45,7 +45,7 @@ class DeviceController extends Controller
                 'electricity_panel' => -1,  // TODO JL: fix
                 'gas' => $validatedData['pln'],
                 'water' => $validatedData['vod'],
-                'outside_temperature' => $validatedData['temp'],
+                'outside_temperature' => -1,
                 'time' => now()->toDateTimeString(),
             ]);
             Log::info('Data successfully saved to the database', $validatedData);
