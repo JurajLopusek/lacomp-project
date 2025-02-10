@@ -29,7 +29,7 @@ class DeviceController extends Controller
                 'eled' => 'required|integer',
                 'pln' => 'required|integer',
                 'vod' => 'required|integer',
-                'temp' => 'required|integer',
+//                'temp' => 'required|integer',
             ]);
         } catch (Exception $e) {
             return response()->json([
