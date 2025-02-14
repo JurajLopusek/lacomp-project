@@ -7,10 +7,11 @@ use App\Models\Device;
 use Carbon\Carbon;
 use Filament\Forms\Components\Select;
 use Filament\Widgets\ChartWidget;
+use Filament\Widgets\Widget;
 
-class MeasurementStats extends ChartWidget
+class MeasurementStats extends Widget
 {
-    protected static ?string $heading = 'Spotreba vody';
+    protected static ?string $heading = 'Spotreba elektriky';
 
     public ?string $selectedPeriod = 'day'; // Predvolený filter
 
@@ -32,7 +33,7 @@ class MeasurementStats extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Voda',
+                    'label' => 'Elektrika',
                     'color' => '#00A3F5',
                     'backgroundColor' => '#00A3F5',
                     'borderColor' => '#00A3F5',
