@@ -27,7 +27,7 @@ class MeasurementStats extends ChartWidget
         } elseif ($this->selectedPeriod === 'month') {
             $measurementsWater = $measurementsWater->where('time', '>=', Carbon::now()->subMonth());
         }
-        $water = $measurementsWater->pluck('water', 'time')->toArray();
+        $electricity = $measurementsWater->pluck('electricity', 'time')->toArray();
 
         return [
             'datasets' => [
@@ -36,10 +36,10 @@ class MeasurementStats extends ChartWidget
                     'color' => '#00A3F5',
                     'backgroundColor' => '#00A3F5',
                     'borderColor' => '#00A3F5',
-                    'data' => array_values($water),
+                    'data' => array_values($electricity),
                 ],
             ],
-            'labels' => array_map(static fn($key) => Carbon::parse($key)->format(DateFormatEnum::HI->value), array_keys($water)),
+            'labels' => array_map(static fn($key) => Carbon::parse($key)->format(DateFormatEnum::HI->value), array_keys($electricity)),
         ];
     }
 
