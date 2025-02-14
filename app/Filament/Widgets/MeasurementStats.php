@@ -18,7 +18,7 @@ class MeasurementStats extends ChartWidget
     protected function getData(): array
     {
         $device = Device::findOrFail(1);
-        $measurementsWater = $device->calculations->sortBy('time')->take;
+        $measurementsWater = $device->calculations->sortBy('time');
 
         if ($this->selectedPeriod === 'day') {
             $measurementsWater = $measurementsWater->where('time', '>=', Carbon::now()->subDay());
