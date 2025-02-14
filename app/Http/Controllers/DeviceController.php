@@ -20,8 +20,7 @@ class DeviceController extends Controller
     public function store(Request $request): ?JsonResponse
     {
         // testovanie pre http://localhost:8000/data.php?id=00650008D&eled=24799&pln=0&vod=123
-        Log::info('Prijatá požiadavka: ' . json_encode($request->all()));
-        Log::channel('device_log')->info('Prijatá požiadavka: ' . json_encode($request->all())); //testovanie
+        Log::info('Prijatá požiadavka: ' . json_encode($request->all()) . json_encode($request->headers->all()) . json_encode($request->getContent()));
 
         try {
             $validatedData = $request->validate([

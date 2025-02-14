@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Observers\MeasurementObserver;
 use App\QueryBuilders\CalculationQueryBuilder;
+use App\QueryBuilders\MeasurementQueryBuilder;
 use Database\Factories\CalculationFactory;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @mixin IdeHelperCalculation
  */
+#[ObservedBy([MeasurementObserver::class])]
 class Calculation extends GeneralModel
 {
     /** @use HasFactory<CalculationFactory> */
@@ -67,8 +71,12 @@ class Calculation extends GeneralModel
     /**
      * @return BelongsTo<Device, $this>
      */
+//    public function device(): BelongsTo
+//    {
+//        return $this->belongsTo(Device::class);
+//    }
     public function device(): BelongsTo
     {
-        return $this->belongsTo(Device::class);
+        return $this->belongsTo(Measurement::class);
     }
 }

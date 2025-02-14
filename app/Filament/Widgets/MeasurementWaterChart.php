@@ -14,8 +14,7 @@ class MeasurementWaterChart extends ChartWidget
     protected function getData(): array
     {
         $device = Device::findOrFail(21);
-        $measurements = $device->measurements->sortBy('time')->take(-20);
-
+        $measurements = $device->calculations->sortBy('time')->take(-20);
         $water = $measurements->pluck('water', 'time')->toArray();
         $electricity = $measurements->pluck('electricity', 'time')->toArray();
 

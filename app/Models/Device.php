@@ -50,4 +50,8 @@ class Device extends GeneralModel implements FilamentLabelInterface
     {
         return $this->hasMany(Measurement::class);
     }
+    public function calculations():HasMany
+    {
+        return $this->hasMany(Calculation::class);
+    }
 }
