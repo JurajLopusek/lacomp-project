@@ -7,9 +7,8 @@ use App\Models\Device;
 use Carbon\Carbon;
 use Filament\Forms\Components\Select;
 use Filament\Widgets\ChartWidget;
-use Filament\Widgets\Widget;
 
-class MeasurementStats extends Widget
+class MeasurementStats extends ChartWidget
 {
     protected static ?string $heading = 'Spotreba elektriky';
 
@@ -47,19 +46,5 @@ class MeasurementStats extends Widget
     protected function getType(): string
     {
         return 'bar';
-    }
-    protected function getFormSchema(): array
-    {
-        return [
-            Select::make('selectedPeriod')
-                ->label('Obdobie')
-                ->options([
-                    'day' => 'Posledných 24 hodín',
-                    'week' => 'Posledných 7 dní',
-                    'month' => 'Posledných 30 dní',
-                ])
-                ->default('day')
-                ->reactive(), // Zabezpečí, že sa graf obnoví po zmene výberu
-        ];
     }
 }
