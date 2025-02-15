@@ -19,18 +19,16 @@ class DeviceController extends Controller
      */
     public function store(Request $request): ?JsonResponse
     {
-        // testovanie pre http://localhost:8000/data.php?id=00650008D&eled=24799&pln=0&vod=123
-        Log::info('Prijatá požiadavka: ' . json_encode($request->all()) . json_encode($request->headers->all()) . json_encode($request->getContent()));
-
         try {
             $validatedData = $request->validate([
                 'id' => 'required|string',
                 'eled' => 'required|integer',
                 'pln' => 'required|integer',
                 'vod' => 'required|integer',
-//                'temp' => 'required|integer',
             ]);
         } catch (Exception $e) {
+            Log::channel('device_measurement')->error('Error validating data: ' . $e->getMessage());
+
             return response()->json([
                 'message' => 'Failed to validate data',
                 'error' => $e->getMessage(),
@@ -47,11 +45,10 @@ class DeviceController extends Controller
                 'outside_temperature' => -1,
                 'time' => now()->toDateTimeString(),
             ]);
-            Log::info('Data successfully saved to the database', $validatedData);
 
             return response()->json(['message' => 'Data successfully saved']);
         } catch (Exception $e) {
-            Log::error('Error saving data: ' . $e->getMessage(), $validatedData);
+            Log::channel('device_measurement')->error('Error saving data: ' . $e->getMessage(), $validatedData);
 
             return response()->json([
                 'message' => 'Failed to save data',

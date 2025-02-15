@@ -8,6 +8,7 @@
         "php": "^8.2",
         "filafly/phosphor-icon-replacement": "^1.0",
         "filament/filament": "^3.2",
+        "filipfonal/filament-log-manager": "^2.0",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

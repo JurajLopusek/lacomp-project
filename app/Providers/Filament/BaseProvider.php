@@ -35,6 +35,7 @@ use Filament\Tables\Table;
 use Filament\Tables\View\TablesRenderHook;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets\View\WidgetsRenderHook;
+use FilipFonal\FilamentLogManager\FilamentLogManager;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -121,6 +122,7 @@ abstract class BaseProvider extends PanelProvider
             ->databaseTransactions()
             ->plugins([
                 PhosphorIconReplacement::make()->light(),
+                FilamentLogManager::make(),
             ])
             ->maxContentWidth(MaxWidth::Full)
             ->bootUsing(function () {
