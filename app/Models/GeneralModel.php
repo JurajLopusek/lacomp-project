@@ -26,20 +26,20 @@ class GeneralModel extends Model
     {
         parent::boot();
 
-        self::creating(function ($model) {
+        self::creating(static function ($model) {
             /** @var null|User $user */
             $user = Auth::user();
-            $model->creator_id = $user ? $user->id : config('masterConfig.master_user_id');
+            $model->creator_id = $user->id ?? config('masterConfig.master_user_id');
         });
 
         self::created(function ($model) {
             // ... code here
         });
 
-        self::updating(function ($model) {
+        self::updating(static function ($model) {
             /** @var null|User $user */
             $user = Auth::user();
-            $model->updater_id = $user ? $user->id : config('masterConfig.master_user_id');
+            $model->updater_id = $user->id ?? config('masterConfig.master_user_id');
         });
 
         self::updated(function ($model) {

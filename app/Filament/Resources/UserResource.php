@@ -4,11 +4,13 @@ namespace App\Filament\Resources;
 
 use App\Filament\Custom\Columns\IdColumnEnhanced;
 use App\Filament\Custom\Columns\TextColumnEnhanced;
+use App\Filament\Custom\Inputs\DeviceSelect;
 use App\Filament\Custom\Resource\ResourceEnhanced;
 use App\Filament\Enums\FilamentPanelNavigationGroupEnum;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 use App\Filament\Traits\CommonColumnsTrait;
+use App\Models\Device;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -43,9 +45,14 @@ class UserResource extends ResourceEnhanced
                             ->maxLength(255),
                         Forms\Components\DateTimePicker::make('email_verified_at'),
                         Forms\Components\TextInput::make('password')
+                            ->hiddenOn('edit')
                             ->password()
                             ->required()
                             ->maxLength(255),
+                        DeviceSelect::factory()
+                            ->multiple()
+                            ->relationship('devices')
+                            ->options(Device::limit(25)->orderByDesc('id')->get()->pluck('filament_label', 'id')),
                     ]),
             ]);
     }
@@ -61,6 +68,10 @@ class UserResource extends ResourceEnhanced
                 TextColumnEnhanced::make('email_verified_at')
                     ->date()
                     ->copyable(),
+                TextColumnEnhanced::make('devices.filament_label')
+                    ->listWithLineBreaks()
+                    ->label('Zariadenia')
+                    ->listWithLineBreaks(),
             ])
             ->filters([
                 //
@@ -119,6 +130,7 @@ class UserResource extends ResourceEnhanced
         // with
         $query->with([
             'roles',
+            'devices',
         ]);
 
         return $query;

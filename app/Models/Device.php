@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Filament\Interfaces\FilamentLabelInterface;
 use Database\Factories\DeviceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -37,6 +38,9 @@ class Device extends GeneralModel implements FilamentLabelInterface
         'creator_id' => 'integer',
         'updater_id' => 'integer',
     ];
+    protected $appends = [
+        'filament_label',
+    ];
 
     public function getFilamentLabelAttribute(): string
     {
@@ -50,8 +54,14 @@ class Device extends GeneralModel implements FilamentLabelInterface
     {
         return $this->hasMany(Measurement::class);
     }
-    public function calculations():HasMany
+
+    public function calculations(): HasMany
     {
         return $this->hasMany(Calculation::class);
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }
