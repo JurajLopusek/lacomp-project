@@ -23,20 +23,22 @@ trait CommonColumnsTrait
         $modelTable = $model->getTable();
 
         $columns = [
-            TextColumn::make('creator.name')
+            TextColumn::make('creator.filament_label')
                 ->searchable(query: function (Builder $query, string $search): Builder {
                     return $query->whereHas('creator', function ($query) use ($search) {
-                        return $query->vyhladavanieObsahujuce($search);  // FIXME change
+                        $query->where('id', $search);
+                        $query->orWhere('name', 'like', "%{$search}%");
                     });
                 }, isIndividual: true, isGlobal: false)
                 ->label('Vytvoril')
                 ->extraAttributes(['style' => 'min-width:140px;'], true)
                 ->toggleable()
                 ->toggledHiddenByDefault($hideCommonColumns),
-            TextColumn::make('updater.name')
+            TextColumn::make('updater.filament_label')
                 ->searchable(query: function (Builder $query, string $search): Builder {
                     return $query->whereHas('updater', function ($query) use ($search) {
-                        return $query->vyhladavanieObsahujuce($search);  // FIXME change
+                        $query->where('id', $search);
+                        $query->orWhere('name', 'like', "%{$search}%");
                     });
                 }, isIndividual: true, isGlobal: false)
                 ->label('Upravil')

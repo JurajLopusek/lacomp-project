@@ -76,6 +76,8 @@ class DeviceResource extends ResourceEnhanced implements ResourceEloquentQueryIn
                 Tables\Columns\IconColumn::make('active')
                     ->label('Aktívne'),
                 TextColumnEnhanced::make('users.filament_label')
+                    ->disableSort()
+                    ->disableSearch()
                     ->listWithLineBreaks()
                     ->label('Používatelia')
                     ->listWithLineBreaks(),

@@ -63,12 +63,17 @@ class UserResource extends ResourceEnhanced
             ->columns([
                 IdColumnEnhanced::factory()
                     ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
-                TextColumnEnhanced::make('name'),
-                TextColumnEnhanced::make('email'),
+                TextColumnEnhanced::make('name')
+                    ->label('Meno'),
+                TextColumnEnhanced::make('email')
+                    ->label('Email'),
                 TextColumnEnhanced::make('email_verified_at')
+                    ->label('Verifikovanie emailu')
                     ->date()
                     ->copyable(),
                 TextColumnEnhanced::make('devices.filament_label')
+                    ->disableSort()
+                    ->disableSearch()
                     ->listWithLineBreaks()
                     ->label('Zariadenia')
                     ->listWithLineBreaks(),
