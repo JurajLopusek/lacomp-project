@@ -39,6 +39,9 @@ class CalculationChartWidget extends ApexChartWidget
         return self::$heading;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function getOptions(): array
     {
         if (!isset($this->filters['device_id'])) {
@@ -63,7 +66,19 @@ class CalculationChartWidget extends ApexChartWidget
                 ],
             ],
             'xaxis' => [
-                'categories' => $calculation->pluck('date')->map(fn ($date) => Carbon::createFromDate($date)->format('d.m'))->toArray(),
+                'categories' =>  $calculation->pluck('date')
+                    ->map(function ($date) {
+                        if ($date instanceof Carbon) {
+                            return $date->format('d.m');
+                        }
+
+                        if (is_string($date)) {
+                            return Carbon::createFromFormat('Y-m-d', $date)?->format('d.m');
+                        }
+
+                        return null;
+                    })
+                    ->toArray(),
                 'labels' => [
                     'style' => [
                         'fontFamily' => 'inherit',

@@ -46,11 +46,17 @@ class Device extends GeneralModel implements FilamentLabelInterface
         return $this->hasMany(Measurement::class);
     }
 
+    /**
+     * @return HasMany<Calculation, $this>
+     */
     public function calculations(): HasMany
     {
         return $this->hasMany(Calculation::class);
     }
 
+    /**
+     * @return BelongsToMany<User, $this>
+     */
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withTimestamps();

@@ -37,12 +37,15 @@ class ConsumptionPage extends Page
                     ->schema([
                         DeviceSelect::factory()
                             ->afterStateUpdated(fn (): Event => $this->dispatch('updateOptions'))
-                            ->default(Device::orderBy('created_at', 'desc')->first()->id)
+                            ->default(Device::orderBy('created_at', 'desc')->first()?->id)
                             ->options(Device::limit(25)->orderByDesc('id')->get()->pluck('filament_label', 'id')),
                     ]),
             ]);
     }
 
+    /**
+     * @return string[]
+     */
     public function footerWidgets(): array
     {
         return [

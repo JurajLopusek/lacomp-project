@@ -13,6 +13,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[ObservedBy(GeneralModelObserver::class)]
 class GeneralModel extends Model
 {
+    public mixed $creator_id;
+    public mixed $updater_id;
+
+    /**
+     * @param array<string, mixed> $attributes
+     */
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);

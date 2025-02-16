@@ -135,6 +135,9 @@ class User extends Authenticatable implements FilamentUser, FilamentLabelInterfa
         return $this->belongsTo(self::class, 'updater_id');
     }
 
+    /**
+     * @return BelongsToMany<Device, $this>
+     */
     public function devices(): BelongsToMany
     {
         return $this->belongsToMany(Device::class)->withTimestamps();
