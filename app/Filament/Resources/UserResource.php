@@ -13,6 +13,7 @@ use App\Filament\Traits\CommonColumnsTrait;
 use App\Models\Device;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -53,6 +54,9 @@ class UserResource extends ResourceEnhanced
                             ->multiple()
                             ->relationship('devices')
                             ->options(Device::limit(25)->orderByDesc('id')->get()->pluck('filament_label', 'id')),
+                        Select::make('role_id')
+                            ->relationship('roles', 'name')
+                            ->multiple(),
                     ]),
             ]);
     }
@@ -77,6 +81,13 @@ class UserResource extends ResourceEnhanced
                     ->listWithLineBreaks()
                     ->label('Zariadenia')
                     ->listWithLineBreaks(),
+                TextColumnEnhanced::make('roles.name')
+                    ->disableSearch()
+                    ->disableSort()
+                    ->listWithLineBreaks()
+                    ->badge()
+                    ->color('success')
+                    ->label('Role'),
             ])
             ->filters([
                 //
