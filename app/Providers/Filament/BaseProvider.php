@@ -49,6 +49,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 use ReflectionClass;
 
 abstract class BaseProvider extends PanelProvider
@@ -121,6 +122,7 @@ abstract class BaseProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->databaseTransactions()
             ->plugins([
+                FilamentApexChartsPlugin::make(),
                 PhosphorIconReplacement::make()->light(),
                 FilamentLogManager::make(),
             ])

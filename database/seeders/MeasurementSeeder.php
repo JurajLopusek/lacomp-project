@@ -16,7 +16,7 @@ class MeasurementSeeder extends Seeder
     {
         $measurement = Measurement::factory()->createQuietly();
 
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 200; $i++) {
             Measurement::factory()->setDevice($measurement->device)->setMeasurements($measurement)->createQuietly();
         }
     }

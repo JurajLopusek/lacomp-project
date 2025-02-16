@@ -7,9 +7,6 @@ use App\Models\Measurement;
 
 class MeasurementObserver
 {
-    /**
-     * Handle the Measurement "created" event.
-     */
     public function created(Measurement $measurement): void
     {
         $lastMeasurement = Measurement::orderBy('time', 'desc')
@@ -28,37 +25,5 @@ class MeasurementObserver
                 'time' => $measurement->time,
             ]);
         }
-    }
-
-    /**
-     * Handle the Measurement "updated" event.
-     */
-    public function updated(Measurement $measurement): void
-    {
-        //
-    }
-
-    /**
-     * Handle the Measurement "deleted" event.
-     */
-    public function deleted(Measurement $measurement): void
-    {
-        //
-    }
-
-    /**
-     * Handle the Measurement "restored" event.
-     */
-    public function restored(Measurement $measurement): void
-    {
-        //
-    }
-
-    /**
-     * Handle the Measurement "force deleted" event.
-     */
-    public function forceDeleted(Measurement $measurement): void
-    {
-        //
     }
 }

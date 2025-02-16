@@ -22,21 +22,12 @@ class Device extends GeneralModel implements FilamentLabelInterface
         'name',
         'location',
         'active',
-
-        'created_at',
-        'updated_at',
-
-        'creator_id',
-        'updater_id',
     ];
     protected $casts = [
         'serial_number' => 'string',
         'name' => 'string',
         'location' => 'string',
         'active' => 'boolean',
-
-        'creator_id' => 'integer',
-        'updater_id' => 'integer',
     ];
     protected $appends = [
         'filament_label',

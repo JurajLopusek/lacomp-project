@@ -27,12 +27,6 @@ class Measurement extends GeneralModel
         'water',
         'outside_temperature',
         'time',
-
-        'created_at',
-        'updated_at',
-
-        'creator_id',
-        'updater_id',
     ];
     protected $casts = [
         'device_id' => 'integer',
@@ -42,12 +36,6 @@ class Measurement extends GeneralModel
         'water' => 'integer',
         'outside_temperature' => 'integer',
         'time' => 'datetime',
-
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-
-        'creator_id' => 'integer',
-        'updater_id' => 'integer',
     ];
 
     /**

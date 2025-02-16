@@ -22,7 +22,6 @@ class DeviceSelect
             ->getSearchResultsUsing(fn (string $search) => $model::where(static function (Builder $q) use ($search, $model) {
                 $q->where($model->getKeyName(), $search);
                 $q->orWhere('serial_number', 'like', "%{$search}%");
-                $q->orWhere('email', 'like', "%{$search}%");
             })->limit(25)
                 ->get()
                 ->pluck(self::$key, $model->getKeyName()))

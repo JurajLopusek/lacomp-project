@@ -6,6 +6,9 @@ use App\Models\Device;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Device>
+ */
 class DeviceFactory extends Factory
 {
     protected $model = Device::class;
@@ -15,8 +18,6 @@ class DeviceFactory extends Factory
         return [
             'serial_number' => $this->faker->unique()->regexify('[A-Z0-9]{7}'),
             'active' => 1,
-
-            'creator_id' => config('masterConfig.master_user_id'),
         ];
     }
 
