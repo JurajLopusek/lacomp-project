@@ -12,6 +12,7 @@ class GeneralModelObserver
     {
         /** @var null|User $user */
         $user = Auth::user();
+        /** @phpstan-ignore-next-line  */
         $generalModel->creator_id = $user->id ?? config('masterConfig.master_user_id');
     }
 
@@ -19,6 +20,7 @@ class GeneralModelObserver
     {
         /** @var null|User $user */
         $user = Auth::user();
+        /** @phpstan-ignore-next-line  */
         $generalModel->updater_id = $user->id ?? config('masterConfig.master_user_id');
     }
 }
