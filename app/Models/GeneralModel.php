@@ -13,9 +13,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 #[ObservedBy(GeneralModelObserver::class)]
 class GeneralModel extends Model
 {
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
 
         $this->mergeFillable([
             'created_at',
