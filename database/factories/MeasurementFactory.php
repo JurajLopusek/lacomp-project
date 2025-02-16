@@ -21,8 +21,6 @@ class MeasurementFactory extends Factory
     public function definition(): array
     {
         return [
-            'device_id' => Device::factory()->fullData()->create()->id,
-
             'electricity' => 0,
             'electricity_panel' => 0,
             'gas' => 0,
@@ -46,16 +44,13 @@ class MeasurementFactory extends Factory
     public function setMeasurements(Measurement $measurement): self
     {
         return $this->state(function (array $attributes) use ($measurement) {
-            /** @var Measurement $measurements */
-            $measurements = Measurement::where('device_id', $measurement->device_id)->get();
-
             return [
-                'electricity' => $measurements->max('electricity') + $this->faker->numberBetween(1, 20),
-                'electricity_panel' => $measurements->max('electricity_panel') + $this->faker->numberBetween(1, 20),
-                'gas' => $measurements->max('gas') + $this->faker->numberBetween(1, 20),
-                'water' => $measurements->max('water') + $this->faker->numberBetween(1, 20),
-                'outside_temperature' => $measurements->max('outside_temperature') + $this->faker->numberBetween(1, 20),
-                'time' => Carbon::parse($measurements->max('time'))->addMinutes(10),
+                'electricity' => $measurement->electricity + $this->faker->numberBetween(1, 20),
+                'electricity_panel' => $measurement->electricity_panel + $this->faker->numberBetween(1, 5),
+                'gas' => $measurement->gas + $this->faker->numberBetween(1, 50),
+                'water' => $measurement->water + $this->faker->numberBetween(1, 100),
+                'outside_temperature' => $measurement->outside_temperature + $this->faker->numberBetween(-2, 2),
+                'time' => Carbon::parse($measurement->time)->addMinutes(10),
 
                 'updater_id' => $this->faker->randomElement([User::inRandomOrder()->first()?->id]),
             ];
