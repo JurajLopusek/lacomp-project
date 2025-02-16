@@ -49,7 +49,7 @@ class MeasurementFactory extends Factory
                 'electricity_panel' => $measurement->electricity_panel + $this->faker->numberBetween(1, 5),
                 'gas' => $measurement->gas + $this->faker->numberBetween(1, 50),
                 'water' => $measurement->water + $this->faker->numberBetween(1, 100),
-                'outside_temperature' => $measurement->outside_temperature + $this->faker->numberBetween(-2, 2),
+                'outside_temperature' => $measurement->outside_temperature + $this->faker->randomFloat(2, -5, 5),
                 'time' => Carbon::parse($measurement->time)->addMinutes(10),
 
                 'updater_id' => $this->faker->randomElement([User::inRandomOrder()->first()?->id]),

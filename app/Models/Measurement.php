@@ -34,7 +34,7 @@ class Measurement extends GeneralModel
         'electricity_panel' => 'integer',
         'gas' => 'integer',
         'water' => 'integer',
-        'outside_temperature' => 'integer',
+        'outside_temperature' => 'float',
         'time' => 'datetime',
     ];
 
