@@ -73,13 +73,13 @@ class CalculationChartWidget extends ApexChartWidget
             ->orderBy('date')
             ->groupBy(DB::raw('date'))
             ->get();
-        $graphType = GraphType::tryFrom($this->filters['graphType']); // Predvolený typ: 'LINE'
+        $graphType = GraphType::tryFrom($this->filters['graphType']);
         return [
             'chart' => [
-                'type' => $graphType ? $graphType->selectType() : 'line', // Stĺpcový graf
+                'type' => $graphType ? $graphType->selectType() : 'line',
                 'height' => 300,
                 'toolbar' => [
-                    'show' => true, // Uistite sa, že toolbar je zobrazený
+                    'show' => true,
                 ],
             ],
             'series' => [
@@ -121,16 +121,6 @@ class CalculationChartWidget extends ApexChartWidget
                 'curve' => 'smooth',
                 'width' => 3,
             ],
-//            'plotOptions' => [
-//                'bar' => [
-//                    'toolbar' => [
-//                        'show' => true, // Uistite sa, že toolbar je zobrazený
-//                    ],
-//                    'dataLabels' => [
-//                        'position' => 'top',
-//                    ],
-//                ],
-//            ],
         ];
     }
 }
