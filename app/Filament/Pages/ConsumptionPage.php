@@ -3,7 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Enums\ConsumptionRangeEnum;
-use App\Enums\GraphType;
+use App\Enums\GraphTypeEnum;
 use App\Filament\Custom\Inputs\DeviceSelect;
 use App\Filament\Enums\FilamentPanelNavigationGroupEnum;
 use App\Filament\Traits\SlugPageTrait;
@@ -64,10 +64,10 @@ class ConsumptionPage extends Page
                             ->options(ConsumptionRangeEnum::filamentOptions('value'))
                             ->default(ConsumptionRangeEnum::DAY->value),
                         Select::make('graphType')
-                            ->label('Vybrat typ grafu')
-                            ->placeholder('Vyber typ grafu')
-                            ->options(GraphType::filamentOptions('value'))
-                            ->default(GraphType::LINE->value),
+                            ->label('Vybrať typ grafu')
+                            ->placeholder('Vyberte typ grafu')
+                            ->options(GraphTypeEnum::filamentOptions())
+                            ->default(GraphTypeEnum::LINE->value),
                     ]),
 
             ]);
