@@ -2,7 +2,7 @@
     <!-- Tlačidlo na otváranie menu -->
     <button
         wire:click="toggleMenu"
-        class="inline-flex ml-0 sm:ml-2 items-center justify-center p-2 rounded-md text-black dark:text-white hover:text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+        class="inline-flex ml-0 sm:ml-2 items-center justify-center p-2 rounded-md text-white hover:text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path d="{{ $open ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16' }}" stroke-linecap="round"
                   stroke-linejoin="round" stroke-width="2"/>
