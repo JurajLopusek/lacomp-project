@@ -3,6 +3,7 @@
 namespace App\Filament\Widgets\Calculations;
 
 use App\Enums\ConsumptionRangeEnum;
+use App\Enums\GraphType;
 use App\Models\Calculation;
 use App\Models\Device;
 use Carbon\Carbon;
@@ -69,14 +70,17 @@ class CalculationChartWidget extends ApexChartWidget
         }
 
         $calculation = $calculation
-            ->orderBy('date', 'desc')
+            ->orderBy('date')
             ->groupBy(DB::raw('date'))
             ->get();
-
+        $graphType = GraphType::tryFrom($this->filters['graphType']); // Predvolený typ: 'LINE'
         return [
             'chart' => [
-                'type' => 'line',
+                'type' => $graphType ? $graphType->selectType() : 'line', // Stĺpcový graf
                 'height' => 300,
+                'toolbar' => [
+                    'show' => true, // Uistite sa, že toolbar je zobrazený
+                ],
             ],
             'series' => [
                 [
@@ -85,7 +89,7 @@ class CalculationChartWidget extends ApexChartWidget
                 ],
             ],
             'xaxis' => [
-                'categories' =>  $calculation->pluck('date')
+                'categories' => $calculation->pluck('date')
                     ->map(function ($date) {
                         if (is_string($date)) {
                             $enum = ConsumptionRangeEnum::tryFrom($this->filters['groupBy']);
@@ -115,8 +119,18 @@ class CalculationChartWidget extends ApexChartWidget
             ],
             'stroke' => [
                 'curve' => 'smooth',
-                'width' => 2,
+                'width' => 3,
             ],
+//            'plotOptions' => [
+//                'bar' => [
+//                    'toolbar' => [
+//                        'show' => true, // Uistite sa, že toolbar je zobrazený
+//                    ],
+//                    'dataLabels' => [
+//                        'position' => 'top',
+//                    ],
+//                ],
+//            ],
         ];
     }
 }
