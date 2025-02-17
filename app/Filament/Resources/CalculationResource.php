@@ -12,6 +12,7 @@ use App\Filament\Resources\CalculationResource\Pages;
 use App\Filament\Traits\CommonColumnsTrait;
 use App\Models\Calculation;
 use Exception;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -32,28 +33,31 @@ class CalculationResource extends ResourceEnhanced
      */
     public static function table(Table $table): Table
     {
-        $table
-            ->columns([
-                IdColumnEnhanced::factory(),
-                DeviceColumnEnhanced::factory(),
-                TextColumnEnhanced::make('electricity')
-                    ->label('Elektrika'),
-                TextColumnEnhanced::make('electricity_panel')
-                    ->label('Elektrický panel'),
-                TextColumnEnhanced::make('gas')
-                    ->label('Plyn'),
-                TextColumnEnhanced::make('water')
-                    ->label('Voda'),
-                TextColumnEnhanced::make('outside_temperature')
-                    ->label('Teplota'),
-                TextColumnEnhanced::make('time')
-                    ->label('Čas'),
-            ])->defaultSort(self::$recordRouteKeyName, 'desc')
+        $table->columns([
+            IdColumnEnhanced::factory()
+                ->setWhereClauseAttribute(self::$recordRouteKeyName),
+            DeviceColumnEnhanced::factory(),
+            TextColumnEnhanced::make('electricity')
+                ->label('Elektrika'),
+            TextColumnEnhanced::make('electricity_panel')
+                ->label('Elektrický panel'),
+            TextColumnEnhanced::make('gas')
+                ->label('Plyn'),
+            TextColumnEnhanced::make('water')
+                ->label('Voda'),
+            TextColumnEnhanced::make('outside_temperature')
+                ->label('Teplota'),
+            TextColumnEnhanced::make('time')
+                ->label('Čas'),
+        ])->defaultSort(self::$recordRouteKeyName, 'desc')
+            ->actions([
+                DeleteAction::make(),
+            ])
             ->filters([
                 DeviceFilter::factory(),
             ], layout: FiltersLayout::AboveContentCollapsible);
 
-        return $table;
+        return parent::table($table);
     }
 
     public static function getPages(): array
