@@ -64,8 +64,8 @@ class ConsumptionPage extends Page
                             ->options(ConsumptionRangeEnum::filamentOptions('value'))
                             ->default(ConsumptionRangeEnum::DAY->value),
                         Select::make('graphType')
-                            ->label('Vybrat typ grafu')
-                            ->placeholder('Vyber typ grafu')
+                            ->label('Vybrať typ grafu')
+                            ->placeholder('Vyberte typ grafu')
                             ->options(GraphTypeEnum::filamentOptions())
                             ->default(GraphTypeEnum::LINE->value),
                     ]),
