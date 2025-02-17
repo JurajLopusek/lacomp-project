@@ -3,7 +3,7 @@
 namespace App\Filament\Widgets\Calculations;
 
 use App\Enums\ConsumptionRangeEnum;
-use App\Enums\GraphType;
+use App\Enums\GraphTypeEnum;
 use App\Models\Calculation;
 use App\Models\Device;
 use Carbon\Carbon;
@@ -26,10 +26,6 @@ class CalculationChartWidget extends ApexChartWidget
 
     protected function getHeading(): null|string|Htmlable|View
     {
-        if (!isset($this->filters['device_id'])) {
-            return $this->label;
-        }
-
         $device = Device::find($this->filters['device_id']);
 
         if ($device) {
@@ -70,13 +66,14 @@ class CalculationChartWidget extends ApexChartWidget
         }
 
         $calculation = $calculation
-            ->orderBy('date')
+            ->orderBy('date', 'desc')
             ->groupBy(DB::raw('date'))
             ->get();
-        $graphType = GraphType::tryFrom($this->filters['graphType']);
+        $graphType = GraphTypeEnum::tryFrom($this->filters['graphType']);
+
         return [
             'chart' => [
-                'type' => $graphType ? $graphType->selectType() : 'line',
+                'type' => $graphType->value ?? 'line',
                 'height' => 300,
                 'toolbar' => [
                     'show' => true,
