@@ -21,7 +21,9 @@
 </head>
 <body class="flex flex-col min-h-screen">
 <!-- Navigation -->
-@include("components.nav.nav")
+<div class="h-16 mb-2 sm:h-20 md:h-[70px] lg:h-[104px] xl:h-[104px]">
+    @include("components.nav.nav")
+</div>
 
 <!-- Content -->
 <div class="flex-grow m-3">
