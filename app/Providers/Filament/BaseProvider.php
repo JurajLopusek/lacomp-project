@@ -35,6 +35,7 @@ use Filament\Tables\Table;
 use Filament\Tables\View\TablesRenderHook;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets\View\WidgetsRenderHook;
+use FilipFonal\FilamentLogManager\FilamentLogManager;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -48,6 +49,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
+use Malzariey\FilamentDaterangepickerFilter\Fields\DateRangePicker;
+use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 use ReflectionClass;
 
 abstract class BaseProvider extends PanelProvider
@@ -120,7 +124,9 @@ abstract class BaseProvider extends PanelProvider
             ->unsavedChangesAlerts()
             ->databaseTransactions()
             ->plugins([
+                FilamentApexChartsPlugin::make(),
                 PhosphorIconReplacement::make()->light(),
+                FilamentLogManager::make(),
             ])
             ->maxContentWidth(MaxWidth::Full)
             ->bootUsing(function () {
@@ -247,6 +253,25 @@ abstract class BaseProvider extends PanelProvider
 
         TrashedFilter::configureUsing(static function (TrashedFilter $trashedFilter): void {
             $trashedFilter->native(false);
+        }, isImportant: true);
+
+        DateRangeFilter::configureUsing(static function (DateRangeFilter $dateRangeFilter) {
+            $dateRangeFilter
+                ->autoApply()
+                ->icon('heroicon-o-x-mark')
+                ->displayFormat(DateFormatEnum::DDMMYYYY_UPPER->value)
+                ->format(DateFormatEnum::DMY->value)
+                ->placeholder('Vyberte obdobie')
+                ->withIndicator();
+        }, isImportant: true);
+
+        DateRangePicker::configureUsing(static function (DateRangePicker $dateRangePicker) {
+            $dateRangePicker
+                ->autoApply()
+                ->icon('heroicon-o-x-mark')
+                ->displayFormat(DateFormatEnum::DDMMYYYY_UPPER->value)
+                ->format(DateFormatEnum::DMY->value)
+                ->placeholder('Vyberte obdobie');
         }, isImportant: true);
 
         TernaryFilter::configureUsing(static function (TernaryFilter $ternaryFilter): void {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Filament\Enums\FilamentPanelEnum;
+use App\Filament\Interfaces\FilamentLabelInterface;
 use App\QueryBuilders\UserQueryBuilder;
 use Database\Factories\UserFactory;
 use Exception;
@@ -11,6 +12,7 @@ use Filament\Panel;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -20,7 +22,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @mixin IdeHelperUser
  */
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, FilamentLabelInterface
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
@@ -34,20 +36,20 @@ class User extends Authenticatable implements FilamentUser
     {
         parent::boot();
 
-        self::creating(function ($model) {
+        self::creating(static function ($model) {
             /** @var null|User $user */
             $user = Auth::user();
-            $model->creator_id = $user ? $user->id : config('masterConfig.master_user_id');
+            $model->creator_id = $user->id ?? config('masterConfig.master_user_id');
         });
 
         self::created(function ($model) {
             // ... code here
         });
 
-        self::updating(function ($model) {
+        self::updating(static function ($model) {
             /** @var null|User $user */
             $user = Auth::user();
-            $model->updater_id = $user ? $user->id : config('masterConfig.master_user_id');
+            $model->updater_id = $user->id ?? config('masterConfig.master_user_id');
         });
 
         self::updated(function ($model) {
@@ -80,6 +82,9 @@ class User extends Authenticatable implements FilamentUser
 
         'creator_id',
         'updater_id',
+    ];
+    protected $appends = [
+        'filament_label',
     ];
     protected $hidden = [
         'password',
@@ -128,5 +133,18 @@ class User extends Authenticatable implements FilamentUser
     public function updater(): BelongsTo
     {
         return $this->belongsTo(self::class, 'updater_id');
+    }
+
+    /**
+     * @return BelongsToMany<Device, $this>
+     */
+    public function devices(): BelongsToMany
+    {
+        return $this->belongsToMany(Device::class)->withTimestamps();
+    }
+
+    public function getFilamentLabelAttribute(): string
+    {
+        return "#{$this->id} - {$this->name} ({$this->email})";
     }
 }

@@ -4,13 +4,16 @@ namespace App\Filament\Resources;
 
 use App\Filament\Custom\Columns\IdColumnEnhanced;
 use App\Filament\Custom\Columns\TextColumnEnhanced;
+use App\Filament\Custom\Inputs\DeviceSelect;
 use App\Filament\Custom\Resource\ResourceEnhanced;
 use App\Filament\Enums\FilamentPanelNavigationGroupEnum;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers\RolesRelationManager;
 use App\Filament\Traits\CommonColumnsTrait;
+use App\Models\Device;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -43,9 +46,17 @@ class UserResource extends ResourceEnhanced
                             ->maxLength(255),
                         Forms\Components\DateTimePicker::make('email_verified_at'),
                         Forms\Components\TextInput::make('password')
+                            ->hiddenOn('edit')
                             ->password()
                             ->required()
                             ->maxLength(255),
+                        DeviceSelect::factory()
+                            ->multiple()
+                            ->relationship('devices')
+                            ->options(Device::limit(25)->orderByDesc('id')->get()->pluck('filament_label', 'id')),
+                        Select::make('role_id')
+                            ->relationship('roles', 'name')
+                            ->multiple(),
                     ]),
             ]);
     }
@@ -56,11 +67,27 @@ class UserResource extends ResourceEnhanced
             ->columns([
                 IdColumnEnhanced::factory()
                     ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
-                TextColumnEnhanced::make('name'),
-                TextColumnEnhanced::make('email'),
+                TextColumnEnhanced::make('name')
+                    ->label('Meno'),
+                TextColumnEnhanced::make('email')
+                    ->label('Email'),
                 TextColumnEnhanced::make('email_verified_at')
+                    ->label('Verifikovanie emailu')
                     ->date()
                     ->copyable(),
+                TextColumnEnhanced::make('devices.filament_label')
+                    ->disableSort()
+                    ->disableSearch()
+                    ->listWithLineBreaks()
+                    ->label('Zariadenia')
+                    ->listWithLineBreaks(),
+                TextColumnEnhanced::make('roles.name')
+                    ->disableSearch()
+                    ->disableSort()
+                    ->listWithLineBreaks()
+                    ->badge()
+                    ->color('success')
+                    ->label('Role'),
             ])
             ->filters([
                 //
@@ -119,6 +146,7 @@ class UserResource extends ResourceEnhanced
         // with
         $query->with([
             'roles',
+            'devices',
         ]);
 
         return $query;

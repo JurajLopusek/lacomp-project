@@ -2,57 +2,40 @@
 
 namespace App\Models;
 
+use App\Observers\GeneralModelObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * @mixin IdeHelperGeneralModel
  */
+#[ObservedBy(GeneralModelObserver::class)]
 class GeneralModel extends Model
 {
-    public function __construct()
+    /**
+     * @param array<string, mixed> $attributes
+     */
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
+
+        $this->mergeFillable([
+            'created_at',
+            'updated_at',
+
+            'creator_id',
+            'updater_id',
+        ]);
 
         $this->mergeCasts([
             // DATES
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
+
+            'creator_id' => 'integer',
+            'updater_id' => 'integer',
         ]);
-    }
-
-    protected static function boot(): void
-    {
-        parent::boot();
-
-        self::creating(function ($model) {
-            /** @var null|User $user */
-            $user = Auth::user();
-            $model->creator_id = $user ? $user->id : config('masterConfig.master_user_id');
-        });
-
-        self::created(function ($model) {
-            // ... code here
-        });
-
-        self::updating(function ($model) {
-            /** @var null|User $user */
-            $user = Auth::user();
-            $model->updater_id = $user ? $user->id : config('masterConfig.master_user_id');
-        });
-
-        self::updated(function ($model) {
-            // ... code here
-        });
-
-        self::deleting(function ($model) {
-            // ... code here
-        });
-
-        self::deleted(function ($model) {
-            // ... code here
-        });
     }
 
     /**

@@ -38,12 +38,18 @@ class MeasurementResource extends ResourceEnhanced implements ResourceEloquentQu
                 IdColumnEnhanced::factory()
                     ->setWhereClauseAttribute(self::$recordRouteKeyName ?? ''),
                 DeviceColumnEnhanced::factory(),
-                TextColumnEnhanced::make('electricity'),
-                TextColumnEnhanced::make('electricity_panel'),
-                TextColumnEnhanced::make('gas'),
-                TextColumnEnhanced::make('water'),
-                TextColumnEnhanced::make('outside_temperature'),
+                TextColumnEnhanced::make('electricity')
+                    ->label('Elektrika'),
+                TextColumnEnhanced::make('electricity_panel')
+                    ->label('Elektrický panel'),
+                TextColumnEnhanced::make('gas')
+                    ->label('Plyn'),
+                TextColumnEnhanced::make('water')
+                    ->label('Voda'),
+                TextColumnEnhanced::make('outside_temperature')
+                    ->label('Teplota'),
                 TextColumnEnhanced::make('time')
+                    ->label('Čas')
                     ->dateTime(),
             ])->defaultSort(self::$recordRouteKeyName, 'desc')
             ->filters([

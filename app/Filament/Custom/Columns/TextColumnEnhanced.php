@@ -3,6 +3,8 @@
 namespace App\Filament\Custom\Columns;
 
 use App\Enums\DateFormatEnum;
+use App\Filament\Custom\Resource\ListRecordsEnhanced;
+use App\Filament\Custom\Resource\RelationManagerEnhanced;
 use App\Filament\Traits\OperatorOptionTrait;
 use App\Filament\Traits\WhereClauseAttributeTrait;
 use Carbon\Carbon;
@@ -168,7 +170,7 @@ class TextColumnEnhanced extends TextColumn
 
     public function setHiddenInRelationManager(Model $model): self
     {
-        return $this->hidden(function ($livewire) use ($model) {
+        return $this->hidden(function (ListRecordsEnhanced|RelationManagerEnhanced $livewire) use ($model) {
             $owner = $livewire->ownerRecord ?? false;
 
             if ($owner) {
