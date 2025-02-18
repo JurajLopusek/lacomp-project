@@ -61,7 +61,7 @@
         <div class="w-full flex justify-center mb-2 text-lg font-medium leading-6 text-white">FOLLOW US:</div>
         <div class="w-full flex justify-center">
             <div class="m-6">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/profile.php?id=100007468819082" target="_blank" rel="noopener noreferrer">
                     <button
                         type="button"
                         data-twe-ripple-init
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="m-6">
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/la_s.r.o/" target="_blank" rel="noopener noreferrer">
                     <button
                         type="button"
                         data-twe-ripple-init
