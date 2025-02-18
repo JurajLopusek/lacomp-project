@@ -74,10 +74,7 @@ class CalculationChartWidget extends ApexChartWidget
         return [
             'chart' => [
                 'type' => $graphType->value ?? 'line',
-                'height' => 300,
-                'toolbar' => [
-                    'show' => true,
-                ],
+                'height' => 400,
             ],
             'series' => [
                 [
@@ -91,7 +88,6 @@ class CalculationChartWidget extends ApexChartWidget
                         if (is_string($date)) {
                             $enum = ConsumptionRangeEnum::tryFrom($this->filters['groupBy']);
                             $carbonDate = Carbon::parse($date);
-
                             return $enum?->formatDateFromCarbon($carbonDate) ?? $carbonDate->format('d.m. H:i');
                         }
 
