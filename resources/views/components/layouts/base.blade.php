@@ -19,7 +19,7 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-600">
 <!-- Navigation -->
 <div class="h-16 mb-2 sm:h-20 md:h-[70px] lg:h-[104px] xl:h-[104px]">
     @include("components.nav.nav")

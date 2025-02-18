@@ -15,10 +15,10 @@
                 <div class="ml-4">
                     <h3 class="mb-2 text-lg font-medium leading-6 text-white">Adresa
                     </h3>
-                    <p class="text-gray-600 dark:text-slate-400">La, s.r.o</p>
-                    <p class="text-gray-600 dark:text-slate-400">SNP 182</p>
-                    <p class="text-gray-600 dark:text-slate-400">Spišské Bystré</p>
-                    <p class="text-gray-600 dark:text-slate-400">05918</p>
+                    <p class="text-gray-400 dark:text-slate-400">La, s.r.o</p>
+                    <p class="text-gray-400 dark:text-slate-400">SNP 182</p>
+                    <p class="text-gray-400 dark:text-slate-400">Spišské Bystré</p>
+                    <p class="text-gray-400 dark:text-slate-400">05918</p>
                 </div>
             </li>
             <li class="flex mt-6 sm:mt-0">
@@ -36,8 +36,8 @@
                 <div class="ml-4">
                     <h3 class="mb-2 text-lg font-medium leading-6 text-white">Kontakt
                     </h3>
-                    <p class="text-gray-600 dark:text-slate-400">Telefón: +421 903 701 665</p>
-                    <p class="text-gray-600 dark:text-slate-400">E-mail: lacomp@lacomp.sk</p>
+                    <p class="text-gray-400 dark:text-slate-400">Telefón: +421 903 701 665</p>
+                    <p class="text-gray-400 dark:text-slate-400">E-mail: lacomp@lacomp.sk</p>
                 </div>
             </li>
             <li class="flex mt-6 sm:mt-0">
@@ -51,8 +51,8 @@
                 </div>
                 <div class="ml-4 mb-4">
                     <h3 class="mb-2 text-lg font-medium leading-6 text-white">Pracovná doba</h3>
-                    <p class="text-gray-600 dark:text-slate-400">Pondelok - Piatok: 07:00 - 17:00</p>
-                    <p class="text-gray-600 dark:text-slate-400">Sobota - Nedeľa: Zatvorené</p>
+                    <p class="text-gray-400 dark:text-slate-400">Pondelok - Piatok: 07:00 - 17:00</p>
+                    <p class="text-gray-400 dark:text-slate-400">Sobota - Nedeľa: Zatvorené</p>
                 </div>
             </li>
         </ul>
