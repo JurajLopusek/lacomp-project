@@ -20,6 +20,7 @@ class MeasurementObserver
                 'electricity' => $measurement->electricity - $lastMeasurement->electricity,
                 'electricity_panel' => $measurement->electricity_panel - $lastMeasurement->electricity_panel,
                 'gas' => $measurement->gas - $lastMeasurement->gas,
+//                 'gas' => 0, //tesy for no existing measurement
                 'water' => $measurement->water - $lastMeasurement->water,
                 'outside_temperature' => $measurement->outside_temperature - $lastMeasurement->outside_temperature,
                 'time' => $measurement->time,

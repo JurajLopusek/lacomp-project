@@ -12,6 +12,7 @@ use App\Filament\Widgets\Calculations\CalculationElectricityPanelChartWidget;
 use App\Filament\Widgets\Calculations\CalculationGasChartWidget;
 use App\Filament\Widgets\Calculations\CalculationOutsideTemperatureChartWidget;
 use App\Filament\Widgets\Calculations\CalculationWaterChartWidget;
+use App\Models\Calculation;
 use App\Models\Device;
 use Exception;
 use Filament\Forms\Components\Actions\Action;
@@ -28,12 +29,15 @@ class ConsumptionPage extends Page
 {
     use SlugPageTrait;
     use HasFiltersForm;
-
     protected static ?string $navigationIcon = 'phosphor-plug';
     protected static string $view = 'filament.pages.consumption-page';
     protected static ?string $title = 'Spotreba';
     protected static ?string $navigationGroup = FilamentPanelNavigationGroupEnum::DEVICE->value;
 
+    protected function getColumns(): int | array
+    {
+        return 2;
+    }
     /**
      * @throws Exception
      */
@@ -78,12 +82,38 @@ class ConsumptionPage extends Page
      */
     public function footerWidgets(): array
     {
-        return [
-            CalculationWaterChartWidget::class,
-            CalculationOutsideTemperatureChartWidget::class,
-            CalculationElectricityPanelChartWidget::class,
-            CalculationElectricityChartWidget::class,
-            CalculationGasChartWidget::class,
-        ];
+        $deviceId = $this->filters['device_id'];
+        $widgets = [];
+
+        if ($this->hasData('water', $deviceId)) {
+            $widgets[] = CalculationWaterChartWidget::class;
+        }
+
+        if ($this->hasData('electricity', $deviceId)) {
+            $widgets[] = CalculationElectricityChartWidget::class;
+        }
+
+        if ($this->hasData('electricity_panel', $deviceId)) {
+            $widgets[] = CalculationElectricityPanelChartWidget::class;
+        }
+
+        if ($this->hasData('gas', $deviceId)) {
+            $widgets[] = CalculationGasChartWidget::class;
+        }
+
+        if ($this->hasData('outside_temperature', $deviceId)) {
+            $widgets[] = CalculationOutsideTemperatureChartWidget::class;
+        }
+
+        return $widgets;
     }
+
+    private function hasData(string $column, int $deviceId): bool
+    {
+        return Calculation::where('device_id', $deviceId)
+            ->where($column, '>', 0)
+            ->exists();
+    }
+
+
 }
