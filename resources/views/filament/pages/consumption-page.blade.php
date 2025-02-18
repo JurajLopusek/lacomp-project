@@ -4,6 +4,7 @@
     @endif
 
     <x-filament-widgets::widgets
+            :columns="1"
             :data="
             [
                 ...(property_exists($this, 'filters') ? ['filters' => $this->filters] : []),
