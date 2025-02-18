@@ -1,32 +1,21 @@
-/** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
 
+/** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
     ],
+
     theme: {
         extend: {
-            boxShadow: {
-                'lc': '0 0 0.5rem #f56565', // Definovanie vlastného tieňa
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            cursor: {
-                'pointer': 'pointer', // Definovanie vlastného kurzora
-            },
-            colors: {
-                'lc-red': '#f56565',
-                'midnight': '#121063',
-                'footer': '#373737',
+        },
+    },
 
-            },
-        },
-    },
-    variants: {
-        extend: {
-            boxShadow: ['hover'], // Povolenie tieňa pri prechode kurzorom
-            backgroundColor: ['hover'], // Povolenie zmeny pozadia pri prechode kurzorom
-        },
-    },
-    plugins: [],
-}
+    plugins: [forms],
+};

@@ -18,7 +18,7 @@ Route::group([], static function () {
     });
 
     Route::get('/kamery', static function () {
-        return view('welcome');
+        return view('pages.cameras');
     });
 
     Route::get('/data.php', [DeviceController::class, 'store']);

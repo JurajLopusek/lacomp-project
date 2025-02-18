@@ -11,7 +11,7 @@
     </div>
     <div class="flex justify-center items-center">
         <div class="grid grid-cols-1 sm:grid-cols-2 grid-rows-1 md:grid-rows-2 mt-6 max-w-5xl">
-            <x-card.card class="cursor-pointer shadow-custom"
+            <x-card.card class="cursor-pointer shadow-custom bg-gray-400"
                          onclick="window.location.href='/alarmy'">
                 <x-card.icon>
                     <path stroke-linecap="round" stroke-linejoin="round"
