@@ -109,7 +109,7 @@ class TextColumnEnhanced extends TextColumn
         }
 
         if ($this->isSearchable) {
-            $this->extraAttributes(['style' => 'min-width:140px;'], true);
+            $this->extraAttributes(['style' => 'min-width:110px;'], true);
         }
 
         return $this;
