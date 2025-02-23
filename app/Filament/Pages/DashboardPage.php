@@ -3,12 +3,9 @@
 namespace App\Filament\Pages;
 
 use App\Filament\Traits\SlugPageTrait;
-use App\Filament\Widgets\Calculations\DailyDifferenceElecPanelChartWidget;
-use App\Filament\Widgets\Calculations\DailyMeasurementChartWidget;
 use Filament\Pages\Dashboard\Concerns\HasFiltersForm;
 use Filament\Pages\Page;
 use Filament\Widgets;
-
 
 class DashboardPage extends Page
 {
@@ -25,22 +22,22 @@ class DashboardPage extends Page
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function headerWidgets(): array
     {
         return
             [
-                Widgets\AccountWidget::class
+                Widgets\AccountWidget::class,
             ];
-
     }
+
     public function footerWidgets(): array
     {
         return
             [
-                DailyMeasurementChartWidget::class,
-                DailyDifferenceElecPanelChartWidget::class,
+                //                DailyMeasurementChartWidget::class,  // TODO JL fix
+                //                DailyDifferenceElecPanelChartWidget::class,  // TODO JL fix
             ];
     }
 }
