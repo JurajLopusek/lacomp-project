@@ -84,7 +84,7 @@ class DashboardPage extends Page
     private function hasData(string $column, int $deviceId): bool
     {
         return Calculation::where('device_id', $deviceId)
-            ->whereDate('time', Carbon::today()) // Filtruje iba dnešný dátum
+            ->whereDate('time', Carbon::today())
             ->where($column, '>', 0)
             ->exists();
     }
