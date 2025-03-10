@@ -48,14 +48,15 @@ class DailyDifferenceElecPanelChartWidget extends ApexChartWidget
 
         $calculation = Calculation::where('device_id', $deviceId)
             ->whereDate('time', $today)
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryElectricity}")
-
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryElectricityPanel}");
+            ->selectRaw("{$enum->selectRaw()} as date")  // Pridanie 'date' iba raz
+            ->selectRaw("{$this->queryElectricity}")
+            ->selectRaw("{$this->queryElectricityPanel}");
 
         $calculation = $calculation
+            ->groupBy(DB::raw('date'))  // Skupina podľa aliasu 'date'
             ->orderBy('date')
-            ->groupBy(DB::raw('date'))
             ->get();
+
         $totalElectricity = $calculation->sum('daily_electricity');
         $totalElectricityPanel = $calculation->sum('daily_electricity_panel');
 
