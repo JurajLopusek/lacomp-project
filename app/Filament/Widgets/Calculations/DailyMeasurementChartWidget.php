@@ -45,20 +45,18 @@ class DailyMeasurementChartWidget extends ApexChartWidget
         }
 
         $deviceId = $this->filters['device_id'];
-        $today = Carbon::today()->toDateString();
+        $today = Carbon::today();
         $enum = ConsumptionRangeEnum::HOUR;
 
         $calculation = Calculation::where('device_id', $deviceId)
             ->whereDate('time', $today)
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryElectricity}")
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryWater}")
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryGas}")
-
-            ->selectRaw("{$enum->selectRaw()} as date, {$this->queryElectricityPanel}");
-
-        $calculation = $calculation
-            ->orderBy('date')
+            ->selectRaw("{$enum->selectRaw()} as date") // 'date' pridáme iba raz
+            ->selectRaw("{$this->queryElectricity}")
+            ->selectRaw("{$this->queryWater}")
+            ->selectRaw("{$this->queryGas}")
+            ->selectRaw("{$this->queryElectricityPanel}")
             ->groupBy(DB::raw('date'))
+            ->orderBy('date')
             ->get();
 
         $totalElectricity = $calculation->sum('daily_electricity');
