@@ -36,7 +36,7 @@ class ConsumptionPage extends Page
 
     protected function getColumns(): int | array
     {
-        return 2;
+        return 1;
     }
     /**
      * @throws Exception
@@ -82,7 +82,7 @@ class ConsumptionPage extends Page
      */
     public function footerWidgets(): array
     {
-        $deviceId = $this->filters['device_id'];
+        $deviceId = $this->filters['device_id'] ?? null;
         $widgets = [];
 
         if ($this->hasData('water', $deviceId)) {
