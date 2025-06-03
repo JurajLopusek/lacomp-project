@@ -43,6 +43,7 @@ class UserResource extends ResourceEnhanced
                         Forms\Components\TextInput::make('email')
                             ->email()
                             ->required()
+                            ->unique(ignoreRecord: true)
                             ->maxLength(255),
                         Forms\Components\DateTimePicker::make('email_verified_at'),
                         Forms\Components\TextInput::make('password')
@@ -55,7 +56,7 @@ class UserResource extends ResourceEnhanced
                             ->relationship('devices')
                             ->options(Device::limit(25)->orderByDesc('id')->get()->pluck('filament_label', 'id')),
                         Select::make('role_id')
-                            ->relationship('roles', 'name')
+                            ->relationship('roles', 'name')  // TODO MK: better way
                             ->multiple(),
                     ]),
             ]);
