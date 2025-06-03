@@ -15,8 +15,7 @@
 
     @vite('resources/css/app.css')
     @livewireStyles
-
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'Lacomp' }}</title>
 </head>
 <body class="font-sans flex flex-col min-h-screen bg-[#FCF7F7] dark:bg-gray-600">
 <!-- Navigation -->
