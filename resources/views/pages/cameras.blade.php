@@ -1,44 +1,60 @@
 <x-layouts.base>
-{{--    <header class="bg-blue-900 text-white text-center py-20">--}}
-{{--        <h1 class="text-4xl font-bold">Bezpečnosť na prvom mieste</h1>--}}
-{{--        <p class="mt-4 text-lg">Montujeme kamerové systémy pre školy, firmy a domácnosti.</p>--}}
-{{--    </header>--}}
-    <div class="grid grid-cols-1 grid-rows-1">
-        <div
-            class="flex m-3 flex-col rounded bg-white bg-clip-border text-gray-700 shadow-md justify-self-center">
-            <x-card.text>
-                <p class="font-bold text-3xl xl:text-5xl mb-4">O nás</p>
-                <p>Sme odborníci na inštaláciu moderných kamerových systémov. Poskytujeme riešenia na mieru s vysokou kvalitou obrazu a možnosťou diaľkového prístupu.</p>
-            </x-card.text>
+    <div class="max-w-7xl mx-auto px-4 py-6 bg-[#FCF7F7]">
+        {{-- Hlavičkový obrázok --}}
+        <div class="rounded-xl overflow-hidden mb-8">
+            <img src="{{ asset('storage/cameras/frame_cameras.png') }}" alt="Kamerový systém" class="w-full h-auto object-cover">
+        </div>
+
+        {{-- Nadpis a úvod --}}
+        <div class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Preskúmajte naše riešenia kamerových systémov</h2>
+            <p class="text-base leading-relaxed">
+                V SolarTech Solutions ponúkame komplexný výber kamerových systémov navrhnutých tak, aby pokryli rôzne bezpečnostné potreby.
+                Od sledovania domácností až po profesionálne zabezpečenie firiem – naše riešenia poskytujú spoľahlivý dohľad a pokoj na duši.
+            </p>
+        </div>
+
+        {{-- Typy kamerových systémov --}}
+        <div class="mb-10">
+            <h3 class="text-lg font-semibold mb-4">Typy kamerových systémov</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="border border-rose-200 rounded-lg p-4 bg-white">
+                    <img src="{{ asset('storage/cameras/dome.png') }}" alt="Dome kamera" class="w-10 h-10 mb-3">
+                    <h4 class="font-bold mb-1">Dome kamery</h4>
+                    <p class="text-md text-rose-600">Ideálne na vnútorné a nenápadné sledovanie.</p>
+                </div>
+                <div class="border border-rose-200 rounded-lg p-4 bg-white">
+                    <img src="{{ asset('storage/cameras/bullet.png') }}" alt="Bullet kamera" class="w-10 h-10 mb-3">
+                    <h4 class="font-bold mb-1">Bullet kamery</h4>
+                    <p class="text-md text-rose-600">Vhodné na vonkajšie použitie s odolnosťou voči poveternostným podmienkam.</p>
+                </div>
+                <div class="border border-rose-200 rounded-lg p-4 bg-white">
+                    <img src="{{ asset('storage/cameras/ptz.png') }}" alt="PTZ kamera" class="w-10 h-10 mb-3">
+                    <h4 class="font-bold mb-1">PTZ kamery</h4>
+                    <p class="text-md text-rose-600">Umožňujú otáčanie, nakláňanie a priblíženie pre široký záber priestoru.</p>
+                </div>
+            </div>
+        </div>
+
+        {{-- Kľúčové vlastnosti --}}
+        <div class="mb-10">
+            <h3 class="text-lg font-semibold mb-4">Kľúčové vlastnosti</h3>
+            <ul class="space-y-3">
+                <x-feature icon="photo" text="Vysoké rozlíšenie obrazu" />
+                <x-feature icon="moon" text="Nočné videnie" />
+                <x-feature icon="motion" iconType="png" text="Detekcia pohybu" />
+                <x-feature icon="wifi" text="Vzdialený prístup" />
+                <x-feature icon="cloud" text="Ukladanie do cloudu" />
+            </ul>
+        </div>
+
+        {{-- Inštalácia a podpora --}}
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Inštalácia a podpora</h3>
+            <p class="text-base leading-relaxed">
+                Náš odborný tím zabezpečí profesionálnu inštaláciu pre optimálny výkon a pokrytie.
+                Zároveň poskytujeme priebežnú technickú podporu a údržbu, aby váš systém fungoval spoľahlivo.
+            </p>
         </div>
     </div>
-    <!-- Služby -->
-    <section class="max-w-4xl mx-auto my-12">
-        <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">Naše služby</h2>
-        <div class="grid md:grid-cols-3 gap-6 mt-6">
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-                <h3 class="text-xl font-bold text-gray-800">Školy</h3>
-                <p class="mt-2 text-gray-600">Zabezpečenie škôl kamerovými systémami pre vyššiu bezpečnosť žiakov.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-                <h3 class="text-xl font-bold text-gray-800">Firmy</h3>
-                <p class="mt-2 text-gray-600">Ochrana majetku a monitorovanie firemných priestorov.</p>
-            </div>
-            <div class="bg-white p-6 shadow-lg rounded-lg text-center">
-                <h3 class="text-xl font-bold text-gray-800">Domácnosti</h3>
-                <p class="mt-2 text-gray-600">Non-stop dohľad nad vašou nehnuteľnosťou aj na diaľku.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Výhody -->
-    <section class="max-w-4xl mx-auto my-12 p-6 bg-white shadow-lg rounded-lg">
-        <h2 class="text-3xl font-semibold text-gray-900">Prečo si vybrať nás?</h2>
-        <ul class="list-disc pl-6 mt-4 text-gray-700">
-            <li>Vysokokvalitný obraz aj v noci</li>
-            <li>Mobilná aplikácia na vzdialené sledovanie</li>
-            <li>Rýchla inštalácia a podpora</li>
-            <li>Bezpečné a spoľahlivé riešenia</li>
-        </ul>
-    </section>
 </x-layouts.base>

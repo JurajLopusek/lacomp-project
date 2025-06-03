@@ -1,6 +1,6 @@
 <x-layouts.base>
     <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row items-center justify-center pt-12 pb-8 gap-10">
+        <div class="flex flex-col lg:flex-row items-center justify-center py-6 pb-8 gap-10">
             <!-- Kontakt Formulár -->
             <div class="flex flex-col w-full lg:w-1/2 p-6 bg-gray-200 dark:bg-gray-700 rounded">
                 @livewire('contact-form')
@@ -20,7 +20,7 @@
                         </div>
                         <div class="ml-4">
                             <h3 class="mb-2 text-lg font-medium text-black dark:text-gray-200">Adresa</h3>
-                            <p class="text-gray-600 dark:text-slate-400">La, s.r.o</p>
+                            <p class="text-gray-600 dark:text-slate-400">La, spol. s.r.o</p>
                             <p class="text-gray-600 dark:text-slate-400">SNP 182</p>
                             <p class="text-gray-600 dark:text-slate-400">Spišské Bystré</p>
                             <p class="text-gray-600 dark:text-slate-400">05918</p>

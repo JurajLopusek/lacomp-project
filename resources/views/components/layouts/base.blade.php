@@ -19,14 +19,14 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-600">
+<body class="font-sans flex flex-col min-h-screen bg-softPink dark:bg-gray-600">
 <!-- Navigation -->
-<div class="h-16 mb-2 sm:h-20 md:h-[70px] lg:h-[104px] xl:h-[104px]">
+<div class="h-[56px] md:h-[80px]">
     @include("components.nav.nav")
 </div>
 
 <!-- Content -->
-<div class="flex-grow m-3">
+<div class="flex-grow">
     {{ $slot }}
 </div>
 

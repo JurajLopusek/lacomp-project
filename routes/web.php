@@ -26,8 +26,23 @@ Route::group([], static function () {
     Route::get('/kontakt', static function () {
         return view('pages.contact');
     });
+    Route::get('/kontakt', static function () {
+        return view('pages.contact');
+    })->name('kontakt');
+    Route::get('/inspection', static function () {
+        return view('pages.inspections');
+    });
+    Route::get('/photovoltaicSystems', static function () {
+        return view('pages.photovoltaicSystems');
+    });
 
     Route::get('/counter', Counter::class);
+    Route::view('/privacy-policy', 'pages.privacy')->name('Privacy Policy');
+    Route::view('/terms-of-service', 'pages.terms')->name('Terms of Service');
+
+    Route::view('/about', 'pages.alarm')->name('alarm');
+    Route::view('/contact', 'pages.contact')->name('contact');
+    Route::view('/services', 'pages.cameras')->name('cameras');
 });
 
 // LOCAL DEV

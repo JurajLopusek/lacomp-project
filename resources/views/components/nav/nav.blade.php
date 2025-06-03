@@ -7,8 +7,11 @@
             <x-nav.nav-link href="/" :active="request()->is('/')">Domov</x-nav.nav-link>
             <x-nav.nav-link href="/alarmy" :active="request()->is('alarmy')">Alarmy</x-nav.nav-link>
             <x-nav.nav-link href="/kamery" :active="request()->is('kamery')">Kamery</x-nav.nav-link>
+            <x-nav.nav-link href="/inspection" :active="request()->is('inspection')">Inšpekcie</x-nav.nav-link>
+            <x-nav.nav-link href="/photovoltaicSystems" :active="request()->is('photovoltaicSystems')">Fotovoltické systémy</x-nav.nav-link>
             <x-nav.nav-link href="/admin/login" :active="request()->is('admin/login')">Meranie spotreby</x-nav.nav-link>
             <x-nav.nav-link href="/kontakt" :active="request()->is('kontakt')">Kontakt</x-nav.nav-link>
+
         </div>
     </div>
     <nav x-data="{ open: false }">
