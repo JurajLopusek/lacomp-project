@@ -109,9 +109,6 @@
         </div>
 
         <!-- Text pod obrázkom zarovnaný vľavo -->
-        <div class="max-w-7xl w-full py-4 text-left text-black font-semibold text-2xl">
-            <h2>Naša odbornosť</h2>
-        </div>
         <div class="max-w-7xl w-full py-0 sm:py-10">
             <div class="mb-10">
                 <div class="text-left text-black font-bold text-4xl mb-4">
