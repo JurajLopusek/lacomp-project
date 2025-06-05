@@ -1,16 +1,48 @@
 {
+  "node_modules/@fontsource/public-sans/files/public-sans-latin-400-normal.woff": {
+    "file": "assets/public-sans-latin-400-normal-BJe8n-hT.woff",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-latin-400-normal.woff"
+  },
+  "node_modules/@fontsource/public-sans/files/public-sans-latin-400-normal.woff2": {
+    "file": "assets/public-sans-latin-400-normal-8Rpg0ruU.woff2",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/public-sans/files/public-sans-latin-ext-400-normal.woff": {
+    "file": "assets/public-sans-latin-ext-400-normal-ylhOdEnv.woff",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-latin-ext-400-normal.woff"
+  },
+  "node_modules/@fontsource/public-sans/files/public-sans-latin-ext-400-normal.woff2": {
+    "file": "assets/public-sans-latin-ext-400-normal-mk90oQqJ.woff2",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/public-sans/files/public-sans-vietnamese-400-normal.woff": {
+    "file": "assets/public-sans-vietnamese-400-normal-BnC03Rcj.woff",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-vietnamese-400-normal.woff"
+  },
+  "node_modules/@fontsource/public-sans/files/public-sans-vietnamese-400-normal.woff2": {
+    "file": "assets/public-sans-vietnamese-400-normal-TxZB8OSn.woff2",
+    "src": "node_modules/@fontsource/public-sans/files/public-sans-vietnamese-400-normal.woff2"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-B_xEUOgN.css",
+    "file": "assets/app-Cnpd6DWU.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-LARfNL26.js",
+    "file": "assets/app-B6aV5ME-.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-B_xEUOgN.css"
+      "assets/app-Cnpd6DWU.css"
+    ],
+    "assets": [
+      "assets/public-sans-vietnamese-400-normal-TxZB8OSn.woff2",
+      "assets/public-sans-vietnamese-400-normal-BnC03Rcj.woff",
+      "assets/public-sans-latin-ext-400-normal-mk90oQqJ.woff2",
+      "assets/public-sans-latin-ext-400-normal-ylhOdEnv.woff",
+      "assets/public-sans-latin-400-normal-8Rpg0ruU.woff2",
+      "assets/public-sans-latin-400-normal-BJe8n-hT.woff"
     ]
   }
 }

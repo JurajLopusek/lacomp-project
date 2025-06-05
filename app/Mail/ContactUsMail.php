@@ -48,7 +48,7 @@ class ContactUsMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $subject = 'new data' . $this->contactData['name'];
+        $subject = 'Nová správa od: ' . $this->contactData['name'];
 
         return new Envelope(
             subject: $subject,

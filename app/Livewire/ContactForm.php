@@ -30,7 +30,7 @@ class ContactForm extends Component
         'photo' => 'nullable|max:1024',
     ];
 
-    public function updatedPhoto()
+    public function updatedPhoto(): void
     {
         $this->photoName = $this->photo->getClientOriginalName();
     }
@@ -50,7 +50,7 @@ class ContactForm extends Component
             $attachmentPath = "attachments/$this->photoName";
         }
         try {
-            Mail::to('jurajlopusek@gmail.com')->send(new ContactUsMail($validatedData, $attachmentPath));
+            Mail::to('lacomp@lacomp.sk')->send(new ContactUsMail($validatedData, $attachmentPath));
             if ($session) {
                 $session->flash('success', 'Your message has been sent.');
                 Storage::disk('public')->delete("attachments/$this->photoName");
