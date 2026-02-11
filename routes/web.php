@@ -35,6 +35,9 @@ Route::group([], static function () {
     Route::get('/photovoltaicSystems', static function () {
         return view('pages.photovoltaicSystems');
     });
+    Route::get('/rekuperacie', static function () {
+        return view('pages.rekuperacie');
+    });
 
     Route::get('/counter', Counter::class);
     Route::view('/privacy-policy', 'pages.privacy')->name('Privacy Policy');
