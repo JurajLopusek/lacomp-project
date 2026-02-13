@@ -36,11 +36,11 @@
         x-transition:leave="transform transition ease-in duration-200"
         x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full"
-        class="fixed top-0 right-0 h-full max-w-[400px] w-full bg-white dark:bg-gray-800 z-50 shadow-xl"
+        class="fixed top-0 right-0 h-full max-w-[400px] w-full bg-white z-50 shadow-xl"
     >
         <!-- Obsah menu -->
         <div class="p-4 border-b flex justify-end">
-            <button @click="open = false" class="font-semibold flex items-center dark:text-white" type="button">
+            <button @click="open = false" class="font-semibold flex items-center" type="button">
                 {{ __('Zavrieť') }}
                 <svg class="h-6 w-6 ml-2" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
