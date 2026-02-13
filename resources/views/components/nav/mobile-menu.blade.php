@@ -6,7 +6,7 @@
     <!-- Tlačidlo na otváranie menu -->
     <button
         type="button"
-        class="inline-flex ml-0 sm:ml-2 items-center justify-center p-2 rounded-md text-white hover:text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+        class="inline-flex ml-0 sm:ml-2 items-center justify-center p-2 rounded-md text-white focus:outline-none transition duration-150 ease-in-out"
         @click="open = !open"
         :aria-expanded="open.toString()"
         aria-controls="mobile-menu-drawer"
