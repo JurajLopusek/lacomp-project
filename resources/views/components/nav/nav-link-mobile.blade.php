@@ -1,10 +1,10 @@
 @props(['active' => false])
 
-<div class="border-b border-gray-200 dark:border-gray-700">
+<div class="border-b border-gray-200">
     <a
         class="flex items-center justify-between px-6 py-4 text-md font-semibold transition duration-200 {{ $active
             ? 'bg-red-600 text-white shadow-lg shadow-red-600/40'
-            : 'bg-white text-[#272835] border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700' }}"
+            : 'bg-white text-[#272835] border border-gray-200 hover:bg-gray-100' }}"
         aria-current="{{ $active ? 'page' : 'false' }}"
         {{ $attributes }}
     >
