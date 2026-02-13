@@ -24,9 +24,8 @@
                 </a>
             </div>
             <div class="flex mr-4 sm:mr-6">
-                <livewire:menu />
+                <x-nav.mobile-menu />
             </div>
         </div>
     </nav>
 </div>
-
