@@ -4,3 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 /* Import všetkých štýlov */
+
+[x-cloak] {
+    display: none !important;
+}

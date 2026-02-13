@@ -1,18 +1,29 @@
 @props(['active' => false])
 
-<div class="px-8 border-b">
-    <a class="{{ $active ? 'bg-[#272835] text-white' : 'text-[#272835] dark:text-white' }} font-semibold rounded-full py-4 text-md flex items-center justify-between"
-       aria-current="{{ $active ? 'page' : 'false' }}"
+<div class="border-b border-gray-200 dark:border-gray-700">
+    <a
+        class="flex items-center justify-between px-6 py-4 text-md font-semibold transition duration-200 {{ $active
+            ? 'bg-red-600 text-white shadow-lg shadow-red-600/40'
+            : 'bg-white text-[#272835] border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700' }}"
+        aria-current="{{ $active ? 'page' : 'false' }}"
         {{ $attributes }}
     >
-        <div>
-            {{ $slot }}
-        </div>
-        <div>
-            <img class="w-6 dark:hidden" alt="chev" height="2px" width="12px" src="{{ asset('storage/icons/chevronRightBlack.png') }}">
-            <img class="w-6 hidden dark:block" alt="chev" height="2px" width="12px" src="{{ asset('storage/icons/chevron-rightWhite.png') }}">
-        </div>
+        <span>{{ $slot }}</span>
+        <span class="flex items-center">
+            <img
+                class="w-6 {{ $active ? 'hidden' : 'block dark:hidden' }}"
+                alt="chev"
+                height="2px"
+                width="12px"
+                src="{{ asset('storage/icons/chevronRightBlack.png') }}"
+            >
+            <img
+                class="w-6 {{ $active ? 'block' : 'hidden dark:block' }}"
+                alt="chev"
+                height="2px"
+                width="12px"
+                src="{{ asset('storage/icons/chevron-rightWhite.png') }}"
+            >
+        </span>
     </a>
-
 </div>
-

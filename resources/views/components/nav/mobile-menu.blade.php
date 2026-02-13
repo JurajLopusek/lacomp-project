@@ -41,7 +41,7 @@
         <!-- Obsah menu -->
         <div class="p-4 border-b flex justify-end">
             <button @click="open = false" class="font-semibold flex items-center dark:text-white" type="button">
-                {{ __('Close menu') }}
+                {{ __('Zavrieť') }}
                 <svg class="h-6 w-6 ml-2" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
