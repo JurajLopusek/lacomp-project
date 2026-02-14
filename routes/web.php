@@ -38,6 +38,8 @@ Route::group([], static function () {
     Route::get('/rekuperacie', static function () {
         return view('pages.rekuperacie');
     });
+    Route::view('/rekuperacie/hrv', 'pages.hrv')->name('hrv');
+    Route::view('/rekuperacie/erv', 'pages.erv')->name('erv');
 
     Route::get('/counter', Counter::class);
     Route::view('/privacy-policy', 'pages.privacy')->name('Privacy Policy');

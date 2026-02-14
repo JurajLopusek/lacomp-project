@@ -1,4 +1,4 @@
-<footer class="bg-gray-700 mt-20">
+<footer class="bg-gray-700 mt-10 md:mt-20">
     <footer class="bg-[#FCF7F7] py-6">
         <div class="max-w-7xl mx-auto px-4 text-rose-800 text-center">
             <div class="flex flex-col md:flex-row justify-between gap-8 mb-6 text-lg font-normal">
