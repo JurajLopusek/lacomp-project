@@ -109,12 +109,9 @@
         </div>
 
         <!-- Text pod obrázkom zarovnaný vľavo -->
-        <div class="max-w-7xl w-full py-0 sm:py-10">
+        <div class="hidden md:block max-w-7xl w-full py-0 sm:py-10">
             <div class="mb-10">
-                <div class="text-left text-black font-bold text-4xl mb-4">
-                    <h1>Komplexné riešenia</h1>
-                </div>
-                <div class="text-left text-black font-normal text-base max-w-2xl">
+                <div class="text-left text-black font-normal text-xl max-w-2xl">
                     <p>Ponúkame širokú škálu služieb – od obnoviteľných zdrojov energie až po bezpečnostné a revízne riešenia.</p>
                 </div>
             </div>
@@ -128,14 +125,20 @@
                 <x-service-card icon="shield" title="Alarmové systémy"
                                 description="Chráňte svoj majetok spoľahlivými alarmovými systémami." />
 
+
                 <x-service-card icon="bolt" title="Revízie elektroinštalácií"
                                 description="Zabezpečte bezpečnosť vďaka dôkladným revíziám elektroinštalácií." />
+                <x-service-card
+                    icon="wind"
+                    title="Rekuperácie"
+                    description="Zabezpečte čerstvý vzduch bez tepelných strát pomocou moderných rekuperačných systémov."
+                />
             </div>
         </div>
         <div class="max-w-7xl w-full py-10">
             <div class="text-left text-black font-bold text-2xl mb-4">
                 <h2>
-                    Vybrané produkty
+                    Komplexné riešenia
                 </h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
@@ -155,7 +158,7 @@
 
                 <a href="{{ url('/alarmy') }}">
                     <x-image-service-card
-                        image="storage/home/alarm.png"
+                        image="storage/home/jablotron_klaves.jpg"
                         title="Alarmové systémy"
                         description="Komplexné riešenia na ochranu pred vlámaním a požiarmi." />
                 </a>
@@ -165,6 +168,12 @@
                         image="storage/home/inspection.png"
                         title="Revízie elektroinštalácií"
                         description="Odborné revízie na zabezpečenie bezpečnosti a efektivity elektroinštalácií." />
+                </a>
+                <a href="{{ url('/rekuperacie') }}">
+                    <x-image-service-card
+                        image="storage/home/rekuperacie.png"
+                        title="Rekuperácie"
+                        description="Moderné rekuperačné systémy pre zdravé bývanie bez tepelných strát." />
                 </a>
             </div>
 

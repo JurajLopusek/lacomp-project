@@ -10,7 +10,8 @@
         'sun' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',
         'camera' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l2-3h14l2 3v13H3V8z"/><circle cx="12" cy="13" r="4"/></svg>',
         'shield' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z"/></svg>',
-        'shield3' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        'shield3' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">,
+
     <!-- Štít -->
     <path d="M12 2L4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3z" />
     <!-- WiFi signál vo vnútri štítu -->
@@ -27,6 +28,19 @@
     <path d="M12 20v2M10 22h4" />
 </svg>
 ',
+'wind' => '<svg xmlns="http://www.w3.org/2000/svg"
+    class="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    viewBox="0 0 24 24">
+
+    <path d="M3 8h10a3 3 0 100-6" />
+    <path d="M2 16h14a3 3 0 110 6" />
+    <path d="M4 12h12" />
+
+</svg>',
+
 
         'bolt' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9v8l10-12h-9z"/></svg>',
         'default' => '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a6 6 0 00-8.5 8.5l10 10 3.5-3.5-10-10zM16 2l6 6"/></svg>',

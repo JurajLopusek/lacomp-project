@@ -75,7 +75,7 @@
                     </a>
 
                     <h3 class="mt-8 text-2xl font-semibold">
-                        Rekuperační jednotka – DC 40 HRV
+                        Rekuperačná jednotka – DC 40 HRV
                     </h3>
 
                     <p class="mt-4 text-xl">
@@ -102,7 +102,7 @@
                     </a>
 
                     <h3 class="mt-8 text-2xl font-semibold">
-                        Rekuperační jednotka – DC 40 ERV
+                        Rekuperačná jednotka – DC 40 ERV
                     </h3>
 
                     <p class="mt-4 text-xl">
