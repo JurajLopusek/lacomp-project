@@ -2,9 +2,9 @@
     <div class="max-w-7xl mx-auto px-4 py-6 bg-[#FCF7F7]">
 
         {{-- Obrázok --}}
-        <div class="rounded-xl overflow-hidden mb-10">
-            <img src="{{ asset('storage/inspection/frame_inspection.png') }}" alt="Revízia elektroinštalácie"
-                 class="w-full h-auto object-cover">
+        <div class="rounded-xl overflow-hidden mb-8 h-96">
+            <img src="{{ asset('storage/inspection/revizie.png') }}" alt="Revízia elektroinštalácie"
+                 class="w-full h-full object-cover object-center">
         </div>
 
         {{-- Nadpis a úvod --}}
