@@ -2,10 +2,10 @@
     <div class="max-w-7xl mx-auto px-4 py-6 bg-[#FCF7F7] text-black">
         {{-- Obrázky pre desktop a mobil --}}
         <div class="hidden md:block rounded-xl overflow-hidden mb-8 h-96">
-            <img src="{{ asset('storage/alarm/frame_alarm.png') }}" alt="Alarmový systém" class="w-full h-auto object-cover">
+            <img src="{{ asset('storage/alarm/alarm.png') }}" alt="Alarmový systém" class="w-full h-full object-cover object-center">
         </div>
         <div class="block md:hidden max-h-96 rounded-xl overflow-hidden mb-8">
-            <img src="{{ asset('storage/alarm/frame_alarm_mobile.png') }}" alt="Alarmový systém" class="w-full h-auto object-cover">
+            <img src="{{ asset('storage/alarm/alarm.png') }}" alt="Alarmový systém" class="w-full h-auto object-cover">
         </div>
 
         {{-- Nadpis --}}
