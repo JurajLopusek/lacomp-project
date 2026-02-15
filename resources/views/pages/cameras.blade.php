@@ -1,8 +1,8 @@
 <x-layouts.base>
     <div class="max-w-7xl mx-auto px-4 py-6 bg-[#FCF7F7]">
         {{-- Hlavičkový obrázok --}}
-        <div class="rounded-xl overflow-hidden mb-8">
-            <img src="{{ asset('storage/cameras/frame_cameras.png') }}" alt="Kamerový systém" class="w-full h-auto object-cover">
+        <div class="rounded-xl overflow-hidden mb-8 h-96">
+            <img src="{{ asset('storage/cameras/kamery.png') }}" alt="Kamerový systém" class="w-full h-full object-cover object-center">
         </div>
 
         {{-- Nadpis a úvod --}}
