@@ -29,6 +29,10 @@ Route::group([], static function () {
     Route::get('/kontakt', static function () {
         return view('pages.contact');
     })->name('kontakt');
+
+    Route::get('/lunys', static function () {
+        return view('pages.lunys');
+    });
     Route::get('/inspection', static function () {
         return view('pages.inspections');
     });
