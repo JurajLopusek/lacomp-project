@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
 
@@ -18,11 +18,15 @@
     @livewireStyles
     <title>{{ $title ?? 'Lacomp' }}</title>
 </head>
-<body class="font-sans flex flex-col min-h-screen bg-[#FCF7F7]">
+<style>
+  body { font-family: 'Inter', -apple-system, sans-serif; }
+  .fade-up { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+</style>
+<body class="font-sans flex flex-col min-h-screen bg-slate-50 antialiased">
 <!-- Navigation -->
-<div class="h-[56px] md:h-[80px]">
-    @include("components.nav.nav")
-</div>
+@include("components.nav.nav")
+<div class="h-[72px]"></div>
 
 <!-- Content -->
 <div class="flex-grow">
