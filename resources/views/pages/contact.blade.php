@@ -210,12 +210,12 @@
 
 {{-- ===================== MAP ===================== --}}
 <div>
-  <iframe
-    title="Mapa – LACOMP, SNP 182, Spišské Bystré"
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d20944.69052578541!2d20.2406752!3d48.98991480000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e31c8cad44b19%3A0x7adc7ffd6997abf8!2sLA%2C%20spol.%20s%20r.o.!5e0!3m2!1ssk!2ssk!4v1717422423835!5m2!1ssk!2ssk"
-    width="100%" height="420" style="border:0;display:block;"
-    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+    <iframe
+        title="Mapa – LACOMP, SNP 182, Spišské Bystré"
+        src="https://maps.google.com/maps?q=SNP+182,+Spi%C5%A1sk%C3%A9+Bystr%C3%A9&output=embed&z=14"
+        width="100%" height="420" style="border:0;display:block;"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 </div>
 
 {{-- ===================== FOOTER ===================== --}}
