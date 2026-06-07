@@ -1,109 +1,382 @@
-<x-layouts.base>
-    <div class="max-w-7xl mx-auto px-4 py-6 bg-[#FCF7F7]">
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revízie elektroinštalácií | LACOMP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <style>
+    body { font-family: 'Inter', -apple-system, sans-serif; }
+    .fade-up { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body class="bg-slate-50 antialiased">
 
-        {{-- Obrázok --}}
-        <div class="rounded-xl overflow-hidden mb-8 h-96">
-            <img src="{{ asset('storage/inspection/revizie.png') }}" alt="Revízia elektroinštalácie"
-                 class="w-full h-full object-cover object-center">
-        </div>
-
-        {{-- Nadpis a úvod --}}
-        <h2 class="text-2xl md:text-3xl font-bold mb-4">Prečo sú revízie elektroinštalácií dôležité</h2>
-        <p class="mb-10 text-base leading-relaxed">
-            Pravidelné revízie elektroinštalácií sú nevyhnutné pre udržanie bezpečnosti a efektivity vášho domu alebo firmy.
-            Pomáhajú identifikovať potenciálne riziká, zabezpečiť súlad s normami a predchádzať nákladným opravám v budúcnosti.
-            Naše komplexné revízie pokrývajú všetky časti elektroinštalácie – od rozvodov a ističov až po zásuvky a spotrebiče.
-        </p>
-
-        {{-- Proces kontroly --}}
-        <h3 class="text-lg font-semibold mb-6">Náš proces revízie</h3>
-        <ul class="space-y-6">
-            <li class="relative z-10 flex gap-4 items-start">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-1">
-                        <div class="bg-white rounded-full p-1">
-                            {{-- SVG ikona nezmenená --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold">Úvodné posúdenie</h4>
-                    <p class="text-red-800 font-semibold text-base">
-                        Začíname komplexným posúdením vášho elektrického systému, aby sme zistili jeho aktuálny stav a identifikovali prípadné problémy.
-                    </p>
-                </div>
-            </li>
-
-            <li class="relative z-10 flex gap-4 items-start">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-1">
-                        <div class="bg-white rounded-full p-1">
-                            {{-- SVG ikona nezmenená --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold">Dôkladná kontrola</h4>
-                    <p class="text-red-800 font-semibold text-base">
-                        Naši certifikovaní technici vykonajú dôkladnú kontrolu všetkých elektrických súčastí vrátane rozvodov, ističov, zásuviek a spotrebičov.
-                    </p>
-                </div>
-            </li>
-
-            <li class="relative z-10 flex gap-4 items-start">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-1">
-                        <div class="bg-white rounded-full p-1">
-                            {{-- SVG ikona nezmenená --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold">Podrobná správa</h4>
-                    <p class="text-red-800 font-semibold text-base">
-                        Dostanete podrobnú správu so zisteniami, vrátane identifikovaných problémov a odporúčaných opatrení.
-                    </p>
-                </div>
-            </li>
-
-            <li class="relative z-10 flex gap-4 items-start">
-                <div class="flex flex-col items-center">
-                    <div class="bg-white rounded-full p-1">
-                        <div class="bg-white rounded-full p-1">
-                            {{-- SVG ikona nezmenená --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold">Následná podpora a odporúčania</h4>
-                    <p class="text-red-800 font-semibold text-base">
-                        Poskytujeme podporu a odporúčania na odstránenie zistených problémov a zabezpečenie bezpečnosti a efektivity vášho systému.
-                    </p>
-                </div>
-            </li>
-        </ul>
-
-        {{-- Výhody --}}
-        <h3 class="text-lg font-semibold mt-16 mb-6">Výhody pravidelných revízií</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <x-service-card icon="shieldwithcheck" iconType="png" title="Zvýšená bezpečnosť"
-                            description="Chráňte svoj majetok a osoby identifikovaním a odstránením potenciálnych elektrických rizík."/>
-            <x-service-card icon="dollar" iconType="png" title="Úspora nákladov"
-                            description="Predíďte drahým opravám včasnou identifikáciou a odstránením menších problémov."/>
-            <x-service-card icon="time" iconType="png" title="Preventívna údržba"
-                            description="Predĺžte životnosť elektroinštalácie a zaistite jej optimálny výkon pravidelnou údržbou."/>
-        </div>
+{{-- ===================== NAVBAR ===================== --}}
+<nav x-data="{ scrolled: false, open: false }"
+     @scroll.window="scrolled = window.scrollY > 20"
+     :class="scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md' : 'bg-[#0f172a] border-b border-white/10'"
+     class="fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="h-[72px] flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 shrink-0">
+        <img src="{{ asset('lacomp-logo.svg') }}" alt="LACOMP" class="h-11 w-11" />
+      </a>
+      <div class="hidden lg:flex items-center gap-0.5">
+        @foreach([
+          ['/photovoltaicSystems','Fotovoltika'],
+          ['/kamery','Kamery'],
+          ['/alarmy','Alarmy'],
+          ['/inspection','Revízie'],
+          ['/rekuperacie','Rekuperácie'],
+          ['/admin','Meranie spotreby'],
+        ] as [$url,$label])
+        <a href="{{ $url }}"
+           :class="scrolled ? 'text-slate-600 hover:text-[#d42020] hover:bg-red-50' : 'text-white/85 hover:text-white hover:bg-white/10'"
+           @class([
+             'text-[0.9125rem] font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap',
+             'text-[#d42020]!' => request()->is(ltrim($url, '/')),
+           ])>{{ $label }}</a>
+        @endforeach
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="/kontakt"
+           class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-5 py-2 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 transition-all duration-200">
+          Kontakt
+        </a>
+        <button @click="open = !open"
+                class="lg:hidden flex flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer"
+                aria-label="Menu">
+          <span :class="[open ? 'translate-y-[7px] rotate-45' : '', scrolled ? 'bg-slate-900' : 'bg-white']"
+                class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
+          <span :class="[open ? 'opacity-0' : 'opacity-100', scrolled ? 'bg-slate-900' : 'bg-white']"
+                class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
+          <span :class="[open ? '-translate-y-[7px] -rotate-45' : '', scrolled ? 'bg-slate-900' : 'bg-white']"
+                class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
+        </button>
+      </div>
     </div>
-</x-layouts.base>
+  </div>
+  <div x-show="open" x-cloak
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 -translate-y-4"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       class="bg-[rgba(12,20,38,0.98)] backdrop-blur-2xl px-6 pb-8 border-b border-white/10">
+    @foreach([
+      ['/photovoltaicSystems','Fotovoltika'],
+      ['/kamery','Kamerové systémy'],
+      ['/alarmy','Alarmové systémy'],
+      ['/inspection','Revízie elektroinštalácií'],
+      ['/rekuperacie','Rekuperácie'],
+      ['/admin','Meranie spotreby'],
+    ] as [$url,$label])
+    <a href="{{ $url }}"
+       class="flex items-center gap-3 text-white/80 text-[1.05rem] font-medium py-3.5 px-4 rounded-xl hover:text-white hover:bg-white/8 border-b border-white/6 transition-all">
+      {{ $label }}
+    </a>
+    @endforeach
+    <a href="/kontakt"
+       class="flex justify-center mt-5 w-full bg-[#d42020] text-white font-semibold py-3 px-6 rounded-xl hover:bg-[#b31c1c] transition-all">
+      Kontaktujte nás
+    </a>
+  </div>
+</nav>
+
+{{-- ===================== HERO ===================== --}}
+<section class="pt-[72px] bg-[#0f172a] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
+  <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(16,185,129,.18) 0%,transparent 65%)"></div>
+  <div class="max-w-[1200px] mx-auto px-6 py-16 relative z-10">
+    <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
+      <a href="/" class="hover:text-white transition-colors">Domov</a>
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span class="text-white/80">Revízie elektroinštalácií</span>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-emerald-900/30 text-emerald-300 text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border border-emerald-500/30 mb-5">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      Bezpečnosť elektroinštalácií
+    </div>
+    <h1 class="text-white font-extrabold leading-[1.1] mb-4" style="font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:-0.03em;">
+      Revízie elektroinštalácií<br>pre vašu bezpečnosť
+    </h1>
+    <p class="text-white/65 text-lg leading-[1.7] max-w-[580px]">
+      Odborné revízie podľa STN noriem SR. Zabezpečíme bezpečnosť vašej elektroinštalácie a splníme všetky zákonné požiadavky.
+    </p>
+  </div>
+</section>
+
+{{-- ===================== INTRO 2-COL ===================== --}}
+<section class="bg-white py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-up">
+        <span class="text-emerald-600 text-sm font-bold tracking-[0.1em] uppercase mb-3 block">Prečo revízia?</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Zaistite bezpečnosť<br>vašej elektroinštalácie</h2>
+        <p class="text-slate-500 leading-relaxed mb-8">
+          Pravidelné revízie elektroinštalácie sú zákonnou povinnosťou a kľúčovým krokom pre ochranu majetku aj životov. Naši certifikovaní revízni technici vykonajú dôkladnú kontrolu podľa platných STN noriem.
+        </p>
+        <ul class="flex flex-col gap-3">
+          @foreach([
+            'Kontrola podľa STN noriem SR',
+            'Zníženie rizika poistnej udalosti',
+            'Odhalenie skrytých závad a nebezpečenstiev',
+            'Úspora energie a predĺženie životnosti inštalácie',
+            'Spokojnosť poisťovne a zákonné krytie',
+          ] as $item)
+          <li class="flex items-start gap-3 text-slate-700">
+            <span class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center">
+              <svg class="w-3 h-3 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            {{ $item }}
+          </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="fade-up" style="transition-delay:.1s">
+        <div class="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-8 text-white text-center shadow-xl shadow-emerald-900/30">
+          <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg class="w-9 h-9 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div class="text-5xl font-extrabold mb-2">STN</div>
+          <div class="text-emerald-200 font-semibold text-lg mb-4">normy SR</div>
+          <p class="text-emerald-100/80 text-sm leading-relaxed">
+            Všetky revízie vykonávame v súlade s platnými STN EN 60364 normami a vydávame oficiálne revízne správy.
+          </p>
+          <div class="mt-6 pt-6 border-t border-white/20 grid grid-cols-2 gap-4 text-center">
+            <div>
+              <div class="text-2xl font-extrabold">100%</div>
+              <div class="text-emerald-200 text-xs mt-1">Certifikovaní technici</div>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold">24h</div>
+              <div class="text-emerald-200 text-xs mt-1">Revízna správa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== TYPES ===================== --}}
+<section id="typy" class="bg-slate-50 py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-emerald-600 text-sm font-bold tracking-[0.1em] uppercase mb-3 block">Oblasti revízií</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Kde vykonávame revízie</h2>
+      <p class="text-slate-500 max-w-xl mx-auto">Pokrývame všetky typy objektov od rodinných domov až po priemyselné prevádzky.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @foreach([
+        ['Rodinné domy','Revízie elektroinštalácie pre rodinné domy, byty a rekreačné objekty. Zákonná povinnosť pri predaji alebo poistení nehnuteľnosti.','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10','emerald'],
+        ['Firemné priestory','Pravidelné revízie pre kancelárie, prevádzky a komerčné objekty. Súlad s bezpečnostnými predpismi pre zamestnancov.','M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0H5m-2 0H1 M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5m-4 0h4','red'],
+        ['Fotovoltické systémy','Odborná revízia fotovoltických elektrární a nabíjacích staníc EV. Bezpečnosť a efektivita vašej obnoviteľnej energie.','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','amber'],
+        ['Priemyselné objekty','Komplexné revízie výrobných hál, skladov a priemyselných zariadení. Splnenie požiadaviek BOZP a poisťovní.','M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18','red'],
+        ['Bytové domy','Revízie spoločných priestorov, výťahov a elektroinštalácie bytových domov. Správy pre správcovské spoločnosti a SVB.','M3 21h18 M5 21V7l8-4v18 M19 21V11l-6-4 M9 9h1v1H9zm0 4h1v1H9zm0 4h1v1H9zm4-8h1v1h-1zm0 4h1v1h-1z','violet'],
+        ['Špeciálne priestory','Revízie pre zdravotné zariadenia, bazény, vonkajšie osvetlenie a iné priestory so zvýšenými bezpečnostnými požiadavkami.','M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z','emerald'],
+      ] as [$title,$desc,$icon,$color])
+      @php
+        $colors = [
+          'emerald' => 'bg-emerald-100 text-emerald-600',
+          'red'     => 'bg-red-100 text-red-600',
+          'amber'   => 'bg-amber-100 text-amber-600',
+          'violet'  => 'bg-violet-100 text-violet-600',
+        ];
+      @endphp
+      <div class="fade-up bg-white rounded-2xl border border-slate-100 p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl {{ $colors[$color] }} flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="{{ $icon }}"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">{{ $title }}</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">{{ $desc }}</p>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+{{-- ===================== FEATURES ===================== --}}
+<section class="bg-white py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-emerald-600 text-sm font-bold tracking-[0.1em] uppercase mb-3 block">Rozsah revízie</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Čo zahŕňa revízia</h2>
+      <p class="text-slate-500 max-w-xl mx-auto">Kompletná kontrola všetkých súčastí elektrickej inštalácie podľa STN noriem.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @foreach([
+        ['Vizuálna prehliadka','Dôkladná kontrola viditeľných častí inštalácie — vedenia, káblov, zásuviek, vypínačov a rozvádzačov.','M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z','emerald'],
+        ['Meranie izolačného odporu','Elektrické meranie izolačného odporu vedení a spotrebičov pre vylúčenie rizika skratu a úrazu elektrickým prúdom.','M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z M13 2v7h7','slate'],
+        ['Kontrola ochranných prvkov','Overenie funkčnosti ističov, prúdových chráničov RCD a prepäťových ochrán podľa platných noriem.','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','emerald'],
+        ['Uzemnenie a bleskozvod','Meranie uzemnenia, kontrola pospájania a bleskozvodu pre ochranu pred bleskom a prechodným napätím.','M13 10V3L4 14h7v7l9-11h-7z','amber'],
+        ['Kontrola rozvádzača','Preverenie správnosti zapojenia hlavného rozvádzača, označenia okruhov a dokumentácie inštalácie.','M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18','red'],
+        ['Revízna správa','Vydanie podrobnej revíznej správy s výsledkami meraní, zoznamom závad a odporúčaniami pre ich odstránenie.','M9 12h6 M9 16h6 M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z','emerald'],
+      ] as [$title,$desc,$icon,$color])
+      @php
+        $iconColors = [
+          'emerald' => 'bg-emerald-100 text-emerald-600',
+          'slate'   => 'bg-slate-100 text-slate-600',
+          'amber'   => 'bg-amber-100 text-amber-600',
+          'red'     => 'bg-red-100 text-red-600',
+        ];
+      @endphp
+      <div class="fade-up flex gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl {{ $iconColors[$color] }} flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="{{ $icon }}"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-slate-900 mb-1">{{ $title }}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">{{ $desc }}</p>
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+{{-- ===================== PROCESS ===================== --}}
+<section class="bg-slate-50 py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-emerald-600 text-sm font-bold tracking-[0.1em] uppercase mb-3 block">Ako to funguje</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Postup revízie</h2>
+      <p class="text-slate-500 max-w-xl mx-auto">Jednoduchý a transparentný proces od objednávky až po odovzdanie revíznej správy.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @foreach([
+        ['01','Objednávka a termín','Kontaktujte nás telefonicky alebo cez formulár. Dohodneme vhodný termín pre vykonanie revízie.','M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z'],
+        ['02','Dôkladná prehliadka','Certifikovaný revízny technik vykoná komplexnú kontrolu a merania vašej elektroinštalácie na mieste.','M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'],
+        ['03','Vyhodnotenie a protokol','Spracujeme výsledky meraní, vyhotovíme revíznu správu a informujeme vás o prípadných závadách.','M9 12h6 M9 16h6 M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z'],
+        ['04','Následná podpora','V prípade zistených závad vám odporučíme postup nápravy a ponúkneme realizáciu potrebných opráv.','M18.36 6.64a9 9 0 1 1-12.73 0 M12 2v10'],
+      ] as [$num,$title,$desc,$icon])
+      <div class="fade-up bg-white rounded-2xl border border-slate-100 p-6 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white text-lg font-extrabold flex items-center justify-center mx-auto mb-4">{{ $num }}</div>
+        <svg class="w-6 h-6 text-emerald-500 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="{{ $icon }}"/>
+        </svg>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">{{ $title }}</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">{{ $desc }}</p>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+{{-- ===================== CTA ===================== --}}
+<section class="bg-[#0f172a] py-20">
+  <div class="max-w-[900px] mx-auto px-6 text-center fade-up">
+    <span class="inline-flex items-center gap-2 bg-emerald-500/15 text-emerald-400 text-xs font-bold tracking-[0.1em] uppercase px-4 py-1.5 rounded-full mb-6">
+      Objednajte si revíziu
+    </span>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
+      Objednajte si revíziu<br><span class="text-emerald-400">elektroinštalácie</span>
+    </h2>
+    <p class="text-white/55 text-lg mb-10 max-w-lg mx-auto">
+      Zaistite bezpečnosť vašej domácnosti alebo firmy. Kontaktujte nás ešte dnes a dohodnite si termín revízie.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/kontakt"
+         class="inline-flex items-center gap-2 bg-emerald-500 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-emerald-600 hover:-translate-y-0.5 transition-all duration-200">
+        Objednať revíziu
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="tel:+421903701665"
+         class="inline-flex items-center gap-2 bg-white/10 text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-white/20 transition-all duration-200">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
+        +421 903 701 665
+      </a>
+    </div>
+  </div>
+</section>
+
+{{-- ===================== FOOTER ===================== --}}
+<footer class="bg-[#0f172a] pt-16 pb-8">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 mb-12">
+      <div>
+        <a href="/" class="flex items-center gap-3 mb-4">
+          <img src="{{ asset('lacomp-logo.svg') }}" alt="LACOMP" class="h-10 w-10" />
+          <span class="text-[1.3rem] font-extrabold text-white tracking-tight">LA<span class="text-[#d42020]">COMP</span></span>
+        </a>
+        <p class="text-white/50 text-sm max-w-[252px] leading-[1.7] mb-6">Inovatívne riešenia pre inteligentnejšiu budúcnosť. Fotovoltika, kamerové systémy, alarmy a revízie elektroinštalácií.</p>
+        <div class="flex gap-2.5">
+          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"
+             class="w-[38px] h-[38px] rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/65 hover:bg-[#d42020] hover:border-[#d42020] hover:text-white transition-all duration-200">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/la_s.r.o/" target="_blank" rel="noopener" aria-label="Instagram"
+             class="w-[38px] h-[38px] rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/65 hover:bg-[#d42020] hover:border-[#d42020] hover:text-white transition-all duration-200">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Služby</h5>
+        <div class="flex flex-col gap-2.5">
+          <a href="/photovoltaicSystems" class="text-white/50 text-sm hover:text-white transition-colors">Fotovoltika</a>
+          <a href="/kamery" class="text-white/50 text-sm hover:text-white transition-colors">Kamerové systémy</a>
+          <a href="/alarmy" class="text-white/50 text-sm hover:text-white transition-colors">Alarmové systémy</a>
+          <a href="/inspection" class="text-white font-semibold text-sm">Revízie elektroinštalácií</a>
+          <a href="/rekuperacie" class="text-white/50 text-sm hover:text-white transition-colors">Rekuperácie</a>
+          <a href="/admin" class="text-white/50 text-sm hover:text-white transition-colors">Meranie spotreby</a>
+        </div>
+      </div>
+      <div>
+        <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Spoločnosť</h5>
+        <div class="flex flex-col gap-2.5">
+          <a href="/kontakt" class="text-white/50 text-sm hover:text-white transition-colors">Kontakt</a>
+          <a href="{{ route('Privacy Policy') }}" class="text-white/50 text-sm hover:text-white transition-colors">Ochrana osobných údajov</a>
+          <a href="{{ route('Terms of Service') }}" class="text-white/50 text-sm hover:text-white transition-colors">Obchodné podmienky</a>
+        </div>
+      </div>
+      <div>
+        <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Kontakt</h5>
+        <div class="flex flex-col gap-3">
+          <div class="flex gap-3 items-start">
+            <svg class="w-[17px] h-[17px] text-[#d42020] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="text-white/55 text-sm leading-[1.55]">SNP 182, Spišské Bystré<br>059 18</span>
+          </div>
+          <div class="flex gap-3 items-center">
+            <svg class="w-[17px] h-[17px] text-[#d42020] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
+            <a href="tel:+421903701665" class="text-white/55 text-sm hover:text-white transition-colors">+421 903 701 665</a>
+          </div>
+          <div class="flex gap-3 items-center">
+            <svg class="w-[17px] h-[17px] text-[#d42020] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:lacomp@lacomp.sk" class="text-white/55 text-sm hover:text-white transition-colors">lacomp@lacomp.sk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="border-t border-white/[0.08] mb-6" />
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[0.8375rem] text-white/40">© {{ date('Y') }} LA, spol. s.r.o. Všetky práva vyhradené.</p>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <a href="{{ route('Privacy Policy') }}" class="text-[0.8375rem] text-white/40 hover:text-white/70 transition-colors">Ochrana osobných údajov</a>
+        <a href="{{ route('Terms of Service') }}" class="text-[0.8375rem] text-white/40 hover:text-white/70 transition-colors">Obchodné podmienky</a>
+        <a href="/kontakt" class="text-[0.8375rem] text-white/40 hover:text-white/70 transition-colors">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
