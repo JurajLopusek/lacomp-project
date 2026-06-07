@@ -62,6 +62,7 @@
           ['/alarmy','Alarmy'],
           ['/inspection','Revízie'],
           ['/rekuperacie','Rekuperácie'],
+          ['/admin','Meranie spotreby'],
         ] as [$url,$label])
         <a href="{{ $url }}"
            :class="scrolled ? 'text-slate-600 hover:text-[#d42020] hover:bg-red-50' : 'text-white/85 hover:text-white hover:bg-white/10'"
@@ -92,6 +93,7 @@
       ['/alarmy','Alarmové systémy','M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0'],
       ['/inspection','Revízie elektroinštalácií','M13 2 3 14 12 14 11 22 21 10 12 10 13 2'],
       ['/rekuperacie','Rekuperácie','M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2'],
+      ['/admin','Meranie spotreby','M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6 M13 5v14 M17 11v8 M21 3v16'],
     ] as [$url,$label])
     <a href="{{ $url }}" class="flex items-center gap-3 text-white/80 text-[1.05rem] font-medium py-3.5 px-4 rounded-xl hover:text-white hover:bg-white/8 border-b border-white/6 transition-all">{{ $label }}</a>
     @endforeach
