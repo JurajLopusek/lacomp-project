@@ -52,7 +52,7 @@
     <div class="h-[72px] flex items-center justify-between">
 
       <a href="/" class="flex items-center gap-3 shrink-0">
-        <img src="{{ asset('lacomp-logo.svg') }}" alt="LACOMP" class="h-11 w-11" />
+        <img :src="scrolled ? '{{ asset('cervene-logo.svg') }}' : '{{ asset('biele-logo.svg') }}'" alt="LACOMP" class="h-11 w-11" />
       </a>
 
       <div class="hidden lg:flex items-center gap-0.5">
