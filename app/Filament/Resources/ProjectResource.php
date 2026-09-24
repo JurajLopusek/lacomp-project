@@ -13,7 +13,7 @@ use App\Models\Project;
 use Exception;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -35,6 +35,23 @@ class ProjectResource extends ResourceEnhanced implements ResourceEloquentQueryI
 
     /** Suggested tags – same names as the services on the website. */
     public const TAG_SUGGESTIONS = ['Fotovoltika', 'Batériové úložisko', 'Kamerový systém', 'Alarmový systém', 'Revízia', 'Rekuperácia', 'Elektroinštalácia'];
+
+    /**
+     * Default tags + every tag already used in some project.
+     *
+     * @return array<string, string>
+     */
+    public static function tagOptions(): array
+    {
+        $tags = collect(self::TAG_SUGGESTIONS)
+            ->merge(Project::query()->pluck('tags')->flatten())
+            ->filter()
+            ->unique()
+            ->sort(SORT_LOCALE_STRING)
+            ->values();
+
+        return $tags->combine($tags)->all();
+    }
 
     public static function form(Form $form): Form
     {
@@ -58,11 +75,22 @@ class ProjectResource extends ResourceEnhanced implements ResourceEloquentQueryI
                         ->maxValue(2100)
                         ->default((int) date('Y'))
                         ->label('Rok'),
-                    TagsInput::make('tags')
-                        ->suggestions(self::TAG_SUGGESTIONS)
+                    Select::make('tags')
+                        ->multiple()
+                        ->searchable()
+                        ->options(fn () => self::tagOptions())
+                        // labels = values; also covers a tag that was just created and is not saved in any project yet
+                        ->getOptionLabelsUsing(fn (array $values) => array_combine($values, $values))
+                        ->createOptionForm([
+                            TextInput::make('name')
+                                ->label('Nový štítok')
+                                ->required()
+                                ->maxLength(50),
+                        ])
+                        ->createOptionUsing(fn (array $data) => trim($data['name']))
+                        ->createOptionModalHeading('Nový štítok')
                         ->columnSpanFull()
-                        ->label('Štítky')
-                        ->placeholder('Pridať štítok'),
+                        ->label('Štítky'),
                     Textarea::make('description')
                         ->rows(4)
                         ->maxLength(2000)
