@@ -30,6 +30,26 @@ class ContactForm extends Component
         'photo' => 'nullable|max:1024',
     ];
 
+    /**
+     * @var array<string, string>
+     */
+    protected array $messages = [
+        'name.required' => 'Zadajte svoje meno.',
+        'name.string' => 'Meno musí byť text.',
+        'name.min' => 'Meno musí mať aspoň :min znaky.',
+        'name.max' => 'Meno môže mať najviac :max znakov.',
+        'email.required' => 'Zadajte e-mailovú adresu.',
+        'email.email' => 'Zadajte platnú e-mailovú adresu.',
+        'email.min' => 'E-mail musí mať aspoň :min znaky.',
+        'email.max' => 'E-mail môže mať najviac :max znakov.',
+        'message.required' => 'Napíšte nám správu.',
+        'message.string' => 'Správa musí byť text.',
+        'message.min' => 'Správa musí mať aspoň :min znaky.',
+        'message.max' => 'Správa môže mať najviac :max znakov.',
+        'photo.max' => 'Príloha môže mať najviac 1 MB.',
+        'photo.uploaded' => 'Prílohu sa nepodarilo nahrať.',
+    ];
+
     public function updatedPhoto(): void
     {
         $this->photoName = $this->photo->getClientOriginalName();
@@ -52,13 +72,14 @@ class ContactForm extends Component
         try {
             Mail::to('lacomp@lacomp.sk')->send(new ContactUsMail($validatedData, $attachmentPath));
             if ($session) {
-                $session->flash('success', 'Your message has been sent.');
+                $session->flash('success', 'Správa bola odoslaná.');
                 Storage::disk('public')->delete("attachments/$this->photoName");
 
             }
         } catch (Exception $exception) {
             if ($session) {
-                $session->flash('error', $exception->getMessage());
+                report($exception);
+                $session->flash('error', 'Správu sa nepodarilo odoslať. Skúste to prosím znova alebo nás kontaktujte telefonicky.');
             }
         }
         $this->reset();

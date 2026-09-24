@@ -154,80 +154,6 @@
   </div>
 </section>
 
-{{-- ====== TYPES ====== --}}
-<section class="bg-slate-50 py-20">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Typy systémov</span>
-      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Riešenie pre každú situáciu</h2>
-      <p class="text-slate-500 text-[1.05rem] max-w-[540px] mx-auto">Ponúkame rôzne typy fotovoltických systémov prispôsobených vašim konkrétnym potrebám.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      @foreach([
-        ['bg-amber-50','text-amber-700','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10','Systémy pre domácnosti','Ideálne riešenie pre rodinné domy. Znížte účty za elektrinu a staňte sa energeticky nezávislými.'],
-        ['bg-blue-50','text-blue-700','M2 7h20v14H2z M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16','Systémy pre firmy','Pomáhame firmám znížiť prevádzkové náklady a dosiahnuť udržateľnosť podnikania.'],
-        ['bg-emerald-50','text-emerald-700','M13 2 3 14 12 14 11 22 21 10 12 10 13 2','Ostrovné systémy','Vhodné pre miesta bez prístupu k elektrickej sieti – chaty, záhradné domy, vzdialené objekty.'],
-      ] as [$bg,$color,$icon,$title,$desc])
-      <div class="feat-card bg-white border border-slate-200 rounded-2xl p-8 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
-        <div class="w-14 h-14 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-5">
-          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            @if($title === 'Systémy pre domácnosti')
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-            @elseif($title === 'Systémy pre firmy')
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            @else
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            @endif
-          </svg>
-        </div>
-        <h3 class="text-slate-900 font-bold text-[1.05rem] mb-2.5">{{ $title }}</h3>
-        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</section>
-
-{{-- ====== BENEFITS ====== --}}
-<section class="bg-white py-20">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Výhody</span>
-      <h2 class="text-slate-900 font-bold" style="font-size:clamp(1.5rem,3vw,2.25rem)">Prečo si vybrať náš solárny systém</h2>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      @foreach([
-        ['text-emerald-600','bg-emerald-50','M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6','Úspora nákladov','Výrazné dlhodobé úspory vďaka zníženiu alebo eliminácii účtov za elektrinu.'],
-        ['text-[#d42020]','bg-red-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','Spoľahlivosť','Používame iba prémiové komponenty od overených výrobcov s dlhou zárukou.'],
-        ['text-emerald-600','bg-emerald-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4','Ekologický prínos','Prispejte k ochrane životného prostredia znížením emisií CO₂ a uhlíkovej stopy.'],
-        ['text-blue-600','bg-blue-50','M22 12 18 12 15 21 9 3 6 12 2 12','Monitoring v reálnom čase','Sledujte výkon vášho systému online cez mobilnú aplikáciu alebo webový portál.'],
-        ['text-slate-600','bg-slate-100','M1 6h22v13H1z M1 10h22','Batériové úložiská','Uchováme prebytočnú energiu pre večerné hodiny a v prípade výpadku siete.'],
-        ['text-amber-600','bg-amber-50','M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0-20 0 M12 6v6l4 2','Rýchla návratnosť','Investícia do fotovoltiky sa zvyčajne vráti do 6–9 rokov. Systém funguje 25+ rokov.'],
-      ] as [$color,$bg,$icon,$title,$desc])
-      <div class="feat-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
-        <div class="w-12 h-12 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-4">
-          @if($title === 'Úspora nákladov')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          @elseif($title === 'Spoľahlivosť')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          @elseif($title === 'Ekologický prínos')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          @elseif($title === 'Monitoring v reálnom čase')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          @elseif($title === 'Batériové úložiská')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          @else
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          @endif
-        </div>
-        <h3 class="text-slate-900 font-semibold text-[0.975rem] mb-2">{{ $title }}</h3>
-        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</section>
-
 {{-- ====== GALLERY ====== --}}
 @php
   $gallery = collect(glob(storage_path('app/public/solar/gallery/IMG_*.{jpg,jpeg,png}'), GLOB_BRACE))
@@ -272,6 +198,80 @@
   lightbox.init();
 </script>
 @endif
+
+{{-- ====== TYPES ====== --}}
+<section class="bg-white py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Typy systémov</span>
+      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Riešenie pre každú situáciu</h2>
+      <p class="text-slate-500 text-[1.05rem] max-w-[540px] mx-auto">Ponúkame rôzne typy fotovoltických systémov prispôsobených vašim konkrétnym potrebám.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @foreach([
+        ['bg-amber-50','text-amber-700','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10','Systémy pre domácnosti','Ideálne riešenie pre rodinné domy. Znížte účty za elektrinu a staňte sa energeticky nezávislými.'],
+        ['bg-blue-50','text-blue-700','M2 7h20v14H2z M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16','Systémy pre firmy','Pomáhame firmám znížiť prevádzkové náklady a dosiahnuť udržateľnosť podnikania.'],
+        ['bg-emerald-50','text-emerald-700','M13 2 3 14 12 14 11 22 21 10 12 10 13 2','Ostrovné systémy','Vhodné pre miesta bez prístupu k elektrickej sieti – chaty, záhradné domy, vzdialené objekty.'],
+      ] as [$bg,$color,$icon,$title,$desc])
+      <div class="feat-card bg-white border border-slate-200 rounded-2xl p-8 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
+        <div class="w-14 h-14 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            @if($title === 'Systémy pre domácnosti')
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            @elseif($title === 'Systémy pre firmy')
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            @else
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            @endif
+          </svg>
+        </div>
+        <h3 class="text-slate-900 font-bold text-[1.05rem] mb-2.5">{{ $title }}</h3>
+        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+{{-- ====== BENEFITS ====== --}}
+<section class="bg-slate-50 py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Výhody</span>
+      <h2 class="text-slate-900 font-bold" style="font-size:clamp(1.5rem,3vw,2.25rem)">Prečo si vybrať náš solárny systém</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @foreach([
+        ['text-emerald-600','bg-emerald-50','M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6','Úspora nákladov','Výrazné dlhodobé úspory vďaka zníženiu alebo eliminácii účtov za elektrinu.'],
+        ['text-[#d42020]','bg-red-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','Spoľahlivosť','Používame iba prémiové komponenty od overených výrobcov s dlhou zárukou.'],
+        ['text-emerald-600','bg-emerald-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4','Ekologický prínos','Prispejte k ochrane životného prostredia znížením emisií CO₂ a uhlíkovej stopy.'],
+        ['text-blue-600','bg-blue-50','M22 12 18 12 15 21 9 3 6 12 2 12','Monitoring v reálnom čase','Sledujte výkon vášho systému online cez mobilnú aplikáciu alebo webový portál.'],
+        ['text-slate-600','bg-slate-100','M1 6h22v13H1z M1 10h22','Batériové úložiská','Uchováme prebytočnú energiu pre večerné hodiny a v prípade výpadku siete.'],
+        ['text-amber-600','bg-amber-50','M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0-20 0 M12 6v6l4 2','Rýchla návratnosť','Investícia do fotovoltiky sa zvyčajne vráti do 6–9 rokov. Systém funguje 25+ rokov.'],
+      ] as [$color,$bg,$icon,$title,$desc])
+      <div class="feat-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
+        <div class="w-12 h-12 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-4">
+          @if($title === 'Úspora nákladov')
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          @elseif($title === 'Spoľahlivosť')
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          @elseif($title === 'Ekologický prínos')
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          @elseif($title === 'Monitoring v reálnom čase')
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          @elseif($title === 'Batériové úložiská')
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          @else
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          @endif
+        </div>
+        <h3 class="text-slate-900 font-semibold text-[0.975rem] mb-2">{{ $title }}</h3>
+        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
 
 {{-- ====== PROCESS ====== --}}
 <section class="bg-white py-20">
