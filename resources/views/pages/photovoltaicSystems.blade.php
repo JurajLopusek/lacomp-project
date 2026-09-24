@@ -18,6 +18,8 @@
     .feat-card:hover::after { transform:scaleX(1); }
     .gallery-item img { transition:transform .5s ease; }
     .gallery-item:hover img { transform:scale(1.06); }
+    @media (min-width: 768px) { .pv-swiper .swiper-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1024px) { .pv-swiper .swiper-wrapper { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   </style>
 </head>
 <body class="bg-slate-50 antialiased">
@@ -120,14 +122,17 @@
       <p class="text-slate-500 text-[1.05rem] max-w-[500px] mx-auto">Pozrite si ukážky systémov, ktoré sme nainštalovali.</p>
     </div>
 
-    <div id="pv-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div id="pv-gallery" class="swiper m-swiper pv-swiper">
+      <div class="swiper-wrapper">
       @foreach($gallery as $img)
       <a href="{{ $img['src'] }}" data-pswp-width="{{ $img['w'] }}" data-pswp-height="{{ $img['h'] }}" target="_blank"
-         class="gallery-item block rounded-xl overflow-hidden relative shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up"
+         class="swiper-slide gallery-item block rounded-xl overflow-hidden relative shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up"
          style="aspect-ratio:3/4;cursor:zoom-in">
         <img src="{{ $img['src'] }}" alt="Realizácia fotovoltiky" loading="lazy" class="w-full h-full object-cover" />
       </a>
       @endforeach
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
@@ -335,5 +340,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+@include('components.includes.mobile-swiper')
 </body>
 </html>

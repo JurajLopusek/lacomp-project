@@ -51,7 +51,29 @@
     .stat-green { background-image: linear-gradient(135deg, #10b981, #0ea5e9); }
     .section-warm { background: #fffaf5; }
     .why-card { background: linear-gradient(145deg, #fff1f2 0%, #fff7ed 60%, #fef3c7 100%); border: 1px solid #fde2e2; }
+    .why-card { padding: 20px; }
+    .why-grid { gap: 12px; }
+    .why-tile { padding: 16px 8px; min-width: 0; }
+    .why-num { font-size: 1.75rem; }
+    .why-lbl { overflow-wrap: anywhere; hyphens: auto; }
+    @media (min-width: 640px) {
+      .why-card { padding: 48px; }
+      .why-grid { gap: 20px; }
+      .why-tile { padding: 24px; }
+      .why-num { font-size: 2.375rem; }
+    }
     .why-tile { background: #fff; border: 1px solid rgba(15,23,42,.06); box-shadow: 0 4px 16px rgba(15,23,42,.05); }
+    /* grid columns for the .m-swiper sections (see components/includes/mobile-swiper) */
+    @media (min-width: 768px) {
+      .svc-swiper .swiper-wrapper { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .gal-swiper .swiper-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .gal-swiper .swiper-wrapper { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1280px) {
+      .svc-swiper .swiper-wrapper { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
     .cta-bright { background: linear-gradient(135deg, #e11d48 0%, #d42020 45%, #f97316 100%); }
   </style>
 </head>
@@ -144,26 +166,6 @@
   </div>
 </section>
 
-{{-- ====== STATS STRIP ====== --}}
-<section class="bg-white py-14 border-y border-slate-100">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-slate-200">
-        <div class="stat-red text-[2.75rem] font-extrabold leading-none">150+</div>
-        <div class="text-sm text-slate-500 mt-1.5">Spokojných zákazníkov</div>
-      </div>
-      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-slate-200">
-        <div class="stat-amber text-[2.75rem] font-extrabold leading-none">15+</div>
-        <div class="text-sm text-slate-500 mt-1.5">Rokov skúseností</div>
-      </div>
-      <div>
-        <div class="stat-green text-[2.75rem] font-extrabold leading-none">300+</div>
-        <div class="text-sm text-slate-500 mt-1.5">Dokončených projektov</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 {{-- ====== SERVICES ====== --}}
 <section class="bg-white py-20" id="services">
   <div class="max-w-[1200px] mx-auto px-6">
@@ -172,8 +174,9 @@
       <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.6rem,3.5vw,2.5rem)">Komplexné riešenia pre váš dom aj firmu</h2>
       <p class="text-slate-500 text-[1.05rem] max-w-[600px] mx-auto">Od obnoviteľných zdrojov energie až po bezpečnostné systémy – pokrývame všetky vaše potreby.</p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-5">
-      <a href="/photovoltaicSystems" class="svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
+    <div class="swiper m-swiper svc-swiper">
+      <div class="swiper-wrapper">
+      <a href="/photovoltaicSystems" class="swiper-slide svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
         <div class="w-[54px] h-[54px] rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5">
           <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
         </div>
@@ -181,7 +184,7 @@
         <p class="text-slate-500 text-sm leading-[1.65] mb-5">Využite silu slnka s našimi efektívnymi solárnymi riešeniami pre domácnosti aj komerčné objekty.</p>
         <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#d42020]">Zistiť viac <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="/kamery" class="svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
+      <a href="/kamery" class="swiper-slide svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
         <div class="w-[54px] h-[54px] rounded-xl bg-red-50 text-[#d42020] flex items-center justify-center mb-5">
           <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
         </div>
@@ -189,7 +192,7 @@
         <p class="text-slate-500 text-sm leading-[1.65] mb-5">Zvýšte bezpečnosť pomocou moderných kamier s nočným videním, vzdialeným prístupom a cloudovým úložiskom.</p>
         <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#d42020]">Zistiť viac <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="/alarmy" class="svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
+      <a href="/alarmy" class="swiper-slide svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
         <div class="w-[54px] h-[54px] rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-5">
           <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         </div>
@@ -197,7 +200,7 @@
         <p class="text-slate-500 text-sm leading-[1.65] mb-5">Chráňte svoj majetok spoľahlivými alarmovými systémami s ovládaním cez smartfón a záložným napájaním.</p>
         <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#d42020]">Zistiť viac <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="/inspection" class="svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
+      <a href="/inspection" class="swiper-slide svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
         <div class="w-[54px] h-[54px] rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5">
           <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
@@ -205,7 +208,7 @@
         <p class="text-slate-500 text-sm leading-[1.65] mb-5">Zabezpečte bezpečnosť vďaka dôkladným revíziám elektroinštalácií vykonávaným certifikovanými technikmi.</p>
         <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#d42020]">Zistiť viac <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
-      <a href="/rekuperacie" class="svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
+      <a href="/rekuperacie" class="swiper-slide svc-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 block fade-up">
         <div class="w-[54px] h-[54px] rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center mb-5">
           <svg class="w-[26px] h-[26px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
         </div>
@@ -213,6 +216,8 @@
         <p class="text-slate-500 text-sm leading-[1.65] mb-5">Zabezpečte čerstvý vzduch bez tepelných strát pomocou moderného systému RECUAIR s 5-ročnou zárukou.</p>
         <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-[#d42020]">Zistiť viac <svg class="w-[15px] h-[15px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
@@ -255,13 +260,13 @@
         </div>
       </div>
 
-      <div class="why-card rounded-2xl p-12 relative overflow-hidden fade-up">
+      <div class="why-card rounded-2xl relative overflow-hidden fade-up">
         <div class="absolute -top-2/5 -right-1/5 w-[400px] h-[400px] pointer-events-none" style="background:radial-gradient(circle,rgba(244,63,94,.14) 0%,transparent 65%)"></div>
-        <div class="grid grid-cols-2 gap-5 relative z-10">
+        <div class="why-grid grid grid-cols-2 relative z-10">
           @foreach([['150','+','Spokojných zákazníkov'],['300','+','Dokončených projektov'],['5','+','Rokov na trhu'],['100','%','Spokojnosť klientov']] as [$n,$s,$lbl])
-          <div class="why-tile rounded-2xl p-6 text-center">
-            <div class="text-[2.375rem] font-extrabold text-slate-900 leading-none">{{ $n }}<span class="text-[#d42020]">{{ $s }}</span></div>
-            <div class="text-[0.8rem] text-slate-500 mt-1.5">{{ $lbl }}</div>
+          <div class="why-tile rounded-2xl text-center">
+            <div class="why-num font-extrabold text-slate-900 leading-none">{{ $n }}<span class="text-[#d42020]">{{ $s }}</span></div>
+            <div class="why-lbl text-[0.8rem] text-slate-500 mt-1.5">{{ $lbl }}</div>
           </div>
           @endforeach
         </div>
@@ -288,20 +293,26 @@
       <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.6rem,3.5vw,2.5rem)">Realizácie, na ktoré sme hrdí</h2>
       <p class="text-slate-500 text-[1.05rem] max-w-[600px] mx-auto">Pozrite si ukážky našich dokončených inštalácií – fotovoltika, kamery, alarmy, revízie aj rekuperácie naprieč Slovenskom.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="swiper m-swiper gal-swiper">
+      <div class="swiper-wrapper">
       @foreach([
-        [asset('storage/solar/IMG_7476_crop.jpg'),'Fotovoltika – rodinný dom'],
-        ['https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=450&fit=crop&auto=format&q=80','Kamerový systém – komerčná budova'],
-        ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&auto=format&q=80','Alarmový systém – rodinný dom'],
-        ['https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=450&fit=crop&auto=format&q=80','Revízia elektroinštalácie'],
-        ['https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=450&fit=crop&auto=format&q=80','Rekuperácia – bytový dom'],
-        ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=450&fit=crop&auto=format&q=80','Profesionálna inštalácia v teréne'],
-      ] as [$src,$lbl])
-      <div class="gallery-item rounded-xl overflow-hidden relative aspect-[4/3] shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up">
+        [asset('storage/solar/IMG_7476_crop.jpg'),'Fotovoltika – rodinný dom','/photovoltaicSystems'],
+        ['https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=450&fit=crop&auto=format&q=80','Kamerový systém – komerčná budova','/kamery'],
+        ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&auto=format&q=80','Alarmový systém – rodinný dom','/alarmy'],
+        ['https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=450&fit=crop&auto=format&q=80','Revízia elektroinštalácie','/inspection'],
+        ['https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=450&fit=crop&auto=format&q=80','Rekuperácia – bytový dom','/rekuperacie'],
+        ['https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=450&fit=crop&auto=format&q=80','Profesionálna inštalácia v teréne','/kontakt'],
+      ] as [$src,$lbl,$href])
+      <a href="{{ $href }}" class="swiper-slide gallery-item block rounded-xl overflow-hidden relative aspect-[4/3] shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up">
         <img src="{{ $src }}" alt="{{ $lbl }}" loading="lazy" class="w-full h-full object-cover" />
-        <div class="absolute bottom-0 left-0 right-0 px-4 py-3 text-white text-sm font-medium" style="background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,transparent 100%)">{{ $lbl }}</div>
-      </div>
+        <div class="absolute bottom-0 left-0 right-0 px-4 py-3 text-white text-sm font-medium flex items-center justify-between gap-2" style="background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,transparent 100%)">
+          {{ $lbl }}
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
       @endforeach
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
@@ -429,5 +440,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+@include('components.includes.mobile-swiper')
 </body>
 </html>
