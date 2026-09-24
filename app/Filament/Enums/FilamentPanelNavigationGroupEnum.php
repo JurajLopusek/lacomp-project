@@ -6,5 +6,6 @@ enum FilamentPanelNavigationGroupEnum: string
 {
     case USERS = 'Používatelia';
     case DEVICE = 'Zariadenia';
+    case WEB = 'Web';
     case DEV = 'Dev';
 }

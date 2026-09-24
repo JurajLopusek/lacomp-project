@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DeviceController;
 use App\Livewire\Counter;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 // REDIRECTS
@@ -42,6 +43,9 @@ Route::group([], static function () {
     Route::get('/rekuperacie', static function () {
         return view('pages.rekuperacie');
     });
+    Route::get('/realizacie', static function () {
+        return view('pages.projects', ['projects' => Project::published()->get()]);
+    })->name('realizacie');
     Route::view('/rekuperacie/hrv', 'pages.hrv')->name('hrv');
     Route::view('/rekuperacie/erv', 'pages.erv')->name('erv');
 

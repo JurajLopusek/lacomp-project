@@ -39,6 +39,7 @@
           ['/alarmy','Alarmy'],
           ['/inspection','Revízie'],
           ['/rekuperacie','Rekuperácie'],
+          ['/realizacie','Realizácie'],
           ['/admin','Meranie spotreby'],
         ] as [$url,$label])
         <a href="{{ $url }}"
@@ -84,6 +85,7 @@
       ['/alarmy','Alarmové systémy'],
       ['/inspection','Revízie elektroinštalácií'],
       ['/rekuperacie','Rekuperácie'],
+      ['/realizacie','Realizácie'],
       ['/admin','Meranie spotreby'],
     ] as [$url,$label])
     <a href="{{ $url }}" @class(['m-link', 'is-active' => request()->is(ltrim($url, '/'))])>
