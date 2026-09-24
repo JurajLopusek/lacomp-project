@@ -1,8 +1,9 @@
+{{-- Usage: @include('components.nav.nav') or @include('components.nav.nav', ['transparent' => true]) for a see-through bar over the hero --}}
 <nav x-data="{ scrolled: false, open: false }"
      @scroll.window="scrolled = window.scrollY > 20"
-     :class="scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md' : 'bg-[#0f172a] border-b border-white/10'"
+     :class="scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md' : '{{ ($transparent ?? false) ? 'border-b border-transparent' : 'bg-[#0f172a] border-b border-white/10' }}'"
      class="fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300">
-  <div class="max-w-[1200px] mx-auto px-6">
+  <div class="mx-auto px-6" style="max-width:1440px">
     <div class="h-[72px] flex items-center justify-between">
 
       <a href="/" class="flex items-center gap-3 shrink-0">
@@ -29,7 +30,7 @@
 
       <div class="flex items-center gap-3">
         <a href="/kontakt"
-           class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-5 py-2 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 transition-all duration-200">
+           class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-5 py-2 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(212,32,32,0.4)] transition-all duration-200">
           Kontakt
         </a>
         <button @click="open = !open"

@@ -44,62 +44,7 @@
 <body class="bg-slate-50 antialiased">
 
 {{-- ====== NAVBAR ====== --}}
-<nav x-data="{ scrolled: false, open: false }"
-     @scroll.window="scrolled = window.scrollY > 20"
-     :class="scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md' : 'border-b border-transparent'"
-     class="fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="h-[72px] flex items-center justify-between">
-
-      <a href="/" class="flex items-center gap-3 shrink-0">
-        <img :src="scrolled ? '{{ asset('cervene-logo.svg') }}' : '{{ asset('biele-logo.svg') }}'" alt="LACOMP" class="h-11 w-11" />
-      </a>
-
-      <div class="hidden lg:flex items-center gap-0.5">
-        @foreach([
-          ['/photovoltaicSystems','Fotovoltika'],
-          ['/kamery','Kamery'],
-          ['/alarmy','Alarmy'],
-          ['/inspection','Revízie'],
-          ['/rekuperacie','Rekuperácie'],
-          ['/admin','Meranie spotreby'],
-        ] as [$url,$label])
-        <a href="{{ $url }}"
-           :class="scrolled ? 'text-slate-600 hover:text-[#d42020] hover:bg-red-50' : 'text-white/85 hover:text-white hover:bg-white/10'"
-           class="text-[0.9125rem] font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap">{{ $label }}</a>
-        @endforeach
-      </div>
-
-      <div class="flex items-center gap-3">
-        <a href="/kontakt"
-           class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-5 py-2 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(212,32,32,0.4)] transition-all duration-200">Kontakt</a>
-        <button @click="open = !open" class="lg:hidden flex flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer" aria-label="Menu">
-          <span :class="[open ? 'translate-y-[7px] rotate-45' : '', scrolled ? 'bg-slate-900' : 'bg-white']" class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
-          <span :class="[open ? 'opacity-0' : 'opacity-100', scrolled ? 'bg-slate-900' : 'bg-white']" class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
-          <span :class="[open ? '-translate-y-[7px] -rotate-45' : '', scrolled ? 'bg-slate-900' : 'bg-white']" class="block w-6 h-0.5 rounded-sm transition-all duration-200"></span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div x-show="open" x-cloak
-       x-transition:enter="transition ease-out duration-300"
-       x-transition:enter-start="opacity-0 -translate-y-4"
-       x-transition:enter-end="opacity-100 translate-y-0"
-       class="bg-[rgba(12,20,38,0.98)] backdrop-blur-2xl px-6 pb-8 border-b border-white/10">
-    @foreach([
-      ['/photovoltaicSystems','Fotovoltika','M12,12 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0 M12 2v4 M12 18v4 M4.93 4.93l2.83 2.83 M16.24 16.24l2.83 2.83 M2 12h4 M18 12h4 M4.93 19.07l2.83-2.83 M16.24 7.76l2.83-2.83'],
-      ['/kamery','Kamerové systémy','M23 7l-7 5 7 5V7z M1 5h15a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H1z'],
-      ['/alarmy','Alarmové systémy','M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0'],
-      ['/inspection','Revízie elektroinštalácií','M13 2 3 14 12 14 11 22 21 10 12 10 13 2'],
-      ['/rekuperacie','Rekuperácie','M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2'],
-      ['/admin','Meranie spotreby','M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6 M13 5v14 M17 11v8 M21 3v16'],
-    ] as [$url,$label])
-    <a href="{{ $url }}" class="flex items-center gap-3 text-white/80 text-[1.05rem] font-medium py-3.5 px-4 rounded-xl hover:text-white hover:bg-white/8 border-b border-white/6 transition-all">{{ $label }}</a>
-    @endforeach
-    <a href="/kontakt" class="flex justify-center mt-5 w-full bg-[#d42020] text-white font-semibold py-3 px-6 rounded-xl hover:bg-[#b31c1c] transition-all">Kontaktujte nás</a>
-  </div>
-</nav>
+@include('components.nav.nav', ['transparent' => true])
 
 {{-- ====== HERO ====== --}}
 <section class="min-h-screen pt-[72px] relative overflow-hidden flex items-center" style="background: linear-gradient(135deg, #0d0404 0%, #200808 45%, #7a1010 100%);">
