@@ -16,6 +16,8 @@
     .feat-card { position:relative; overflow:hidden; }
     .feat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:#d42020; transform:scaleX(0); transform-origin:left; transition:transform .38s ease; }
     .feat-card:hover::after { transform:scaleX(1); }
+    .gallery-item img { transition:transform .5s ease; }
+    .gallery-item:hover img { transform:scale(1.06); }
   </style>
 </head>
 <body class="bg-slate-50 antialiased">
@@ -75,9 +77,15 @@
 
 {{-- ====== PAGE HERO ====== --}}
 <section class="pt-[72px] bg-[#0f172a] relative overflow-hidden">
+  <img src="{{ asset('storage/solar/IMG_7476_crop.jpg') }}" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="object-position:center 55%">
+  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(90deg,rgba(15,23,42,.9) 0%,rgba(15,23,42,.75) 50%,rgba(15,23,42,.4) 100%)"></div>
   <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(217,119,6,.18) 0%,transparent 65%)"></div>
-  <div class="max-w-[1200px] mx-auto px-6 py-16 relative z-10">
+  <style>
+    .pv-hero { min-height: 620px; }
+    @media (min-width: 1024px) { .pv-hero { min-height: clamp(480px, min(45vw, 72vh), 950px); } }
+  </style>
+  <div class="pv-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
     <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
       <a href="/" class="hover:text-white transition-colors">Domov</a>
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
@@ -220,8 +228,53 @@
   </div>
 </section>
 
-{{-- ====== PROCESS ====== --}}
+{{-- ====== GALLERY ====== --}}
+@php
+  $gallery = collect(glob(storage_path('app/public/solar/gallery/IMG_*.{jpg,jpeg,png}'), GLOB_BRACE))
+    ->sort()
+    ->map(function ($p) {
+      [$w, $h] = getimagesize($p);
+      return ['src' => asset('storage/solar/gallery/' . basename($p)), 'w' => $w, 'h' => $h];
+    })
+    ->values();
+@endphp
+@if($gallery->isNotEmpty())
 <section class="bg-slate-50 py-20">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Naše realizácie</span>
+      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Galéria fotovoltických inštalácií</h2>
+      <p class="text-slate-500 text-[1.05rem] max-w-[500px] mx-auto">Pozrite si ukážky systémov, ktoré sme nainštalovali.</p>
+    </div>
+
+    <div id="pv-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      @foreach($gallery as $img)
+      <a href="{{ $img['src'] }}" data-pswp-width="{{ $img['w'] }}" data-pswp-height="{{ $img['h'] }}" target="_blank"
+         class="gallery-item block rounded-xl overflow-hidden relative shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up"
+         style="aspect-ratio:3/4;cursor:zoom-in">
+        <img src="{{ $img['src'] }}" alt="Realizácia fotovoltiky" loading="lazy" class="w-full h-full object-cover" />
+      </a>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
+<script type="module">
+  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#pv-gallery',
+    children: 'a',
+    bgOpacity: 0.92,
+    showHideAnimationType: 'zoom',
+    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+  });
+  lightbox.init();
+</script>
+@endif
+
+{{-- ====== PROCESS ====== --}}
+<section class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
       <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Proces inštalácie</span>
