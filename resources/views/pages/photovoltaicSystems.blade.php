@@ -26,16 +26,13 @@
 @include('components.nav.nav')
 
 {{-- ====== PAGE HERO ====== --}}
-<section class="pt-[72px] bg-[#0f172a] relative overflow-hidden">
+<section class="bg-[#0f172a] relative overflow-hidden">
   <img src="{{ asset('storage/solar/IMG_7476_crop.jpg') }}" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="object-position:center 55%">
   <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(90deg,rgba(15,23,42,.9) 0%,rgba(15,23,42,.75) 50%,rgba(15,23,42,.4) 100%)"></div>
   <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(217,119,6,.18) 0%,transparent 65%)"></div>
-  <style>
-    .pv-hero { min-height: 620px; }
-    @media (min-width: 1024px) { .pv-hero { min-height: clamp(480px, min(45vw, 72vh), 950px); } }
-  </style>
-  <div class="pv-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
+  @include('components.includes.page-hero-style')
+  <div class="page-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
     <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
       <a href="/" class="hover:text-white transition-colors">Domov</a>
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>

@@ -26,7 +26,6 @@
 <body class="font-sans flex flex-col min-h-screen bg-slate-50 antialiased">
 <!-- Navigation -->
 @include("components.nav.nav")
-<div class="h-[72px]"></div>
 
 <!-- Content -->
 <div class="flex-grow">

@@ -1,13 +1,20 @@
-{{-- Usage: @include('components.nav.nav') or @include('components.nav.nav', ['transparent' => true]) for a see-through bar over the hero --}}
-<nav x-data="{ scrolled: false, open: false }"
-     @scroll.window="scrolled = window.scrollY > 20"
+{{-- Usage: @include('components.nav.nav') – white fixed bar that also reserves its own space below it, so pages need no top offset.
+     ['light' => false] makes it dark at the top and white after scrolling (no spacer – the page hero must add class "nav-offset"), ['transparent' => true] makes that top state see-through. --}}
+@php($light = $light ?? true)
+<style>
+  :root { --nav-h: 84px; }  /* menu height – single source of truth */
+  .nav-bar { height: var(--nav-h); }
+  .nav-offset { padding-top: var(--nav-h); }
+</style>
+<nav x-data="{ scrolled: {{ $light ? 'true' : 'false' }}, open: false }"
+     @scroll.window="scrolled = {{ $light ? 'true' : 'window.scrollY > 20' }}"
      :class="scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md' : '{{ ($transparent ?? false) ? 'border-b border-transparent' : 'bg-[#0f172a] border-b border-white/10' }}'"
-     class="fixed top-0 left-0 right-0 z-50 h-[72px] transition-all duration-300">
+     class="nav-bar fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="mx-auto px-6" style="max-width:1440px">
-    <div class="h-[72px] flex items-center justify-between">
+    <div class="nav-bar flex items-center justify-between">
 
       <a href="/" class="flex items-center gap-3 shrink-0">
-        <img :src="scrolled ? '{{ asset('cervene-logo.svg') }}' : '{{ asset('biele-logo.svg') }}'" alt="LACOMP" class="h-11 w-11" />
+        <img src="{{ asset('cervene-logo.svg') }}" alt="LACOMP" class="h-14 w-14" />
       </a>
 
       <div class="hidden lg:flex items-center gap-0.5">
@@ -22,7 +29,7 @@
         <a href="{{ $url }}"
            :class="scrolled ? 'text-slate-600 hover:text-[#d42020] hover:bg-red-50' : 'text-white/85 hover:text-white hover:bg-white/10'"
            @class([
-             'text-[0.9125rem] font-medium px-3 py-2 rounded-lg transition-all duration-200 whitespace-nowrap',
+             'text-base font-medium px-4 py-2.5 rounded-lg transition-all duration-200 whitespace-nowrap',
              'text-[#d42020]!' => request()->is(ltrim($url, '/')),
            ])>{{ $label }}</a>
         @endforeach
@@ -30,7 +37,7 @@
 
       <div class="flex items-center gap-3">
         <a href="/kontakt"
-           class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-5 py-2 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(212,32,32,0.4)] transition-all duration-200">
+           class="hidden lg:inline-flex items-center gap-2 text-base font-semibold text-white bg-[#d42020] border-2 border-[#d42020] px-6 py-2.5 rounded-xl hover:bg-[#b31c1c] hover:border-[#b31c1c] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(212,32,32,0.4)] transition-all duration-200">
           Kontakt
         </a>
         <button @click="open = !open"
@@ -72,3 +79,6 @@
     </a>
   </div>
 </nav>
+@if($light)
+<div class="nav-offset" aria-hidden="true"></div>
+@endif

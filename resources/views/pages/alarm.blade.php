@@ -24,10 +24,11 @@
 @include('components.nav.nav')
 
 {{-- ====== PAGE HERO ====== --}}
-<section class="pt-[72px] bg-[#0f172a] relative overflow-hidden">
+<section class="bg-[#0f172a] relative overflow-hidden">
+  @include('components.includes.page-hero-style')
   <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(220,38,38,.22) 0%,transparent 65%)"></div>
-  <div class="max-w-[1200px] mx-auto px-6 py-16 relative z-10">
+  <div class="page-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
     <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
       <a href="/" class="hover:text-white transition-colors">Domov</a>
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>

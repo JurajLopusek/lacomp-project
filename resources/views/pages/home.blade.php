@@ -12,15 +12,15 @@
   <style>
     body { font-family: 'Inter', -apple-system, sans-serif; }
     .hero-gradient-text {
-      background: linear-gradient(135deg, #fca5a5, #fbbf24);
+      background: linear-gradient(135deg, #d42020, #f59e0b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero-grid-bg {
       background-image:
-        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+        linear-gradient(rgba(15,23,42,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,.05) 1px, transparent 1px);
       background-size: 64px 64px;
     }
     @keyframes blink {
@@ -39,34 +39,49 @@
     .svc-card:hover::after { transform:scaleX(1); }
     .gallery-item img { transition:transform .5s ease; }
     .gallery-item:hover img { transform:scale(1.06); }
+    /* light theme */
+    .hero-light { background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 50%, #fef3c7 100%); }
+    .hero-tile { background: rgba(255,255,255,.8); border: 1px solid rgba(15,23,42,.06); box-shadow: 0 4px 20px rgba(15,23,42,.06); backdrop-filter: blur(12px); }
+    .hero-tile:hover { background: #fff; box-shadow: 0 12px 32px rgba(212,32,32,.12); }
+    .btn-light { background: #fff; color: #1e293b; border: 2px solid #e2e8f0; }
+    .btn-light:hover { border-color: #cbd5e1; box-shadow: 0 6px 20px rgba(15,23,42,.08); }
+    .stat-red, .stat-amber, .stat-green { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-red   { background-image: linear-gradient(135deg, #d42020, #f43f5e); }
+    .stat-amber { background-image: linear-gradient(135deg, #f59e0b, #f97316); }
+    .stat-green { background-image: linear-gradient(135deg, #10b981, #0ea5e9); }
+    .section-warm { background: #fffaf5; }
+    .why-card { background: linear-gradient(145deg, #fff1f2 0%, #fff7ed 60%, #fef3c7 100%); border: 1px solid #fde2e2; }
+    .why-tile { background: #fff; border: 1px solid rgba(15,23,42,.06); box-shadow: 0 4px 16px rgba(15,23,42,.05); }
+    .cta-bright { background: linear-gradient(135deg, #e11d48 0%, #d42020 45%, #f97316 100%); }
   </style>
 </head>
 <body class="bg-slate-50 antialiased">
 
 {{-- ====== NAVBAR ====== --}}
-@include('components.nav.nav', ['transparent' => true])
+@include('components.nav.nav')
 
 {{-- ====== HERO ====== --}}
-<section class="min-h-screen pt-[72px] relative overflow-hidden flex items-center" style="background: linear-gradient(135deg, #0d0404 0%, #200808 45%, #7a1010 100%);">
+<section class="hero-light relative overflow-hidden">
+  @include('components.includes.page-hero-style')
   <div class="hero-grid-bg absolute inset-0 pointer-events-none"></div>
-  <div class="absolute -top-1/4 -right-16 w-[700px] h-[700px] pointer-events-none" style="background:radial-gradient(circle,rgba(212,32,32,.28) 0%,transparent 65%)"></div>
-  <div class="absolute -bottom-1/4 -left-16 w-[500px] h-[500px] pointer-events-none" style="background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 65%)"></div>
+  <div class="absolute -top-1/4 -right-16 w-[700px] h-[700px] pointer-events-none" style="background:radial-gradient(circle,rgba(244,63,94,.18) 0%,transparent 65%)"></div>
+  <div class="absolute -bottom-1/4 -left-16 w-[500px] h-[500px] pointer-events-none" style="background:radial-gradient(circle,rgba(245,158,11,.22) 0%,transparent 65%)"></div>
 
-  <div class="max-w-[1200px] mx-auto px-6 relative z-10 w-full">
-    <div class="grid lg:grid-cols-2 items-center gap-16 py-16 lg:py-20">
+  <div class="page-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 w-full flex flex-col justify-center">
+    <div class="grid lg:grid-cols-2 items-center gap-16">
 
       <div>
-        <div class="inline-flex items-center gap-2 bg-[rgba(212,32,32,0.2)] text-[#fca5a5] text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border border-[rgba(252,165,165,0.3)] mb-6">
+        <div class="inline-flex items-center gap-2 bg-white text-[#d42020] text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border shadow-sm mb-6" style="border-color:rgba(212,32,32,.15)">
           <span class="badge-dot w-2 h-2 bg-emerald-400 rounded-full"></span>
           LA, spol. s.r.o. · Spišské Bystré
         </div>
 
-        <h1 class="text-white font-extrabold leading-[1.08] mb-5" style="font-size:clamp(2.2rem,5vw,3.75rem);letter-spacing:-0.035em;">
+        <h1 class="text-slate-900 font-extrabold leading-[1.08] mb-5" style="font-size:clamp(2.2rem,5vw,3.75rem);letter-spacing:-0.035em;">
           Inovatívne riešenia pre
           <span class="hero-gradient-text">inteligentnejšiu</span> budúcnosť
         </h1>
 
-        <p class="text-white/70 text-lg leading-[1.72] mb-9 max-w-[520px]">
+        <p class="text-slate-600 text-lg leading-[1.72] mb-9 max-w-[520px]">
           Špecializujeme sa na fotovoltiku, kamerové systémy, alarmy a revízie elektroinštalácií pre vašu domácnosť aj firmu. Kvalita overená praxou.
         </p>
 
@@ -75,54 +90,54 @@
             <svg class="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
             Nezáväzná konzultácia
           </a>
-          <a href="#services" class="inline-flex items-center gap-2 text-white bg-white/10 border-2 border-white/30 text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:bg-white/20 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur-sm">
+          <a href="#services" class="btn-light inline-flex items-center gap-2 text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:-translate-y-0.5 transition-all duration-200">
             Naše služby
             <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
           </a>
         </div>
 
         <div class="flex gap-10 flex-wrap">
-          <div><div class="text-[1.875rem] font-extrabold text-white leading-none">300</div><div class="text-[0.775rem] text-white/50 mt-1">Spokojných zákazníkov</div></div>
-          <div><div class="text-[1.875rem] font-extrabold text-white leading-none">15</div><div class="text-[0.775rem] text-white/50 mt-1">Rokov skúseností</div></div>
-          <div><div class="text-[1.875rem] font-extrabold text-white leading-none">300</div><div class="text-[0.775rem] text-white/50 mt-1">Dokončených projektov</div></div>
+          <div><div class="stat-red text-[1.875rem] font-extrabold leading-none">300</div><div class="text-[0.775rem] text-slate-500 mt-1">Spokojných zákazníkov</div></div>
+          <div><div class="stat-amber text-[1.875rem] font-extrabold leading-none">15</div><div class="text-[0.775rem] text-slate-500 mt-1">Rokov skúseností</div></div>
+          <div><div class="stat-green text-[1.875rem] font-extrabold leading-none">300</div><div class="text-[0.775rem] text-slate-500 mt-1">Dokončených projektov</div></div>
         </div>
       </div>
 
       <div class="hidden lg:grid grid-cols-2 gap-4 max-w-[420px] ml-auto">
-        <a href="/photovoltaicSystems" class="bg-white/[0.07] border border-white/10 rounded-2xl p-5 backdrop-blur-xl hover:bg-white/[0.13] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 block">
+        <a href="/photovoltaicSystems" class="hero-tile rounded-2xl p-5 hover:-translate-y-1 transition-all duration-300 block">
           <div class="w-11 h-11 rounded-[10px] bg-amber-600 flex items-center justify-center mb-3">
             <svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
           </div>
-          <h4 class="text-white text-[0.895rem] font-semibold mb-1">Fotovoltika</h4>
-          <p class="text-white/50 text-[0.78rem] leading-[1.45]">Solárne panely pre dom aj firmu</p>
+          <h4 class="text-slate-900 text-[0.895rem] font-semibold mb-1">Fotovoltika</h4>
+          <p class="text-slate-500 text-[0.78rem] leading-[1.45]">Solárne panely pre dom aj firmu</p>
         </a>
-        <a href="/kamery" class="bg-white/[0.07] border border-white/10 rounded-2xl p-5 backdrop-blur-xl hover:bg-white/[0.13] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 block">
+        <a href="/kamery" class="hero-tile rounded-2xl p-5 hover:-translate-y-1 transition-all duration-300 block">
           <div class="w-11 h-11 rounded-[10px] bg-[#d42020] flex items-center justify-center mb-3">
             <svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
-          <h4 class="text-white text-[0.895rem] font-semibold mb-1">Kamerové systémy</h4>
-          <p class="text-white/50 text-[0.78rem] leading-[1.45]">Vzdialený dohľad odkiaľkoľvek</p>
+          <h4 class="text-slate-900 text-[0.895rem] font-semibold mb-1">Kamerové systémy</h4>
+          <p class="text-slate-500 text-[0.78rem] leading-[1.45]">Vzdialený dohľad odkiaľkoľvek</p>
         </a>
-        <a href="/alarmy" class="bg-white/[0.07] border border-white/10 rounded-2xl p-5 backdrop-blur-xl hover:bg-white/[0.13] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 block">
+        <a href="/alarmy" class="hero-tile rounded-2xl p-5 hover:-translate-y-1 transition-all duration-300 block">
           <div class="w-11 h-11 rounded-[10px] bg-red-600 flex items-center justify-center mb-3">
             <svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           </div>
-          <h4 class="text-white text-[0.895rem] font-semibold mb-1">Alarmové systémy</h4>
-          <p class="text-white/50 text-[0.78rem] leading-[1.45]">Ochrana majetku 24/7</p>
+          <h4 class="text-slate-900 text-[0.895rem] font-semibold mb-1">Alarmové systémy</h4>
+          <p class="text-slate-500 text-[0.78rem] leading-[1.45]">Ochrana majetku 24/7</p>
         </a>
-        <a href="/inspection" class="bg-white/[0.07] border border-white/10 rounded-2xl p-5 backdrop-blur-xl hover:bg-white/[0.13] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 block">
+        <a href="/inspection" class="hero-tile rounded-2xl p-5 hover:-translate-y-1 transition-all duration-300 block">
           <div class="w-11 h-11 rounded-[10px] bg-emerald-600 flex items-center justify-center mb-3">
             <svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h4 class="text-white text-[0.895rem] font-semibold mb-1">Revízie elektriky</h4>
-          <p class="text-white/50 text-[0.78rem] leading-[1.45]">Certifikované odborné revízie</p>
+          <h4 class="text-slate-900 text-[0.895rem] font-semibold mb-1">Revízie elektriky</h4>
+          <p class="text-slate-500 text-[0.78rem] leading-[1.45]">Certifikované odborné revízie</p>
         </a>
-        <a href="/rekuperacie" class="col-span-2 bg-white/[0.07] border border-white/10 rounded-2xl p-5 backdrop-blur-xl hover:bg-white/[0.13] hover:border-white/20 hover:-translate-y-1 transition-all duration-300 block">
+        <a href="/rekuperacie" class="col-span-2 hero-tile rounded-2xl p-5 hover:-translate-y-1 transition-all duration-300 block">
           <div class="w-11 h-11 rounded-[10px] bg-violet-700 flex items-center justify-center mb-3">
             <svg class="w-[22px] h-[22px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
           </div>
-          <h4 class="text-white text-[0.895rem] font-semibold mb-1">Rekuperácie</h4>
-          <p class="text-white/50 text-[0.78rem] leading-[1.45]">Čistý vzduch, žiadne tepelné straty – systém RECUAIR s 5-ročnou zárukou</p>
+          <h4 class="text-slate-900 text-[0.895rem] font-semibold mb-1">Rekuperácie</h4>
+          <p class="text-slate-500 text-[0.78rem] leading-[1.45]">Čistý vzduch, žiadne tepelné straty – systém RECUAIR s 5-ročnou zárukou</p>
         </a>
       </div>
     </div>
@@ -130,20 +145,20 @@
 </section>
 
 {{-- ====== STATS STRIP ====== --}}
-<section class="bg-[#0f172a] py-14 border-t border-white/[0.06]">
+<section class="bg-white py-14 border-y border-slate-100">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-white/10">
-        <div class="text-[2.75rem] font-extrabold text-white leading-none">150<span class="text-[#d42020]">+</span></div>
-        <div class="text-sm text-white/50 mt-1.5">Spokojných zákazníkov</div>
+      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-slate-200">
+        <div class="stat-red text-[2.75rem] font-extrabold leading-none">150+</div>
+        <div class="text-sm text-slate-500 mt-1.5">Spokojných zákazníkov</div>
       </div>
-      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-white/10">
-        <div class="text-[2.75rem] font-extrabold text-white leading-none">15<span class="text-[#d42020]">+</span></div>
-        <div class="text-sm text-white/50 mt-1.5">Rokov skúseností</div>
+      <div class="relative sm:after:content-[''] sm:after:absolute sm:after:top-1/2 sm:after:-translate-y-1/2 sm:after:right-0 sm:after:w-px sm:after:h-3/5 sm:after:bg-slate-200">
+        <div class="stat-amber text-[2.75rem] font-extrabold leading-none">15+</div>
+        <div class="text-sm text-slate-500 mt-1.5">Rokov skúseností</div>
       </div>
       <div>
-        <div class="text-[2.75rem] font-extrabold text-white leading-none">300<span class="text-[#d42020]">+</span></div>
-        <div class="text-sm text-white/50 mt-1.5">Dokončených projektov</div>
+        <div class="stat-green text-[2.75rem] font-extrabold leading-none">300+</div>
+        <div class="text-sm text-slate-500 mt-1.5">Dokončených projektov</div>
       </div>
     </div>
   </div>
@@ -203,7 +218,7 @@
 </section>
 
 {{-- ====== WHY ====== --}}
-<section class="bg-slate-50 py-20">
+<section class="section-warm py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-20 items-center">
       <div>
@@ -240,23 +255,23 @@
         </div>
       </div>
 
-      <div class="rounded-2xl p-12 relative overflow-hidden fade-up" style="background:linear-gradient(145deg,#0f172a,#4a0c0c)">
-        <div class="absolute -top-2/5 -right-1/5 w-[400px] h-[400px] pointer-events-none" style="background:radial-gradient(circle,rgba(212,32,32,.3) 0%,transparent 65%)"></div>
+      <div class="why-card rounded-2xl p-12 relative overflow-hidden fade-up">
+        <div class="absolute -top-2/5 -right-1/5 w-[400px] h-[400px] pointer-events-none" style="background:radial-gradient(circle,rgba(244,63,94,.14) 0%,transparent 65%)"></div>
         <div class="grid grid-cols-2 gap-5 relative z-10">
           @foreach([['150','+','Spokojných zákazníkov'],['300','+','Dokončených projektov'],['5','+','Rokov na trhu'],['100','%','Spokojnosť klientov']] as [$n,$s,$lbl])
-          <div class="bg-white/[0.07] border border-white/10 rounded-2xl p-6 text-center">
-            <div class="text-[2.375rem] font-extrabold text-white leading-none">{{ $n }}<span class="text-[#fca5a5]">{{ $s }}</span></div>
-            <div class="text-[0.8rem] text-white/55 mt-1.5">{{ $lbl }}</div>
+          <div class="why-tile rounded-2xl p-6 text-center">
+            <div class="text-[2.375rem] font-extrabold text-slate-900 leading-none">{{ $n }}<span class="text-[#d42020]">{{ $s }}</span></div>
+            <div class="text-[0.8rem] text-slate-500 mt-1.5">{{ $lbl }}</div>
           </div>
           @endforeach
         </div>
-        <div class="mt-8 pt-8 border-t border-white/10 relative z-10">
-          <p class="text-white/55 text-sm leading-[1.7]">"Každý klient je pre nás prioritou. Naším cieľom je priniesť riešenia, ktoré skutočne fungujú – dlhodobo a spoľahlivo."</p>
+        <div class="mt-8 pt-8 border-t relative z-10" style="border-color:rgba(212,32,32,.12)">
+          <p class="text-slate-600 text-sm leading-[1.7]">"Každý klient je pre nás prioritou. Naším cieľom je priniesť riešenia, ktoré skutočne fungujú – dlhodobo a spoľahlivo."</p>
           <div class="mt-4 flex items-center gap-3">
             <div class="w-10 h-10 rounded-full bg-[#d42020] flex items-center justify-center font-bold text-white text-sm">LC</div>
             <div>
-              <div class="text-white font-semibold text-[0.9rem]">Tím LACOMP</div>
-              <div class="text-white/45 text-[0.78rem]">Spišské Bystré, Slovensko</div>
+              <div class="text-slate-900 font-semibold text-[0.9rem]">Tím LACOMP</div>
+              <div class="text-slate-500 text-[0.78rem]">Spišské Bystré, Slovensko</div>
             </div>
           </div>
         </div>
@@ -266,7 +281,7 @@
 </section>
 
 {{-- ====== GALLERY ====== --}}
-<section class="bg-slate-50 py-20">
+<section class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
       <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Naše projekty</span>
@@ -275,7 +290,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       @foreach([
-        ['https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=450&fit=crop&auto=format&q=80','Fotovoltika – rodinný dom'],
+        [asset('storage/solar/IMG_7476_crop.jpg'),'Fotovoltika – rodinný dom'],
         ['https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=450&fit=crop&auto=format&q=80','Kamerový systém – komerčná budova'],
         ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop&auto=format&q=80','Alarmový systém – rodinný dom'],
         ['https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=450&fit=crop&auto=format&q=80','Revízia elektroinštalácie'],
@@ -292,7 +307,7 @@
 </section>
 
 {{-- ====== PROCESS ====== --}}
-<section class="bg-white py-20">
+<section class="bg-slate-50 py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
       <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Ako to funguje</span>
@@ -318,18 +333,18 @@
 </section>
 
 {{-- ====== CTA ====== --}}
-<section class="py-[5.5rem] relative overflow-hidden" style="background:linear-gradient(135deg,#7f1d1d,#0d0404)">
-  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:44px 44px"></div>
+<section class="cta-bright py-[5.5rem] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:44px 44px"></div>
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center relative z-10">
       <h2 class="text-white font-bold mb-4" style="font-size:clamp(1.75rem,3vw,2.5rem)">Pripravení začať?</h2>
-      <p class="text-white/70 text-[1.1rem] max-w-[540px] mx-auto mb-10">Kontaktujte nás ešte dnes a získajte nezáväznú konzultáciu a cenovú ponuku zdarma.</p>
+      <p class="text-[1.1rem] max-w-[540px] mx-auto mb-10" style="color:rgba(255,255,255,.9)">Kontaktujte nás ešte dnes a získajte nezáväznú konzultáciu a cenovú ponuku zdarma.</p>
       <div class="flex gap-4 justify-center flex-wrap">
-        <a href="/kontakt" class="inline-flex items-center gap-2 bg-white text-[#d42020] border-2 border-white text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:bg-red-50 hover:-translate-y-0.5 transition-all duration-200">
+        <a href="tel:+421903701665" class="inline-flex items-center gap-2 bg-white text-[#d42020] border-2 border-white text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:bg-red-50 hover:-translate-y-0.5 transition-all duration-200">
           <svg class="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21.72 16z"/></svg>
           +421 903 701 665
         </a>
-        <a href="mailto:lacomp@lacomp.sk" class="inline-flex items-center gap-2 bg-white/10 text-white border-2 border-white/30 text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:bg-white/20 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur-sm">
+        <a href="mailto:lacomp@lacomp.sk" class="inline-flex items-center gap-2 bg-white/15 text-white border-2 text-[1.0625rem] font-semibold px-9 py-3.5 rounded-xl hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur-sm" style="border-color:rgba(255,255,255,.5)">
           <svg class="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           lacomp@lacomp.sk
         </a>
