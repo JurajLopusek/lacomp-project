@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="sk">
 <head>
+  @include('components.includes.google-tag')
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fotovoltické systémy – LACOMP</title>
