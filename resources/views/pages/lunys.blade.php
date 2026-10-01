@@ -9,6 +9,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="h-screen w-screen overflow-hidden bg-gray-50 text-gray-900 font-sans flex flex-col">
+  @include('components.includes.google-tag-noscript')
 
 <div class="flex flex-1 overflow-hidden relative">
 

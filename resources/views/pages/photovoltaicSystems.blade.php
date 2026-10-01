@@ -24,6 +24,7 @@
   </style>
 </head>
 <body class="bg-slate-50 antialiased">
+  @include('components.includes.google-tag-noscript')
 
 {{-- ====== NAVBAR ====== --}}
 @include('components.nav.nav')

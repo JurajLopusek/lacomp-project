@@ -25,6 +25,7 @@
   .fade-up.visible { opacity:1; transform:translateY(0); }
 </style>
 <body class="font-sans flex flex-col min-h-screen bg-slate-50 antialiased">
+  @include('components.includes.google-tag-noscript')
 <!-- Navigation -->
 @include("components.nav.nav")
 
