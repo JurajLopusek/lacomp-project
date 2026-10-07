@@ -270,7 +270,7 @@
           <img src="{{ asset('biele-logo.svg') }}" alt="LACOMP" class="h-10 w-10" />
           <span class="text-[1.3rem] font-extrabold text-white tracking-tight">LA<span class="text-[#d42020]">COMP</span></span>
         </a>
-        <p class="text-white/50 text-sm max-w-[252px] leading-[1.7] mb-6">Inovatívne riešenia pre inteligentnejšiu budúcnosť. Fotovoltika, kamerové systémy, alarmy a revízie elektroinštalácií.</p>
+        <p class="text-white/50 text-sm max-w-[252px] leading-[1.7] mb-6">Elektroinštalácie a elektroslužby pre váš domov. Fotovoltika, kamerové systémy, alarmy a revízie elektroinštalácií.</p>
         <div class="flex gap-2.5">
           <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"
              class="w-[38px] h-[38px] rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/65 hover:bg-[#d42020] hover:border-[#d42020] hover:text-white transition-all duration-200">

@@ -4,7 +4,7 @@
   @include('components.includes.google-tag')
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LACOMP – Inovatívne riešenia pre inteligentnejšiu budúcnosť</title>
+  <title>LACOMP – Elektroinštalácie a elektroslužby pre váš domov</title>
   <meta name="description" content="LACOMP – špecializujeme sa na fotovoltiku, kamerové systémy, alarmy a revízie elektroinštalácií pre domácnosti aj firmy na Slovensku." />
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
@@ -101,8 +101,8 @@
         </div>
 
         <h1 class="text-slate-900 font-extrabold leading-[1.08] mb-5" style="font-size:clamp(2.2rem,5vw,3.75rem);letter-spacing:-0.035em;">
-          Inovatívne riešenia pre
-          <span class="hero-gradient-text">inteligentnejšiu</span> budúcnosť
+          Elektroinštalácie a elektroslužby pre
+          <span class="hero-gradient-text">váš domov</span>
         </h1>
 
         <p class="text-slate-600 text-lg leading-[1.72] mb-9 max-w-[520px]">
@@ -377,7 +377,7 @@
           </span>
           LA<span class="text-[#d42020]">COMP</span>
         </a>
-        <p class="text-white/50 text-sm max-w-[252px] leading-[1.7] mb-6">Inovatívne riešenia pre inteligentnejšiu budúcnosť. Fotovoltika, kamerové systémy, alarmy a revízie elektroinštalácií.</p>
+        <p class="text-white/50 text-sm max-w-[252px] leading-[1.7] mb-6">Elektroinštalácie a elektroslužby pre váš domov. Fotovoltika, kamerové systémy, alarmy a revízie elektroinštalácií.</p>
         <div class="flex gap-2.5">
           <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" class="w-[38px] h-[38px] rounded-xl bg-white/[0.07] border border-white/10 flex items-center justify-center text-white/65 hover:bg-[#d42020] hover:border-[#d42020] hover:text-white transition-all duration-200">
             <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
