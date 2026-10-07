@@ -9,7 +9,7 @@
 
 {{-- ====== PROJECTS ====== --}}
 <section class="nav-offset">
-  <div class="max-w-[1200px] mx-auto px-6 py-12 lg:py-16">
+  <div class="max-w-[1200px] mx-auto px-6 pt-6 pb-12 lg:pt-8 lg:pb-16">
     <h1 class="sr-only">Realizácie</h1>
     @if($projects->isEmpty())
       <div class="text-center py-16 fade-up">
