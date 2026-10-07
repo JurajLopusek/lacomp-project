@@ -7,33 +7,10 @@
   .project-tag { background: #fef2f2; color: #d42020; border: 1px solid #fee2e2; }
 </style>
 
-{{-- ====== PAGE HERO ====== --}}
-<section class="bg-[#0f172a] relative overflow-hidden">
-  @include('components.includes.page-hero-style')
-  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
-  <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(212,32,32,.18) 0%,transparent 65%)"></div>
-  <div class="page-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
-    <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
-      <a href="/" class="hover:text-white transition-colors">Domov</a>
-      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      <span class="text-white/80">Realizácie</span>
-    </div>
-    <div class="inline-flex self-start items-center gap-2 bg-red-600/20 text-red-300 text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border border-red-500/30 mb-5">
-      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      Naše projekty
-    </div>
-    <h1 class="text-white font-extrabold leading-[1.1] mb-4" style="font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:-0.03em;">
-      Realizácie, na ktoré<br>sme hrdí
-    </h1>
-    <p class="text-white/65 text-lg leading-[1.7] max-w-[580px]">
-      Fotovoltika, kamerové a alarmové systémy, revízie aj rekuperácie – pozrite si ukážky projektov, ktoré sme u našich zákazníkov zrealizovali.
-    </p>
-  </div>
-</section>
-
 {{-- ====== PROJECTS ====== --}}
-<section class="py-20">
-  <div class="max-w-[1200px] mx-auto px-6">
+<section class="nav-offset">
+  <div class="max-w-[1200px] mx-auto px-6 py-12 lg:py-16">
+    <h1 class="sr-only">Realizácie</h1>
     @if($projects->isEmpty())
       <div class="text-center py-16 fade-up">
         <div class="w-16 h-16 rounded-2xl bg-red-50 text-[#d42020] flex items-center justify-center mx-auto mb-5">
