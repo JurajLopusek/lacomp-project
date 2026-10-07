@@ -17,10 +17,6 @@
     .feat-card { position:relative; overflow:hidden; }
     .feat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:#d42020; transform:scaleX(0); transform-origin:left; transition:transform .38s ease; }
     .feat-card:hover::after { transform:scaleX(1); }
-    .gallery-item img { transition:transform .5s ease; }
-    .gallery-item:hover img { transform:scale(1.06); }
-    @media (min-width: 768px) { .pv-swiper .swiper-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (min-width: 1024px) { .pv-swiper .swiper-wrapper { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   </style>
 </head>
 <body class="bg-slate-50 antialiased">
@@ -33,10 +29,10 @@
 @php
   $pageGallery = \App\Models\PageGallery::forPage('fotovoltika');
   $gallery = collect($pageGallery?->gallery() ?? []);
+  $heroUrl = $pageGallery ? $pageGallery->heroUrl() : asset('storage/solar/IMG_7476_crop.jpg');
 @endphp
 <section class="bg-[#0f172a] relative overflow-hidden">
-  <img src="{{ $pageGallery?->heroUrl() ?? asset('storage/solar/IMG_7476_crop.jpg') }}" alt="" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="object-position:center 55%">
-  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(90deg,rgba(15,23,42,.9) 0%,rgba(15,23,42,.75) 50%,rgba(15,23,42,.4) 100%)"></div>
+  @include('components.includes.page-hero-image')
   <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(217,119,6,.18) 0%,transparent 65%)"></div>
   @include('components.includes.page-hero-style')
@@ -110,43 +106,7 @@
 </section>
 
 {{-- ====== GALLERY ====== --}}
-@if($gallery->isNotEmpty())
-<section class="bg-slate-50 py-20">
-  <div class="max-w-[1200px] mx-auto px-6">
-    <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Naše realizácie</span>
-      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Galéria fotovoltických inštalácií</h2>
-      <p class="text-slate-500 text-[1.05rem] max-w-[500px] mx-auto">Pozrite si ukážky systémov, ktoré sme nainštalovali.</p>
-    </div>
-
-    <div id="pv-gallery" class="swiper m-swiper pv-swiper">
-      <div class="swiper-wrapper">
-      @foreach($gallery as $img)
-      <a href="{{ $img['src'] }}" data-pswp-width="{{ $img['w'] }}" data-pswp-height="{{ $img['h'] }}" target="_blank"
-         class="swiper-slide gallery-item block rounded-xl overflow-hidden relative shadow-md hover:-translate-y-1 hover:shadow-xl transition-all duration-300 fade-up"
-         style="aspect-ratio:3/4;cursor:zoom-in">
-        <img src="{{ $img['src'] }}" alt="Realizácia fotovoltiky" loading="lazy" class="w-full h-full object-cover" />
-      </a>
-      @endforeach
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
-<script type="module">
-  import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: '#pv-gallery',
-    children: 'a',
-    bgOpacity: 0.92,
-    showHideAnimationType: 'zoom',
-    pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
-  });
-  lightbox.init();
-</script>
-@endif
+@include('components.includes.page-gallery', ['title' => 'Galéria fotovoltických inštalácií', 'alt' => 'Realizácia fotovoltiky'])
 
 {{-- ====== TYPES ====== --}}
 <section class="bg-white py-20">

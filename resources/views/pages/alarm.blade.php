@@ -26,7 +26,13 @@
 @include('components.nav.nav')
 
 {{-- ====== PAGE HERO ====== --}}
+@php
+  $pageGallery = \App\Models\PageGallery::forPage('alarmy');
+  $gallery = collect($pageGallery?->gallery() ?? []);
+  $heroUrl = $pageGallery?->heroUrl();
+@endphp
 <section class="bg-[#0f172a] relative overflow-hidden">
+  @include('components.includes.page-hero-image')
   @include('components.includes.page-hero-style')
   <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(220,38,38,.22) 0%,transparent 65%)"></div>
@@ -96,6 +102,9 @@
     </div>
   </div>
 </section>
+
+{{-- ====== GALLERY ====== --}}
+@include('components.includes.page-gallery', ['title' => 'Galéria alarmových systémov', 'alt' => 'Realizácia alarmového systému'])
 
 {{-- ====== TYPES ====== --}}
 <section class="bg-slate-50 py-20">
@@ -300,5 +309,6 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+@include('components.includes.mobile-swiper')
 </body>
 </html>
