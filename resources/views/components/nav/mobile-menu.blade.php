@@ -53,9 +53,10 @@
             <x-nav.nav-link-mobile href="/alarmy" :active="request()->is('alarmy')">Alarmy</x-nav.nav-link-mobile>
             <x-nav.nav-link-mobile href="/kamery" :active="request()->is('kamery')">Kamery</x-nav.nav-link-mobile>
             <x-nav.nav-link-mobile href="/inspection" :active="request()->is('inspection')">Revízie</x-nav.nav-link-mobile>
+            <x-nav.nav-link-mobile href="/elektroinstalacie" :active="request()->is('elektroinstalacie')">Elektroinštalácie</x-nav.nav-link-mobile>
             <x-nav.nav-link-mobile href="/photovoltaicSystems" :active="request()->is('photovoltaicSystems')">Fotovoltické systémy</x-nav.nav-link-mobile>
             <x-nav.nav-link-mobile href="/rekuperacie" :active="request()->is('rekuperacie')">Rekuperácie</x-nav.nav-link-mobile>
-            <x-nav.nav-link-mobile href="/admin/login" :active="request()->is('admin/login')">Meranie spotreby</x-nav.nav-link-mobile>
+            {{-- <x-nav.nav-link-mobile href="/admin/login" :active="request()->is('admin/login')">Meranie spotreby</x-nav.nav-link-mobile> --}}
             <x-nav.nav-link-mobile href="/kontakt" :active="request()->is('kontakt')">Kontakt</x-nav.nav-link-mobile>
         </div>
 {{--        <div class="ml-8 mt-6">--}}

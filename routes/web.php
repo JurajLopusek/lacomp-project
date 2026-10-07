@@ -37,6 +37,7 @@ Route::group([], static function () {
     Route::get('/inspection', static function () {
         return view('pages.inspections');
     });
+    Route::view('/elektroinstalacie', 'pages.electrical')->name('elektroinstalacie');
     Route::get('/photovoltaicSystems', static function () {
         return view('pages.photovoltaicSystems');
     });

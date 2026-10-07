@@ -16,6 +16,7 @@ class PageGallery extends GeneralModel implements FilamentLabelInterface
 {
     /** Pages that have an editable gallery: key => name shown in admin. */
     public const PAGES = [
+        'elektroinstalacie' => 'Elektroinštalácie',
         'fotovoltika' => 'Fotovoltika',
         'kamery' => 'Kamerové systémy',
         'alarmy' => 'Alarmové systémy',

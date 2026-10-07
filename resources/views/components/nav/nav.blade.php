@@ -34,13 +34,14 @@
 
       <div class="hidden lg:flex items-center gap-0.5">
         @foreach([
+          ['/elektroinstalacie','Elektroinštalácie'],
           ['/photovoltaicSystems','Fotovoltika'],
           ['/kamery','Kamery'],
           ['/alarmy','Alarmy'],
           ['/inspection','Revízie'],
           ['/rekuperacie','Rekuperácie'],
           ['/realizacie','Realizácie'],
-          ['/admin','Meranie spotreby'],
+          /* ['/admin','Meranie spotreby'], */
         ] as [$url,$label])
         <a href="{{ $url }}"
            :class="scrolled ? 'text-slate-600 hover:text-[#d42020] hover:bg-red-50' : 'text-white/85 hover:text-white hover:bg-white/10'"
@@ -86,7 +87,7 @@
       ['/inspection','Revízie elektroinštalácií'],
       ['/rekuperacie','Rekuperácie'],
       ['/realizacie','Realizácie'],
-      ['/admin','Meranie spotreby'],
+      /* ['/admin','Meranie spotreby'], */
     ] as [$url,$label])
     <a href="{{ $url }}" @class(['m-link', 'is-active' => request()->is(ltrim($url, '/'))])>
       {{ $label }}

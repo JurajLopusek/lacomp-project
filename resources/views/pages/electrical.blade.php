@@ -4,8 +4,8 @@
   @include('components.includes.google-tag')
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fotovoltické systémy – LACOMP</title>
-  <meta name="description" content="Fotovoltické systémy pre domácnosti a firmy. Ušetrite na elektrine s modernými solárnymi panelmi. Odborná inštalácia a servis." />
+  <title>Elektroinštalácie – LACOMP</title>
+  <meta name="description" content="Kompletná elektroinštalácia rodinného domu na kľúč – silnoprúd, slaboprúd, rozvádzače, osvetlenie a revízia. Novostavby aj rekonštrukcie." />
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,30 +27,30 @@
 
 {{-- ====== PAGE HERO ====== --}}
 @php
-  $pageGallery = \App\Models\PageGallery::forPage('fotovoltika');
+  $pageGallery = \App\Models\PageGallery::forPage('elektroinstalacie');
   $gallery = collect($pageGallery?->gallery() ?? []);
-  $heroUrl = $pageGallery ? $pageGallery->heroUrl() : asset('storage/solar/IMG_7476_crop.jpg');
+  $heroUrl = $pageGallery?->heroUrl();
 @endphp
 <section class="bg-[#0f172a] relative overflow-hidden">
   @include('components.includes.page-hero-image')
-  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
-  <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(217,119,6,.18) 0%,transparent 65%)"></div>
   @include('components.includes.page-hero-style')
+  <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px"></div>
+  <div class="absolute -top-32 right-0 w-[600px] h-[600px] pointer-events-none" style="background:radial-gradient(circle,rgba(59,130,246,.18) 0%,transparent 65%)"></div>
   <div class="page-hero max-w-[1200px] mx-auto px-6 py-16 relative z-10 flex flex-col justify-center">
     <div class="flex items-center gap-2 text-white/45 text-sm mb-6">
       <a href="/" class="hover:text-white transition-colors">Domov</a>
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      <span class="text-white/80">Fotovoltika</span>
+      <span class="text-white/80">Elektroinštalácie</span>
     </div>
-    <div class="inline-flex items-center gap-2 bg-amber-600/20 text-amber-300 text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border border-amber-500/30 mb-5">
-      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
-      Obnoviteľná energia
+    <div class="inline-flex items-center gap-2 bg-blue-900/30 text-blue-300 text-[0.775rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full border border-blue-500/30 mb-5">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Silnoprúd a slaboprúd
     </div>
     <h1 class="text-white font-extrabold leading-[1.1] mb-4" style="font-size:clamp(2rem,4.5vw,3.25rem);letter-spacing:-0.03em;">
-      Fotovoltické systémy<br>pre váš dom aj firmu
+      Elektroinštalácia<br>celého domu na kľúč
     </h1>
     <p class="text-white/65 text-lg leading-[1.7] max-w-[580px]">
-      Využite silu slnka s našimi modernými riešeniami. Kompletná realizácia od konzultácie až po inštaláciu a servis.
+      Od návrhu rozvodov cez montáž až po revíziu – postaráme sa o kompletnú elektroinštaláciu novostavby aj rekonštrukcie. Silnoprúd, slaboprúd aj príprava na smart domácnosť od jednej firmy.
     </p>
   </div>
 </section>
@@ -61,18 +61,18 @@
     <div class="grid lg:grid-cols-2 gap-16 items-center">
 
       <div class="fade-up">
-        <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-5">Prečo fotovoltika?</span>
-        <h2 class="text-slate-900 font-bold mb-4" style="font-size:clamp(1.5rem,3vw,2.25rem)">Investícia, ktorá sa vráti</h2>
+        <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-5">Prečo s nami?</span>
+        <h2 class="text-slate-900 font-bold mb-4" style="font-size:clamp(1.5rem,3vw,2.25rem)">Celá elektrina domu z jednej ruky</h2>
         <p class="text-slate-500 text-[1.05rem] leading-[1.75] mb-6">
-          Fotovoltické systémy prinášajú výrazné dlhodobé úspory vďaka zníženiu alebo eliminácii účtov za elektrinu. Sú veľmi spoľahlivé, vyžadujú minimálnu údržbu a zároveň prispievajú k ochrane životného prostredia znížením emisií CO₂.
+          Nemusíte koordinovať elektrikára, technika na dátovú sieť a revízneho technika zvlášť. Silnoprúdové aj slaboprúdové rozvody navrhneme spolu tak, aby boli prehľadné, bezpečné a pripravené aj na to, čo do domu pridáte neskôr.
         </p>
         <ul class="flex flex-col gap-3">
           @foreach([
-            'Výrazné zníženie nákladov na elektrickú energiu',
-            'Ekologickejšie a udržateľnejšie bývanie',
-            'Minimálna údržba po inštalácii',
-            'Nezávislosť od kolísania cien energií',
-            'Možnosť predaja prebytočnej energie do siete',
+            'Návrh rozvodov podľa dispozície a vášho zariadenia',
+            'Silnoprúd aj slaboprúd naraz – bez zbytočného sekania navyše',
+            'Domový rozvádzač zostavený a označený na mieru',
+            'Príprava na fotovoltiku, tepelné čerpadlo či nabíjačku auta',
+            'Revízna správa po dokončení prác',
           ] as $item)
           <li class="flex items-start gap-3">
             <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
@@ -85,19 +85,14 @@
       </div>
 
       <div class="fade-up flex items-center justify-center">
-        <div class="w-full rounded-2xl p-12 flex flex-col items-center justify-center gap-6 text-center" style="background:linear-gradient(135deg,#fef3c7,#fde68a);min-height:360px;">
-          <div class="w-24 h-24 bg-amber-600 rounded-full flex items-center justify-center">
-            <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/>
-              <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
-              <line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
-              <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
-            </svg>
+        <div class="w-full rounded-2xl p-12 flex flex-col items-center justify-center gap-6 text-center" style="background:linear-gradient(135deg,#fefce8,#fde68a);min-height:360px;">
+          <div class="w-24 h-24 bg-[#d42020] rounded-full flex items-center justify-center">
+            <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
           <div>
-            <div class="text-[3.5rem] font-extrabold text-slate-900 leading-none">70%</div>
-            <div class="text-[1.1rem] font-semibold text-amber-800 mt-2">Priemerná úspora na elektrine</div>
-            <p class="text-amber-900/70 text-sm mt-1.5">za prvý rok prevádzky solárneho systému</p>
+            <div class="text-[3.5rem] font-extrabold text-slate-900 leading-none">Na kľúč</div>
+            <div class="text-[1.1rem] font-semibold text-[#d42020] mt-2">Od návrhu po revíziu</div>
+            <p class="text-[#92400e]/70 text-sm mt-1.5">Jedna firma, jeden termín, jedna zodpovednosť</p>
           </div>
         </div>
       </div>
@@ -106,76 +101,77 @@
 </section>
 
 {{-- ====== GALLERY ====== --}}
-@include('components.includes.page-gallery', ['title' => 'Galéria fotovoltických inštalácií', 'alt' => 'Realizácia fotovoltiky'])
+@include('components.includes.page-gallery', ['title' => 'Galéria elektroinštalácií', 'alt' => 'Realizácia elektroinštalácie'])
 
 {{-- ====== TYPES ====== --}}
-<section class="bg-white py-20">
+<section class="bg-slate-50 py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Typy systémov</span>
-      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Riešenie pre každú situáciu</h2>
-      <p class="text-slate-500 text-[1.05rem] max-w-[540px] mx-auto">Ponúkame rôzne typy fotovoltických systémov prispôsobených vašim konkrétnym potrebám.</p>
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Čo robíme</span>
+      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Silnoprúd, slaboprúd aj rekonštrukcie</h2>
+      <p class="text-slate-500 text-[1.05rem] max-w-[540px] mx-auto">Rodinné domy, byty aj menšie prevádzky – novostavby aj staré rozvody, ktoré potrebujú výmenu.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       @foreach([
-        ['bg-amber-50','text-amber-700','M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10','Systémy pre domácnosti','Ideálne riešenie pre rodinné domy. Znížte účty za elektrinu a staňte sa energeticky nezávislými.'],
-        ['bg-blue-50','text-blue-700','M2 7h20v14H2z M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16','Systémy pre firmy','Pomáhame firmám znížiť prevádzkové náklady a dosiahnuť udržateľnosť podnikania.'],
-        ['bg-emerald-50','text-emerald-700','M13 2 3 14 12 14 11 22 21 10 12 10 13 2','Ostrovné systémy','Vhodné pre miesta bez prístupu k elektrickej sieti – chaty, záhradné domy, vzdialené objekty.'],
-      ] as [$bg,$color,$icon,$title,$desc])
+        ['bg-amber-50 text-amber-600', '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>', 'Silnoprúd', [
+          'Zásuvkové a svetelné okruhy',
+          'Rozvádzač s ističmi a prúdovými chráničmi',
+          'Prívody pre sporák, bojler či tepelné čerpadlo',
+          'Vonkajšie zásuvky a osvetlenie pozemku',
+        ]],
+        ['bg-blue-50 text-blue-700', '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>', 'Slaboprúd', [
+          'Dátová sieť a pokrytie Wi-Fi',
+          'TV a satelitné rozvody',
+          'Zvonček, domáci telefón, videovrátnik',
+          'Kabeláž pre kamery a alarm',
+        ]],
+        ['bg-red-50 text-[#d42020]', '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', 'Rekonštrukcie a opravy', [
+          'Výmena starých hliníkových rozvodov za medené',
+          'Modernizácia starého rozvádzača',
+          'Rozšírenie okruhov pri prestavbe',
+          'Hľadanie a odstraňovanie porúch',
+        ]],
+      ] as [$color, $icon, $title, $items])
       <div class="feat-card bg-white border border-slate-200 rounded-2xl p-8 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
-        <div class="w-14 h-14 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-5">
-          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            @if($title === 'Systémy pre domácnosti')
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-            @elseif($title === 'Systémy pre firmy')
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-            @else
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-            @endif
-          </svg>
+        <div class="w-14 h-14 rounded-xl {{ $color }} flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{!! $icon !!}</svg>
         </div>
-        <h3 class="text-slate-900 font-bold text-[1.05rem] mb-2.5">{{ $title }}</h3>
-        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
+        <h3 class="text-slate-900 font-bold text-[1.05rem] mb-3">{{ $title }}</h3>
+        <ul class="flex flex-col gap-2">
+          @foreach($items as $item)
+          <li class="flex items-start gap-2 text-slate-500 text-sm leading-[1.6]">
+            <span class="mt-[0.45rem] w-1.5 h-1.5 rounded-full bg-[#d42020] shrink-0"></span>{{ $item }}
+          </li>
+          @endforeach
+        </ul>
       </div>
       @endforeach
     </div>
   </div>
 </section>
 
-{{-- ====== BENEFITS ====== --}}
-<section class="bg-slate-50 py-20">
+{{-- ====== FEATURES ====== --}}
+<section class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Výhody</span>
-      <h2 class="text-slate-900 font-bold" style="font-size:clamp(1.5rem,3vw,2.25rem)">Prečo si vybrať náš solárny systém</h2>
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Kompletné služby</span>
+      <h2 class="text-slate-900 font-bold" style="font-size:clamp(1.5rem,3vw,2.25rem)">Všetko, čo k elektroinštalácii patrí</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       @foreach([
-        ['text-emerald-600','bg-emerald-50','M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6','Úspora nákladov','Výrazné dlhodobé úspory vďaka zníženiu alebo eliminácii účtov za elektrinu.'],
-        ['text-[#d42020]','bg-red-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z','Spoľahlivosť','Používame iba prémiové komponenty od overených výrobcov s dlhou zárukou.'],
-        ['text-emerald-600','bg-emerald-50','M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4','Ekologický prínos','Prispejte k ochrane životného prostredia znížením emisií CO₂ a uhlíkovej stopy.'],
-        ['text-blue-600','bg-blue-50','M22 12 18 12 15 21 9 3 6 12 2 12','Monitoring v reálnom čase','Sledujte výkon vášho systému online cez mobilnú aplikáciu alebo webový portál.'],
-        ['text-slate-600','bg-slate-100','M1 6h22v13H1z M1 10h22','Batériové úložiská','Uchováme prebytočnú energiu pre večerné hodiny a v prípade výpadku siete.'],
-        ['text-amber-600','bg-amber-50','M12 12m-10 0a10 10 0 1 0 20 0a10 10 0 1 0-20 0 M12 6v6l4 2','Rýchla návratnosť','Investícia do fotovoltiky sa zvyčajne vráti do 6–9 rokov. Systém funguje 25+ rokov.'],
-      ] as [$color,$bg,$icon,$title,$desc])
+        ['bg-slate-100 text-slate-700', '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>', 'Návrh rozvodov', 'Rozmiestnenie zásuviek, vypínačov a svetiel naplánujeme podľa dispozície a toho, kde bude nábytok a spotrebiče.'],
+        ['bg-slate-800 text-white', '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="8" y2="16"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="16" y1="8" x2="16" y2="16"/>', 'Domové rozvádzače', 'Zostavenie, zapojenie a prehľadné označenie rozvádzača vrátane prepäťových ochrán a prúdových chráničov.'],
+        ['bg-amber-50 text-amber-600', '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.74V17h8v-2.26A7 7 0 0 0 12 2z"/>', 'Osvetlenie', 'Montáž svietidiel v interiéri aj exteriéri, LED pásy, schodiskové a pohybové osvetlenie.'],
+        ['bg-red-50 text-[#d42020]', '<rect x="2" y="4" width="20" height="16" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/>', 'Pripojenie spotrebičov', 'Indukčné varné dosky, rúry, bojlery, klimatizácie a tepelné čerpadlá zapojíme odborne a bezpečne.'],
+        ['bg-sky-50 text-sky-700', '<path d="M12 2v8"/><path d="M5 10h14"/><path d="M7 14h10"/><path d="M9.5 18h5"/><path d="M11.5 22h1"/>', 'Uzemnenie a hromozvod', 'Uzemňovacia sústava a ochrana pred bleskom, ktorá chráni dom aj elektroniku v ňom.'],
+        ['bg-emerald-50 text-emerald-700', '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>', 'Revízia a odovzdanie', 'Po dokončení vykonáme revíziu elektroinštalácie a odovzdáme vám revíznu správu potrebnú ku kolaudácii.'],
+      ] as [$color, $icon, $title, $text])
       <div class="feat-card bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-up">
-        <div class="w-12 h-12 rounded-xl {{ $bg }} {{ $color }} flex items-center justify-center mb-4">
-          @if($title === 'Úspora nákladov')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          @elseif($title === 'Spoľahlivosť')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          @elseif($title === 'Ekologický prínos')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          @elseif($title === 'Monitoring v reálnom čase')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          @elseif($title === 'Batériové úložiská')
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          @else
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          @endif
+        <div class="w-12 h-12 rounded-xl {{ $color }} flex items-center justify-center mb-4">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{!! $icon !!}</svg>
         </div>
         <h3 class="text-slate-900 font-semibold text-[0.975rem] mb-2">{{ $title }}</h3>
-        <p class="text-slate-500 text-sm leading-[1.7]">{{ $desc }}</p>
+        <p class="text-slate-500 text-sm leading-[1.7]">{{ $text }}</p>
       </div>
       @endforeach
     </div>
@@ -183,21 +179,20 @@
 </section>
 
 {{-- ====== PROCESS ====== --}}
-<section class="bg-white py-20">
+<section class="bg-slate-50 py-20">
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="text-center mb-14 fade-up">
-      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Proces inštalácie</span>
-      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Bezstarostný prechod na solárnu energiu</h2>
-      <p class="text-slate-500 text-[1.05rem] max-w-[500px] mx-auto">Postaráme sa o všetko od prvého hovoru až po spustenie systému.</p>
+      <span class="inline-flex bg-red-50 text-[#d42020] text-[0.78rem] font-bold tracking-[0.07em] uppercase px-4 py-1.5 rounded-full mb-4">Ako postupujeme</span>
+      <h2 class="text-slate-900 font-bold mb-3" style="font-size:clamp(1.5rem,3vw,2.25rem)">Od obhliadky po zapnutý istič</h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative mb-16">
       <div class="hidden lg:block absolute top-8 left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] h-0.5 bg-slate-200 z-0"></div>
       @foreach([
-        ['1','Konzultácia','Bezplatná obhliadka, posúdenie energetických potrieb a strechy objektu.'],
-        ['2','Návrh a plánovanie','Prispôsobený návrh systému s cieľom maximalizovať efektivitu a výnos.'],
-        ['3','Odborná inštalácia','Certifikovaní technici vykonajú montáž rýchlo a bez zbytočného rušenia.'],
-        ['4','Servis a údržba','Pravidelná údržba a technická podpora pre optimálny dlhodobý výkon.'],
+        ['1','Obhliadka a návrh','Prejdeme si dom alebo projekt, vaše požiadavky a navrhneme rozmiestnenie rozvodov.'],
+        ['2','Cenová ponuka','Pripravíme prehľadnú ponuku s rozpisom materiálu a prác, bez skrytých položiek.'],
+        ['3','Hrubá montáž a kompletácia','Rozvody a krabice pred omietkou, po omietkach zásuvky, vypínače, svietidlá a rozvádzač.'],
+        ['4','Revízia a odovzdanie','Všetko premeriame, vystavíme revíznu správu a vysvetlíme vám, čo je v rozvádzači.'],
       ] as [$num,$title,$text])
       <div class="text-center relative z-10 fade-up">
         <div class="w-16 h-16 rounded-full bg-white border-[3px] border-[#d42020] shadow-[0_0_0_7px_#fef2f2] flex items-center justify-center text-[1.375rem] font-extrabold text-[#d42020] mx-auto mb-5">{{ $num }}</div>
@@ -212,11 +207,11 @@
       <div class="absolute inset-0 pointer-events-none" style="background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:44px 44px"></div>
       <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <h3 class="text-white font-bold text-[1.5rem] mb-1.5">Zaujíma vás fotovoltika?</h3>
-          <p class="text-white/65 text-[1rem]">Kontaktujte nás a dohovorte si bezplatnú obhliadku a cenovú ponuku.</p>
+          <h3 class="text-white font-bold text-[1.5rem] mb-1.5">Staviate alebo rekonštruujete?</h3>
+          <p class="text-white/65 text-[1rem]">Ozvite sa nám včas – elektroinštaláciu je najlepšie naplánovať ešte pred omietkami.</p>
         </div>
         <a href="/kontakt" class="shrink-0 inline-flex items-center gap-2 bg-white text-[#d42020] font-semibold text-[1rem] px-8 py-3.5 rounded-xl hover:bg-red-50 hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap">
-          Získať cenovú ponuku
+          Nezáväzná ponuka
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -246,8 +241,8 @@
       <div>
         <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Služby</h5>
         <div class="flex flex-col gap-2.5">
-          <a href="/elektroinstalacie" class="text-white/50 text-sm hover:text-white transition-colors">Elektroinštalácie</a>
-          <a href="/photovoltaicSystems" class="text-[#d42020] text-sm font-medium">Fotovoltika</a>
+          <a href="/elektroinstalacie" class="text-[#d42020] text-sm font-medium">Elektroinštalácie</a>
+          <a href="/photovoltaicSystems" class="text-white/50 text-sm hover:text-white transition-colors">Fotovoltika</a>
           <a href="/kamery" class="text-white/50 text-sm hover:text-white transition-colors">Kamerové systémy</a>
           <a href="/alarmy" class="text-white/50 text-sm hover:text-white transition-colors">Alarmové systémy</a>
           <a href="/inspection" class="text-white/50 text-sm hover:text-white transition-colors">Revízie elektroinštalácií</a>

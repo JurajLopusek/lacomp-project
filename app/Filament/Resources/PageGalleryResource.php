@@ -39,6 +39,7 @@ class PageGalleryResource extends ResourceEnhanced implements ResourceEloquentQu
 
     /** Menu icon of every page gallery, keys from PageGallery::PAGES. */
     public const NAV_ICONS = [
+        'elektroinstalacie' => 'phosphor-lightning',
         'fotovoltika' => 'phosphor-solar-panel',
         'kamery' => 'phosphor-security-camera',
         'alarmy' => 'phosphor-siren',

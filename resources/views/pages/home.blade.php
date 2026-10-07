@@ -390,6 +390,7 @@
       <div>
         <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Služby</h5>
         <div class="flex flex-col gap-2.5">
+          <a href="/elektroinstalacie" class="text-white/50 text-sm hover:text-white transition-colors">Elektroinštalácie</a>
           <a href="/photovoltaicSystems" class="text-white/50 text-sm hover:text-white transition-colors">Fotovoltika</a>
           <a href="/kamery" class="text-white/50 text-sm hover:text-white transition-colors">Kamerové systémy</a>
           <a href="/alarmy" class="text-white/50 text-sm hover:text-white transition-colors">Alarmové systémy</a>

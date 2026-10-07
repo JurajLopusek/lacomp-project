@@ -117,6 +117,7 @@
           <h4 class="text-slate-900 font-bold mb-4">Čo hľadáte?</h4>
           <div class="flex flex-col gap-1.5">
             @foreach([
+              ['/elektroinstalacie','Elektroinštalácie','M13 2L3 14h9l-1 8 10-12h-9l1-8z'],
               ['/photovoltaicSystems','Fotovoltické systémy','M12 2v1 M12 21v1 M4.22 4.22l.7.7M18.36 18.36l.71.71M2 12h1M21 12h1M4.22 19.78l.7-.7M18.36 5.64l.71-.71M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z'],
               ['/kamery','Kamerové systémy','M23 7l-7 5 7 5V7z M1 5h15a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H1z'],
               ['/alarmy','Alarmové systémy','M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0'],
@@ -181,6 +182,7 @@
       <div>
         <h5 class="text-white text-[0.795rem] font-bold tracking-[0.07em] uppercase mb-5">Služby</h5>
         <div class="flex flex-col gap-2.5">
+          <a href="/elektroinstalacie" class="text-white/50 text-sm hover:text-white transition-colors">Elektroinštalácie</a>
           <a href="/photovoltaicSystems" class="text-white/50 text-sm hover:text-white transition-colors">Fotovoltika</a>
           <a href="/kamery" class="text-white/50 text-sm hover:text-white transition-colors">Kamerové systémy</a>
           <a href="/alarmy" class="text-white/50 text-sm hover:text-white transition-colors">Alarmové systémy</a>
