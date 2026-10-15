@@ -81,6 +81,7 @@
        x-transition:leave-end="opacity-0 -translate-y-4"
        class="lg:hidden m-menu">
     @foreach([
+      ['/elektroinstalacie','Elektroinštalácie'],
       ['/photovoltaicSystems','Fotovoltika'],
       ['/kamery','Kamerové systémy'],
       ['/alarmy','Alarmové systémy'],
